@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Internet providers available at your ZIP code. Compare speeds, technology, and pricing.">
+  <title>Providers Available in Your Area – TV Internet US</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">📡</span>
+        <span class="logo-text">TV Internet <strong>US</strong></span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="../index.html#providers">Providers</a>
+        <a href="../index.html#how-it-works">How It Works</a>
+        <a href="guide.html">Guides</a>
+        <a href="../index.html#faq">FAQ</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Providers in your area</h1>
+      <p>Based on coverage data for your ZIP code. Confirm exact plans with each provider.</p>
+      <div class="zip-display" id="zipDisplay"></div>
+    </div>
+  </section>
+
+  <section class="results-section">
+    <div class="container">
+      <p class="results-count" id="resultsCount"></p>
+      <div class="results-grid" id="resultsGrid"></div>
+      <div class="no-results" id="noResults" hidden>
+        <h3>No providers found for this ZIP code</h3>
+        <p>We may not have coverage data for this area yet. Try a nearby ZIP or check back soon.</p>
+        <a href="../index.html#zipForm" class="btn btn-primary" style="margin-top:20px">Try Another ZIP</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Not sure which plan to pick?</h2>
+      <p>Read our 2026 guide to the best internet providers in the USA.</p>
+      <a href="guide.html" class="btn btn-primary btn-lg">Read the Guide</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>We may earn a commission when you sign up through some links on this page. Availability data is estimated and should be confirmed with the provider.</p>
+        <p>&copy; 2026 TV Internet US. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/providers.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
