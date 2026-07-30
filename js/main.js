@@ -1,46 +1,140 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+  /*
+  ============================================
+  AFFILIATE LINKS
+  ============================================
+  */
+
+  const AFFILIATE_LINKS = {
+
+    xfinity:
+      "https://yazing.com/deals/xfinity/SufyanMughal989",
+
+    att:
+      "https://yazing.com/deals/att-internet/SufyanMughal989",
+
+    tmobile:
+      "https://yazing.com/deals/t-mobile/SufyanMughal989",
+
+    verizon:
+      "https://yazing.com/deals/verizonwireless/SufyanMughal989",
+
+    frontier:
+      "https://yazing.com/deals/frontiercommunications/SufyanMughal989",
+
+    directv:
+      "https://yazing.com/deals/directv/SufyanMughal989",
+
+    optimum:
+      "https://yazing.com/deals/optimum/SufyanMughal989"
+
+  };
+
+
+  /*
+  ============================================
+  OFFICIAL PROVIDER WEBSITES
+  ============================================
+  */
+
+  const OFFICIAL_LINKS = {
+
+    xfinity:
+      "https://www.xfinity.com/learn/internet-service",
+
+    att:
+      "https://www.att.com/internet/fiber/",
+
+    tmobile:
+      "https://www.t-mobile.com/home-internet",
+
+    verizon:
+      "https://www.verizon.com/home/internet/",
+
+    frontier:
+      "https://frontier.com/",
+
+    directv:
+      "https://www.directv.com/",
+
+    optimum:
+      "https://www.optimum.com/internet"
+
+  };
+
+
+  /*
+  ============================================
+  GET PROVIDER ID FROM URL
+  Example:
+  provider.html?id=xfinity
+  ============================================
+  */
+
   const params = new URLSearchParams(window.location.search);
   const providerId = params.get("id");
 
-  const hero = document.getElementById("providerHero");
-  const detailMain = document.getElementById("providerDetailMain");
-  const detailSidebar = document.getElementById("providerDetailSidebar");
 
-  // Check that the provider ID exists
-  if (!providerId) {
-    hero.innerHTML = `
-      <div class="container">
-        <h1>Provider Not Found</h1>
-        <p>No provider ID was provided in the URL.</p>
-      </div>
-    `;
+  /*
+  ============================================
+  FIND PAGE ELEMENTS
+  ============================================
+  */
+
+  const hero =
+    document.getElementById("providerHero");
+
+  const detailMain =
+    document.getElementById("providerDetailMain");
+
+  const detailSidebar =
+    document.getElementById("providerDetailSidebar");
+
+
+  /*
+  ============================================
+  CHECK PAGE ELEMENTS
+  ============================================
+  */
+
+  if (!hero || !detailMain || !detailSidebar) {
+
+    console.error(
+      "Provider page elements were not found."
+    );
+
     return;
   }
 
-  // Find provider directly from PROVIDERS
-  const provider = window.PROVIDERS
-    ? window.PROVIDERS.find(function (item) {
-        return item.id === providerId;
-      })
-    : null;
 
-  // Find detailed provider information
-  const details = window.PROVIDER_DETAILS
-    ? window.PROVIDER_DETAILS[providerId]
-    : null;
+  /*
+  ============================================
+  NO PROVIDER ID
+  ============================================
+  */
 
-  // If provider cannot be found
-  if (!provider) {
+  if (!providerId) {
 
     hero.innerHTML = `
+
       <div class="container">
-        <h1>Provider Not Found</h1>
-        <p>Provider ID: ${providerId}</p>
-        <a href="results.html" class="btn">
-          Back to Providers
+
+        <a
+          href="results.html"
+          class="back-link"
+        >
+          ← Back to Providers
         </a>
+
+        <h1>Provider Not Found</h1>
+
+        <p>
+          No provider was selected.
+        </p>
+
       </div>
+
     `;
 
     detailMain.innerHTML = "";
@@ -49,156 +143,664 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  // Combine provider and details
-  const data = {
-    ...provider,
-    ...(details || {})
-  };
+
+  /*
+  ============================================
+  FIND PROVIDER DATA
+  ============================================
+  */
+
+  let provider = null;
 
 
-  // PROVIDER HERO
+  if (
+    typeof window.getProviderById ===
+    "function"
+  ) {
+
+    provider =
+      window.getProviderById(providerId);
+
+  }
+
+
+  /*
+  ============================================
+  FALLBACK PROVIDER LOOKUP
+  ============================================
+  */
+
+  if (
+    !provider &&
+    window.PROVIDERS
+  ) {
+
+    const basicProvider =
+      window.PROVIDERS.find(function (item) {
+
+        return item.id === providerId;
+
+      });
+
+
+    const providerDetails =
+
+      window.PROVIDER_DETAILS &&
+      window.PROVIDER_DETAILS[providerId]
+
+        ? window.PROVIDER_DETAILS[providerId]
+
+        : {};
+
+
+    if (basicProvider) {
+
+      provider = {
+
+        ...basicProvider,
+
+        ...providerDetails
+
+      };
+
+    }
+
+  }
+
+
+  /*
+  ============================================
+  PROVIDER NOT FOUND
+  ============================================
+  */
+
+  if (!provider) {
+
+    hero.innerHTML = `
+
+      <div class="container">
+
+        <a
+          href="results.html"
+          class="back-link"
+        >
+          ← Back to Providers
+        </a>
+
+        <h1>Provider Not Found</h1>
+
+        <p>
+          We could not find information for:
+          <strong>${providerId}</strong>
+        </p>
+
+      </div>
+
+    `;
+
+    detailMain.innerHTML = "";
+    detailSidebar.innerHTML = "";
+
+    return;
+  }
+
+
+  /*
+  ============================================
+  GET LINKS
+  ============================================
+  */
+
+  const affiliateLink =
+    AFFILIATE_LINKS[provider.id] || null;
+
+
+  const officialLink =
+    OFFICIAL_LINKS[provider.id] || "#";
+
+
+  /*
+  ============================================
+  PROVIDER LOGO
+  ============================================
+  */
+
+  let logoPath =
+    provider.logo || "";
+
+
+  if (
+    logoPath.startsWith("images/")
+  ) {
+
+    logoPath =
+      "../" + logoPath;
+
+  }
+
+
+  /*
+  ============================================
+  PROVIDER HERO
+  ============================================
+  */
+
   hero.innerHTML = `
+
     <div class="container">
 
-      <a href="results.html" class="back-link">
+      <a
+        href="results.html"
+        class="back-link"
+      >
         ← Back to Providers
       </a>
 
-      <h1>${data.name}</h1>
 
-      <p>
-        ${data.overview || data.description || ""}
-      </p>
+      <div class="provider-hero-content">
+
+
+        ${
+          logoPath
+
+            ? `
+
+              <div
+                class="provider-hero-logo"
+              >
+
+                <img
+                  src="${logoPath}"
+                  alt="${provider.name} logo"
+                  style="max-width:220px;"
+                >
+
+              </div>
+
+            `
+
+            : ""
+        }
+
+
+        <h1>
+          ${provider.name}
+        </h1>
+
+
+        <p>
+          ${
+            provider.overview ||
+            provider.description ||
+            ""
+          }
+        </p>
+
+
+        ${
+          affiliateLink
+
+            ? `
+
+              <a
+                href="${affiliateLink}"
+                class="btn"
+                target="_blank"
+                rel="nofollow sponsored noopener noreferrer"
+              >
+                Check Availability
+              </a>
+
+            `
+
+            : `
+
+              <a
+                href="${officialLink}"
+                class="btn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Check Availability
+              </a>
+
+            `
+        }
+
+
+        ${
+          affiliateLink
+
+            ? `
+
+              <p
+                style="
+                  font-size:0.85rem;
+                  margin-top:10px;
+                "
+              >
+                We may earn a commission
+                if you purchase through
+                this link.
+              </p>
+
+            `
+
+            : ""
+        }
+
+
+      </div>
 
     </div>
+
   `;
 
 
-  // PLANS
+  /*
+  ============================================
+  PROVIDER PLANS
+  ============================================
+  */
+
   let plansHTML = "";
 
-  if (data.plans && data.plans.length) {
+
+  if (
+    provider.plans &&
+    provider.plans.length > 0
+  ) {
 
     plansHTML = `
-      <section class="provider-plans">
 
-        <h2>${data.name} Internet Plans</h2>
+      <section
+        class="provider-plans"
+      >
 
-        <div class="plans-grid">
+        <h2>
+          ${provider.name}
+          Internet Plans
+        </h2>
 
-          ${data.plans.map(function (plan) {
 
-            return `
-              <article class="plan-card">
+        <div
+          class="plans-grid"
+        >
 
-                <h3>${plan.name}</h3>
 
-                <p>
-                  <strong>Speed:</strong>
-                  ${plan.speed}
-                </p>
+          ${
 
-                <p>
-                  <strong>Price:</strong>
-                  ${plan.price}
-                </p>
+            provider.plans.map(
 
-                <a href="#" class="btn">
-                  Check Availability
-                </a>
+              function (plan) {
 
-              </article>
-            `;
+                return `
 
-          }).join("")}
+                  <article
+                    class="plan-card"
+                  >
+
+                    <h3>
+                      ${plan.name}
+                    </h3>
+
+
+                    <p>
+
+                      <strong>
+                        Speed:
+                      </strong>
+
+                      ${plan.speed}
+
+                    </p>
+
+
+                    <p>
+
+                      <strong>
+                        Price:
+                      </strong>
+
+                      ${plan.price}
+
+                    </p>
+
+
+                    ${
+                      affiliateLink
+
+                        ? `
+
+                          <a
+                            href="${affiliateLink}"
+                            class="btn"
+                            target="_blank"
+                            rel="nofollow sponsored noopener noreferrer"
+                          >
+                            Check Availability
+                          </a>
+
+                        `
+
+                        : `
+
+                          <a
+                            href="${officialLink}"
+                            class="btn"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Check Availability
+                          </a>
+
+                        `
+                    }
+
+
+                  </article>
+
+                `;
+
+              }
+
+            ).join("")
+
+          }
+
 
         </div>
 
       </section>
+
     `;
 
   }
 
 
-  // MAIN CONTENT
+  /*
+  ============================================
+  MAIN PROVIDER INFORMATION
+  ============================================
+  */
+
   detailMain.innerHTML = `
 
-    <section>
+    <section
+      class="provider-information"
+    >
 
-      <h2>About ${data.name}</h2>
+      <h2>
+        About ${provider.name}
+      </h2>
+
 
       <p>
-        ${data.overview || data.description || ""}
+        ${
+          provider.overview ||
+          provider.description ||
+          ""
+        }
       </p>
 
+
+      ${
+        affiliateLink
+
+          ? `
+
+            <p>
+
+              <a
+                href="${affiliateLink}"
+                class="btn"
+                target="_blank"
+                rel="nofollow sponsored noopener noreferrer"
+              >
+                See ${provider.name} Deals
+              </a>
+
+            </p>
+
+          `
+
+          : ""
+      }
+
+
     </section>
+
 
     ${plansHTML}
 
   `;
 
 
-  // PROS
+  /*
+  ============================================
+  PROS
+  ============================================
+  */
+
   let prosHTML = "";
 
-  if (data.pros && data.pros.length) {
+
+  if (
+    provider.pros &&
+    provider.pros.length > 0
+  ) {
 
     prosHTML = `
-      <h3>Pros</h3>
 
-      <ul>
-        ${data.pros.map(function (item) {
-          return `<li>${item}</li>`;
-        }).join("")}
-      </ul>
+      <div
+        class="provider-pros"
+      >
+
+        <h3>
+          Pros
+        </h3>
+
+
+        <ul>
+
+          ${
+
+            provider.pros.map(
+
+              function (item) {
+
+                return `
+                  <li>
+                    ${item}
+                  </li>
+                `;
+
+              }
+
+            ).join("")
+
+          }
+
+        </ul>
+
+      </div>
+
     `;
 
   }
 
 
-  // CONS
+  /*
+  ============================================
+  CONS
+  ============================================
+  */
+
   let consHTML = "";
 
-  if (data.cons && data.cons.length) {
+
+  if (
+    provider.cons &&
+    provider.cons.length > 0
+  ) {
 
     consHTML = `
-      <h3>Cons</h3>
 
-      <ul>
-        ${data.cons.map(function (item) {
-          return `<li>${item}</li>`;
-        }).join("")}
-      </ul>
+      <div
+        class="provider-cons"
+      >
+
+        <h3>
+          Cons
+        </h3>
+
+
+        <ul>
+
+          ${
+
+            provider.cons.map(
+
+              function (item) {
+
+                return `
+                  <li>
+                    ${item}
+                  </li>
+                `;
+
+              }
+
+            ).join("")
+
+          }
+
+        </ul>
+
+      </div>
+
     `;
 
   }
 
 
-  // SIDEBAR
+  /*
+  ============================================
+  SIDEBAR
+  ============================================
+  */
+
   detailSidebar.innerHTML = `
 
-    <aside class="provider-sidebar-card">
+    <aside
+      class="provider-sidebar-card"
+    >
 
-      <h2>${data.name}</h2>
+      <h2>
+        ${provider.name}
+      </h2>
 
-      <p>
-        <strong>Technology:</strong>
-        ${data.tech || "N/A"}
-      </p>
-
-      <p>
-        <strong>Maximum Speed:</strong>
-        ${data.maxSpeed || "N/A"}
-      </p>
 
       <p>
-        <strong>Starting Price:</strong>
-        ${data.priceFrom || "N/A"}
+
+        <strong>
+          Technology:
+        </strong>
+
+        ${
+          provider.tech ||
+          "N/A"
+        }
+
       </p>
+
+
+      <p>
+
+        <strong>
+          Maximum Speed:
+        </strong>
+
+        ${
+          provider.maxSpeed ||
+          "N/A"
+        }
+
+      </p>
+
+
+      <p>
+
+        <strong>
+          Starting Price:
+        </strong>
+
+        ${
+          provider.priceFrom ||
+          "N/A"
+        }
+
+      </p>
+
+
+      ${
+        affiliateLink
+
+          ? `
+
+            <a
+              href="${affiliateLink}"
+              class="btn"
+              target="_blank"
+              rel="nofollow sponsored noopener noreferrer"
+            >
+              Get ${provider.name} Deal
+            </a>
+
+          `
+
+          : `
+
+            <a
+              href="${officialLink}"
+              class="btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit ${provider.name}
+            </a>
+
+          `
+      }
+
+
+      ${
+        affiliateLink
+
+          ? `
+
+            <p
+              style="
+                font-size:0.8rem;
+                margin-top:10px;
+              "
+            >
+              Affiliate link:
+              We may earn a commission
+              from qualifying purchases.
+            </p>
+
+          `
+
+          : ""
+      }
+
 
       ${prosHTML}
 
+
       ${consHTML}
+
 
     </aside>
 
