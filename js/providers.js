@@ -349,6 +349,11 @@
 
     });
   </script>
+    window.PROVIDERS = PROVIDERS;
+window.PROVIDER_DETAILS = PROVIDER_DETAILS;
+window.getProvidersForZip = getProvidersForZip;
+window.getProviderById = getProviderById;
+window.getCityForZip = getCityForZip;
 
 </body>
 </html>
