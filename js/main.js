@@ -1,37 +1,62 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  // Get provider ID from the URL
   const params = new URLSearchParams(window.location.search);
   const providerId = params.get("id");
 
-  // Find provider information
-  const provider = getProviderById(providerId);
-
-  // Find the empty sections in provider.html
   const hero = document.getElementById("providerHero");
   const detailMain = document.getElementById("providerDetailMain");
   const detailSidebar = document.getElementById("providerDetailSidebar");
 
-  // If provider was not found
-  if (!provider) {
+  // Check that the provider ID exists
+  if (!providerId) {
     hero.innerHTML = `
       <div class="container">
         <h1>Provider Not Found</h1>
-        <p>We could not find information for this provider.</p>
-        <a href="results.html" class="btn">Back to Providers</a>
+        <p>No provider ID was provided in the URL.</p>
+      </div>
+    `;
+    return;
+  }
+
+  // Find provider directly from PROVIDERS
+  const provider = window.PROVIDERS
+    ? window.PROVIDERS.find(function (item) {
+        return item.id === providerId;
+      })
+    : null;
+
+  // Find detailed provider information
+  const details = window.PROVIDER_DETAILS
+    ? window.PROVIDER_DETAILS[providerId]
+    : null;
+
+  // If provider cannot be found
+  if (!provider) {
+
+    hero.innerHTML = `
+      <div class="container">
+        <h1>Provider Not Found</h1>
+        <p>Provider ID: ${providerId}</p>
+        <a href="results.html" class="btn">
+          Back to Providers
+        </a>
       </div>
     `;
 
-    detailMain.innerHTML = `
-      <div class="container">
-        <p>Please return to the provider results and select a provider.</p>
-      </div>
-    `;
+    detailMain.innerHTML = "";
+    detailSidebar.innerHTML = "";
 
     return;
   }
 
-  // Display provider hero
+  // Combine provider and details
+  const data = {
+    ...provider,
+    ...(details || {})
+  };
+
+
+  // PROVIDER HERO
   hero.innerHTML = `
     <div class="container">
 
@@ -39,87 +64,90 @@ document.addEventListener("DOMContentLoaded", function () {
         ← Back to Providers
       </a>
 
-      <h1>${provider.name}</h1>
+      <h1>${data.name}</h1>
 
-      <p>${provider.overview || provider.description || ""}</p>
+      <p>
+        ${data.overview || data.description || ""}
+      </p>
 
     </div>
   `;
 
 
-  // Create plans HTML
+  // PLANS
   let plansHTML = "";
 
-  if (provider.plans && provider.plans.length > 0) {
+  if (data.plans && data.plans.length) {
 
     plansHTML = `
-      <h2>Available Plans</h2>
+      <section class="provider-plans">
 
-      <div class="plans-grid">
+        <h2>${data.name} Internet Plans</h2>
 
-        ${provider.plans.map(function (plan) {
+        <div class="plans-grid">
 
-          return `
-            <div class="plan-card">
+          ${data.plans.map(function (plan) {
 
-              <h3>${plan.name}</h3>
+            return `
+              <article class="plan-card">
 
-              <p>
-                <strong>Speed:</strong>
-                ${plan.speed}
-              </p>
+                <h3>${plan.name}</h3>
 
-              <p>
-                <strong>Price:</strong>
-                ${plan.price}
-              </p>
+                <p>
+                  <strong>Speed:</strong>
+                  ${plan.speed}
+                </p>
 
-              <a
-                href="#"
-                class="btn"
-              >
-                Check Availability
-              </a>
+                <p>
+                  <strong>Price:</strong>
+                  ${plan.price}
+                </p>
 
-            </div>
-          `;
+                <a href="#" class="btn">
+                  Check Availability
+                </a>
 
-        }).join("")}
+              </article>
+            `;
 
-      </div>
+          }).join("")}
+
+        </div>
+
+      </section>
     `;
 
   }
 
 
-  // Display main provider information
+  // MAIN CONTENT
   detailMain.innerHTML = `
 
-    <div class="provider-information">
+    <section>
 
-      <h2>About ${provider.name}</h2>
+      <h2>About ${data.name}</h2>
 
       <p>
-        ${provider.overview || provider.description || ""}
+        ${data.overview || data.description || ""}
       </p>
 
-      ${plansHTML}
+    </section>
 
-    </div>
+    ${plansHTML}
 
   `;
 
 
-  // Pros
+  // PROS
   let prosHTML = "";
 
-  if (provider.pros && provider.pros.length > 0) {
+  if (data.pros && data.pros.length) {
 
     prosHTML = `
       <h3>Pros</h3>
 
       <ul>
-        ${provider.pros.map(function (item) {
+        ${data.pros.map(function (item) {
           return `<li>${item}</li>`;
         }).join("")}
       </ul>
@@ -128,16 +156,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  // Cons
+  // CONS
   let consHTML = "";
 
-  if (provider.cons && provider.cons.length > 0) {
+  if (data.cons && data.cons.length) {
 
     consHTML = `
       <h3>Cons</h3>
 
       <ul>
-        ${provider.cons.map(function (item) {
+        ${data.cons.map(function (item) {
           return `<li>${item}</li>`;
         }).join("")}
       </ul>
@@ -146,33 +174,33 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  // Display sidebar
+  // SIDEBAR
   detailSidebar.innerHTML = `
 
-    <div class="provider-sidebar-card">
+    <aside class="provider-sidebar-card">
 
-      <h2>${provider.name}</h2>
+      <h2>${data.name}</h2>
 
       <p>
         <strong>Technology:</strong>
-        ${provider.tech || "N/A"}
+        ${data.tech || "N/A"}
       </p>
 
       <p>
         <strong>Maximum Speed:</strong>
-        ${provider.maxSpeed || "N/A"}
+        ${data.maxSpeed || "N/A"}
       </p>
 
       <p>
         <strong>Starting Price:</strong>
-        ${provider.priceFrom || "N/A"}
+        ${data.priceFrom || "N/A"}
       </p>
 
       ${prosHTML}
 
       ${consHTML}
 
-    </div>
+    </aside>
 
   `;
 
