@@ -3,70 +3,199 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Internet providers available at your ZIP code. Compare speeds, technology, and pricing.">
-  <title>Providers Available in Your Area – TV Internet US</title>
+  <title>Providers in Your Area | TV Internet US</title>
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="../index.html" class="logo">
-        <span class="logo-icon">📡</span>
-        <span class="logo-text">TV Internet <strong>US</strong></span>
-      </a>
-      <nav class="main-nav" id="mainNav">
-        <a href="../index.html#providers">Providers</a>
-        <a href="../index.html#how-it-works">How It Works</a>
-        <a href="guide.html">Guides</a>
-        <a href="../index.html#faq">FAQ</a>
-      </nav>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
 
-  <section class="page-hero">
-    <div class="container">
-      <h1>Providers in your area</h1>
-      <p>Based on coverage data for your ZIP code. Confirm exact plans with each provider.</p>
-      <div class="zip-display" id="zipDisplay"></div>
-    </div>
-  </section>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="../index.html" class="logo">TV Internet US</a>
 
-  <section class="results-section">
-    <div class="container">
-      <p class="results-count" id="resultsCount"></p>
-      <div class="results-grid" id="resultsGrid"></div>
-      <div class="no-results" id="noResults" hidden>
-        <h3>No providers found for this ZIP code</h3>
-        <p>We may not have coverage data for this area yet. Try a nearby ZIP or check back soon.</p>
-        <a href="../index.html#zipForm" class="btn btn-primary" style="margin-top:20px">Try Another ZIP</a>
-      </div>
-    </div>
-  </section>
+    <nav class="main-nav">
+      <a href="../index.html">Home</a>
+      <a href="results.html">Internet Providers</a>
+      <a href="guide.html">Guide</a>
+      <a href="provider.html">Providers</a>
+    </nav>
+  </div>
+</header>
 
-  <section class="cta-section">
-    <div class="container">
-      <h2>Not sure which plan to pick?</h2>
-      <p>Read our 2026 guide to the best internet providers in the USA.</p>
-      <a href="guide.html" class="btn btn-primary btn-lg">Read the Guide</a>
-    </div>
-  </section>
+<main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-bottom">
-        <p>We may earn a commission when you sign up through some links on this page. Availability data is estimated and should be confirmed with the provider.</p>
-        <p>&copy; 2026 TV Internet US. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+<section class="page-hero">
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Home</a>
 
-  <script src="/tvinternetus/js/providers.js"></script>
-  <script src="../js/main.js"></script>
+    <h1>Providers in your area</h1>
+
+    <p>
+      Based on coverage data for your ZIP code.
+      Confirm exact plans with each provider.
+    </p>
+
+    <p id="zipDisplay"></p>
+  </div>
+</section>
+
+
+<section class="results-section">
+  <div class="container">
+
+    <div id="providerResults"></div>
+
+  </div>
+</section>
+
+</main>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 TV Internet US. All rights reserved.</p>
+  </div>
+</footer>
+
+
+<script>
+
+const providers = [
+
+  {
+    name: "Xfinity",
+    technology: "Cable",
+    speed: "Up to 1,200 Mbps",
+    price: "$40/mo",
+    description: "Best for households streaming on multiple devices at once."
+  },
+
+  {
+    name: "AT&T Fiber",
+    technology: "Fiber",
+    speed: "Up to 5,000 Mbps",
+    price: "$35/mo",
+    description: "Best for remote work, video calls, gaming, and large uploads."
+  },
+
+  {
+    name: "Spectrum",
+    technology: "Cable",
+    speed: "Up to 1,000 Mbps",
+    price: "$40/mo",
+    description: "Best for no-contract plans with no data caps."
+  },
+
+  {
+    name: "Verizon Fios",
+    technology: "Fiber",
+    speed: "Up to 2,300 Mbps",
+    price: "$50/mo",
+    description: "Best for symmetrical upload and download speeds."
+  },
+
+  {
+    name: "T-Mobile Home Internet",
+    technology: "5G Wireless",
+    speed: "Up to 245 Mbps",
+    price: "$50/mo",
+    description: "Best for simple setup with no equipment fees."
+  },
+
+  {
+    name: "CenturyLink",
+    technology: "Fiber / DSL",
+    speed: "Up to 940 Mbps",
+    price: "$50/mo",
+    description: "Best for rural and semi-rural areas."
+  },
+
+  {
+    name: "Frontier",
+    technology: "Fiber",
+    speed: "Up to 5,000 Mbps",
+    price: "$29.99/mo",
+    description: "Best for gigabit fiber at competitive pricing."
+  },
+
+  {
+    name: "DIRECTV STREAM",
+    technology: "TV Bundle",
+    speed: "165+ live channels",
+    price: "$89.99/mo",
+    description: "Best for pairing internet with live TV."
+  }
+
+];
+
+
+const params = new URLSearchParams(window.location.search);
+
+const zip = params.get("zip");
+
+const zipDisplay = document.getElementById("zipDisplay");
+
+const providerResults = document.getElementById("providerResults");
+
+
+if (zip) {
+
+  zipDisplay.textContent =
+    "Showing available providers for ZIP code " + zip;
+
+} else {
+
+  zipDisplay.textContent =
+    "No ZIP code was entered.";
+
+}
+
+
+providerResults.innerHTML = `
+
+  <div class="results-grid">
+
+    ${providers.map(provider => `
+
+      <article class="provider-card">
+
+        <h2>${provider.name}</h2>
+
+        <p>
+          ${provider.description}
+        </p>
+
+        <p>
+          <strong>Technology:</strong>
+          ${provider.technology}
+        </p>
+
+        <p>
+          <strong>Maximum Speed:</strong>
+          ${provider.speed}
+        </p>
+
+        <p>
+          <strong>Starting Price:</strong>
+          ${provider.price}
+        </p>
+
+        <a
+          href="provider.html"
+          class="btn"
+        >
+          View Provider
+        </a>
+
+      </article>
+
+    `).join("")}
+
+  </div>
+
+`;
+
+</script>
+
 </body>
 </html>
