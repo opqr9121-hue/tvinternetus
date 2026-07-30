@@ -39,17 +39,13 @@
   </div>
 </section>
 
-
 <section class="results-section">
   <div class="container">
-
     <div id="providerResults"></div>
-
   </div>
 </section>
 
 </main>
-
 
 <footer class="site-footer">
   <div class="container">
@@ -57,143 +53,99 @@
   </div>
 </footer>
 
+<script src="../js/providers.js"></script>
 
 <script>
 
-const providers = [
-
-  {
-    name: "Xfinity",
-    technology: "Cable",
-    speed: "Up to 1,200 Mbps",
-    price: "$40/mo",
-    description: "Best for households streaming on multiple devices at once."
-  },
-
-  {
-    name: "AT&T Fiber",
-    technology: "Fiber",
-    speed: "Up to 5,000 Mbps",
-    price: "$35/mo",
-    description: "Best for remote work, video calls, gaming, and large uploads."
-  },
-
-  {
-    name: "Spectrum",
-    technology: "Cable",
-    speed: "Up to 1,000 Mbps",
-    price: "$40/mo",
-    description: "Best for no-contract plans with no data caps."
-  },
-
-  {
-    name: "Verizon Fios",
-    technology: "Fiber",
-    speed: "Up to 2,300 Mbps",
-    price: "$50/mo",
-    description: "Best for symmetrical upload and download speeds."
-  },
-
-  {
-    name: "T-Mobile Home Internet",
-    technology: "5G Wireless",
-    speed: "Up to 245 Mbps",
-    price: "$50/mo",
-    description: "Best for simple setup with no equipment fees."
-  },
-
-  {
-    name: "CenturyLink",
-    technology: "Fiber / DSL",
-    speed: "Up to 940 Mbps",
-    price: "$50/mo",
-    description: "Best for rural and semi-rural areas."
-  },
-
-  {
-    name: "Frontier",
-    technology: "Fiber",
-    speed: "Up to 5,000 Mbps",
-    price: "$29.99/mo",
-    description: "Best for gigabit fiber at competitive pricing."
-  },
-
-  {
-    name: "DIRECTV STREAM",
-    technology: "TV Bundle",
-    speed: "165+ live channels",
-    price: "$89.99/mo",
-    description: "Best for pairing internet with live TV."
-  }
-
-];
-
-
 const params = new URLSearchParams(window.location.search);
-
 const zip = params.get("zip");
 
 const zipDisplay = document.getElementById("zipDisplay");
-
 const providerResults = document.getElementById("providerResults");
 
-
 if (zip) {
-
   zipDisplay.textContent =
     "Showing available providers for ZIP code " + zip;
+} else {
+  zipDisplay.textContent =
+    "No ZIP code was entered.";
+}
+
+let availableProviders = [];
+
+if (zip && typeof getProvidersForZip === "function") {
+  availableProviders = getProvidersForZip(zip);
+}
+
+if (!availableProviders.length) {
+
+  providerResults.innerHTML = `
+    <div class="provider-card">
+      <h2>No Providers Found</h2>
+      <p>
+        No providers were found for this ZIP code.
+      </p>
+      <a href="../index.html" class="btn">
+        Check Another ZIP Code
+      </a>
+    </div>
+  `;
 
 } else {
 
-  zipDisplay.textContent =
-    "No ZIP code was entered.";
+  providerResults.innerHTML = `
+
+    <div class="results-grid">
+
+      ${availableProviders.map(provider => `
+
+        <article class="provider-card">
+
+          <div class="provider-logo">
+            ${
+              provider.logo
+              ? `<img src="../${provider.logo}" alt="${provider.name} logo" style="max-width:180px;">`
+              : ""
+            }
+          </div>
+
+          <h2>${provider.name}</h2>
+
+          <p>
+            ${provider.description || ""}
+          </p>
+
+          <p>
+            <strong>Technology:</strong>
+            ${provider.tech || "N/A"}
+          </p>
+
+          <p>
+            <strong>Maximum Speed:</strong>
+            ${provider.maxSpeed || "N/A"}
+          </p>
+
+          <p>
+            <strong>Starting Price:</strong>
+            ${provider.priceFrom || "N/A"}
+          </p>
+
+          <a
+            href="provider.html?id=${encodeURIComponent(provider.id)}"
+            class="btn"
+          >
+            View Provider
+          </a>
+
+        </article>
+
+      `).join("")}
+
+    </div>
+
+  `;
 
 }
-
-
-providerResults.innerHTML = `
-
-  <div class="results-grid">
-
-    ${providers.map(provider => `
-
-      <article class="provider-card">
-
-        <h2>${provider.name}</h2>
-
-        <p>
-          ${provider.description}
-        </p>
-
-        <p>
-          <strong>Technology:</strong>
-          ${provider.technology}
-        </p>
-
-        <p>
-          <strong>Maximum Speed:</strong>
-          ${provider.speed}
-        </p>
-
-        <p>
-          <strong>Starting Price:</strong>
-          ${provider.price}
-        </p>
-
-        <a
-          href="provider.html"
-          class="btn"
-        >
-          View Provider
-        </a>
-
-      </article>
-
-    `).join("")}
-
-  </div>
-
-`;
 
 </script>
 
