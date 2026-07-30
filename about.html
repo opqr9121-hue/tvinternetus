@@ -1,1 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Learn about TV Internet US, our mission, and how we help consumers compare internet and TV service options."
+  >
+
+  <title>About Us | TV Internet US</title>
+
+
+  <!-- Main Website CSS -->
+  <link
+    rel="stylesheet"
+    href="../css/style.css"
+  >
+
+
+  <!-- Google Fonts -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- Page-Specific Styling -->
+  <style>
+
+    /* =========================================
+       ABOUT PAGE
+    ========================================= */
+
+    .about-page {
+      background: #f8fafc;
+    }
+
+
+    /* =========================================
+       HERO
+    ========================================= */
+
+    .about-hero {
+      padding: 70px 20px;
+      background: linear-gradient(
+        135deg,
+        #0f172a 0%,
+        #172554 55%,
+        #1e3a8a 100%
+      );
+      color: #ffffff;
+      text-align: center;
+    }
+
+
+    .about-hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+
+    .about-hero .back-link {
+      display: inline-block;
+      margin-bottom: 25px;
+      color: #bfdbfe;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+
+    .about-hero .back-link:hover {
+      color: #ffffff;
+    }
+
+
+    .about-hero h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+
+    .about-hero p {
+      margin: 0 auto;
+      max-width: 680px;
+      color: #dbeafe;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+
+    /* =========================================
+       INTRO SECTION
+    ========================================= */
+
+    .about-intro {
+      padding: 70px 20px 30px;
+      background: #ffffff;
+    }
+
+
+    .about-intro-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+
+    .section-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: #2563eb;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+
+    .about-intro h2 {
+      margin: 0 0 20px;
+      color: #0f172a;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      line-height: 1.25;
+    }
+
+
+    .about-intro p {
+      max-width: 760px;
+      margin: 0 auto 18px;
+      color: #475569;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+
+    /* =========================================
+       VALUE CARDS
+    ========================================= */
+
+    .about-values {
+      padding: 50px 20px 80px;
+      background: #ffffff;
+    }
+
+
+    .about-values-header {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+
+    .about-values-header h2 {
+      margin: 0 0 14px;
+      color: #0f172a;
+      font-size: 2rem;
+    }
+
+
+    .about-values-header p {
+      margin: 0;
+      color: #64748b;
+      line-height: 1.7;
+    }
+
+
+    .about-cards {
+      display: grid;
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 24px;
+
+      max-width: 1100px;
+
+      margin: 0 auto;
+    }
+
+
+    .about-card {
+      padding: 32px 28px;
+
+      background: #ffffff;
+
+      border: 1px solid #e2e8f0;
+
+      border-radius: 16px;
+
+      box-shadow:
+        0 10px 30px
+        rgba(15, 23, 42, 0.06);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+
+    .about-card:hover {
+      transform: translateY(-5px);
+
+      box-shadow:
+        0 18px 40px
+        rgba(15, 23, 42, 0.10);
+    }
+
+
+    .about-card-icon {
+      width: 52px;
+      height: 52px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 22px;
+
+      border-radius: 14px;
+
+      background: #eff6ff;
+
+      color: #2563eb;
+
+      font-size: 1.5rem;
+    }
+
+
+    .about-card h3 {
+      margin: 0 0 12px;
+
+      color: #0f172a;
+
+      font-size: 1.2rem;
+    }
+
+
+    .about-card p {
+      margin: 0;
+
+      color: #64748b;
+
+      line-height: 1.7;
+
+      font-size: 0.96rem;
+    }
+
+
+    /* =========================================
+       CONTENT SECTION
+    ========================================= */
+
+    .about-content {
+      padding: 80px 20px;
+
+      background: #f8fafc;
+    }
+
+
+    .about-content-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.1fr 0.9fr;
+
+      gap: 60px;
+
+      align-items: start;
+
+      max-width: 1100px;
+
+      margin: 0 auto;
+    }
+
+
+    .about-content-text h2 {
+      margin: 0 0 18px;
+
+      color: #0f172a;
+
+      font-size: 2rem;
+    }
+
+
+    .about-content-text h3 {
+      margin:
+        35px 0 12px;
+
+      color: #0f172a;
+
+      font-size: 1.25rem;
+    }
+
+
+    .about-content-text p {
+      margin: 0 0 18px;
+
+      color: #475569;
+
+      line-height: 1.8;
+    }
+
+
+    /* =========================================
+       HIGHLIGHT BOX
+    ========================================= */
+
+    .about-highlight {
+      padding: 34px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #eff6ff,
+          #dbeafe
+        );
+
+      border:
+        1px solid #bfdbfe;
+
+      border-radius: 18px;
+    }
+
+
+    .about-highlight h3 {
+      margin: 0 0 15px;
+
+      color: #1e3a8a;
+
+      font-size: 1.35rem;
+    }
+
+
+    .about-highlight p {
+      margin: 0 0 18px;
+
+      color: #334155;
+
+      line-height: 1.7;
+    }
+
+
+    .about-highlight ul {
+      margin: 0;
+
+      padding-left: 20px;
+
+      color: #334155;
+    }
+
+
+    .about-highlight li {
+      margin-bottom: 12px;
+
+      line-height: 1.6;
+    }
+
+
+    /* =========================================
+       CTA
+    ========================================= */
+
+    .about-cta {
+      padding: 70px 20px;
+
+      background: #ffffff;
+
+      text-align: center;
+    }
+
+
+    .about-cta-inner {
+      max-width: 760px;
+
+      margin: 0 auto;
+
+      padding: 50px 35px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #0f172a,
+          #1e3a8a
+        );
+
+      border-radius: 20px;
+
+      color: #ffffff;
+    }
+
+
+    .about-cta h2 {
+      margin: 0 0 15px;
+
+      font-size: 2rem;
+    }
+
+
+    .about-cta p {
+      margin: 0 auto 28px;
+
+      max-width: 580px;
+
+      color: #dbeafe;
+
+      line-height: 1.7;
+    }
+
+
+    .about-cta .btn {
+      display: inline-block;
+
+      padding:
+        13px 24px;
+
+      background: #ffffff;
+
+      color: #1d4ed8;
+
+      border-radius: 8px;
+
+      text-decoration: none;
+
+      font-weight: 700;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+
+    .about-cta .btn:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 8px 20px
+        rgba(0, 0, 0, 0.2);
+    }
+
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (
+      max-width: 850px
+    ) {
+
+      .about-cards {
+
+        grid-template-columns:
+          1fr;
+
+        max-width: 600px;
+
+      }
+
+
+      .about-content-grid {
+
+        grid-template-columns:
+          1fr;
+
+        gap: 35px;
+
+      }
+
+    }
+
+
+    @media (
+      max-width: 600px
+    ) {
+
+      .about-hero {
+
+        padding:
+          55px 20px;
+
+      }
+
+
+      .about-intro {
+
+        padding:
+          55px 20px 25px;
+
+      }
+
+
+      .about-values {
+
+        padding:
+          40px 20px 60px;
+
+      }
+
+
+      .about-content {
+
+        padding:
+          60px 20px;
+
+      }
+
+
+      .about-cta-inner {
+
+        padding:
+          40px 22px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body class="about-page">
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="site-header">
+
+  <div class="container header-inner">
+
+
+    <a
+      href="../index.html"
+      class="logo"
+    >
+
+      <span class="logo-icon">
+        📡
+      </span>
+
+      <span class="logo-text">
+        TV Internet
+        <strong>US</strong>
+      </span>
+
+    </a>
+
+
+    <nav
+      class="main-nav"
+      id="mainNav"
+    >
+
+      <a href="../index.html#providers">
+        Providers
+      </a>
+
+      <a href="../index.html#how-it-works">
+        How It Works
+      </a>
+
+      <a href="guide.html">
+        Guides
+      </a>
+
+      <a href="../index.html#faq">
+        FAQ
+      </a>
+
+    </nav>
+
+
+    <button
+      class="nav-toggle"
+      id="navToggle"
+      aria-label="Toggle navigation"
+    >
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </button>
+
+
+  </div>
+
+</header>
+
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="about-hero">
+
+  <div class="about-hero-content">
+
+
+    <a
+      href="../index.html"
+      class="back-link"
+    >
+      ← Back to Home
+    </a>
+
+
+    <h1>
+      About TV Internet US
+    </h1>
+
+
+    <p>
+      Helping consumers understand and compare
+      internet and TV service options across the
+      United States.
+    </p>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
+     INTRO
+========================================= -->
+
+<section class="about-intro">
+
+  <div class="about-intro-inner">
+
+
+    <span class="section-label">
+      Our Mission
+    </span>
+
+
+    <h2>
+      Making Internet and TV Choices Easier
+    </h2>
+
+
+    <p>
+      Choosing an internet or TV provider can be
+      confusing. Plans, speeds, prices, contracts,
+      and availability can vary from one location
+      to another.
+    </p>
+
+
+    <p>
+      TV Internet US was created to make the process
+      easier by bringing useful provider information
+      together in one convenient place.
+    </p>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
+     VALUES
+========================================= -->
+
+<section class="about-values">
+
+  <div class="about-values-header">
+
+
+    <span class="section-label">
+      What We Do
+    </span>
+
+
+    <h2>
+      Information That Helps You Compare
+    </h2>
+
+
+    <p>
+      We focus on making provider information easier
+      to understand so you can explore your options
+      before making a decision.
+    </p>
+
+
+  </div>
+
+
+
+  <div class="about-cards">
+
+
+    <!-- CARD 1 -->
+
+    <article class="about-card">
+
+
+      <div class="about-card-icon">
+        🔎
+      </div>
+
+
+      <h3>
+        Compare Providers
+      </h3>
+
+
+      <p>
+        Explore information about different internet
+        and TV providers, including available
+        technologies, speeds, and starting prices.
+      </p>
+
+
+    </article>
+
+
+
+    <!-- CARD 2 -->
+
+    <article class="about-card">
+
+
+      <div class="about-card-icon">
+        📍
+      </div>
+
+
+      <h3>
+        Check Your Area
+      </h3>
+
+
+      <p>
+        Use your ZIP code to explore providers that
+        may be available in your area. Actual
+        availability should always be confirmed
+        directly with the provider.
+      </p>
+
+
+    </article>
+
+
+
+    <!-- CARD 3 -->
+
+    <article class="about-card">
+
+
+      <div class="about-card-icon">
+        💡
+      </div>
+
+
+      <h3>
+        Make Informed Decisions
+      </h3>
+
+
+      <p>
+        Learn more about different service options
+        and consider factors such as speed, pricing,
+        technology, and your household's needs.
+      </p>
+
+
+    </article>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
+     MAIN CONTENT
+========================================= -->
+
+<section class="about-content">
+
+  <div class="about-content-grid">
+
+
+    <div class="about-content-text">
+
+
+      <h2>
+        Our Approach
+      </h2>
+
+
+      <p>
+        TV Internet US is an independent information
+        website focused on helping consumers explore
+        internet and TV service options.
+      </p>
+
+
+      <p>
+        We organize provider information in a simple
+        format so visitors can compare options and
+        learn more about services that may be available
+        in their area.
+      </p>
+
+
+      <h3>
+        Independent Information
+      </h3>
+
+
+      <p>
+        TV Internet US is not owned or operated by the
+        internet and TV providers listed on our website.
+        Provider names, trademarks, and logos belong to
+        their respective owners.
+      </p>
+
+
+      <h3>
+        Availability and Pricing
+      </h3>
+
+
+      <p>
+        Internet availability and pricing can vary
+        depending on your location, address, network
+        infrastructure, promotions, and other factors.
+      </p>
+
+
+      <p>
+        Information shown on our website may be estimated
+        and should not be considered a guarantee of
+        service availability or pricing. We recommend
+        confirming current details directly with the
+        provider before signing up.
+      </p>
+
+
+    </div>
+
+
+
+    <!-- HIGHLIGHT -->
+
+    <aside class="about-highlight">
+
+
+      <h3>
+        What You Can Expect From Us
+      </h3>
+
+
+      <p>
+        We aim to provide a straightforward starting
+        point for exploring your internet and TV options.
+      </p>
+
+
+      <ul>
+
+        <li>
+          Easy-to-understand provider information
+        </li>
+
+        <li>
+          ZIP-code based provider discovery
+        </li>
+
+        <li>
+          Comparisons of speeds and starting prices
+        </li>
+
+        <li>
+          Helpful guides and educational content
+        </li>
+
+        <li>
+          Links to provider websites and offers
+        </li>
+
+      </ul>
+
+
+    </aside>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CTA
+========================================= -->
+
+<section class="about-cta">
+
+  <div class="about-cta-inner">
+
+
+    <h2>
+      Ready to Explore Your Options?
+    </h2>
+
+
+    <p>
+      Enter your ZIP code to see internet and TV
+      providers that may be available in your area.
+    </p>
+
+
+    <a
+      href="../index.html"
+      class="btn"
+    >
+      Check Providers in My Area
+    </a>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+
+    <div class="footer-bottom">
+
+
+      <p>
+        We may earn a commission when you sign up
+        through some links on this page.
+        Availability data is estimated and should
+        be confirmed with the provider.
+      </p>
+
+
+      <p>
+        &copy; 2026 TV Internet US.
+        All rights reserved.
+      </p>
+
+
+    </div>
+
+
+  </div>
+
+</footer>
+
+
+
+<!-- =========================================
+     NAVIGATION SCRIPT
+========================================= -->
+
+<script>
+
+  const navToggle =
+    document.getElementById("navToggle");
+
+  const mainNav =
+    document.getElementById("mainNav");
+
+
+  if (
+    navToggle &&
+    mainNav
+  ) {
+
+    navToggle.addEventListener(
+      "click",
+      function () {
+
+        mainNav.classList.toggle(
+          "active"
+        );
+
+      }
+    );
+
+  }
+
+</script>
+
+
+</body>
+
+</html>
