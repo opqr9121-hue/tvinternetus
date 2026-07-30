@@ -1,1 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Contact TV Internet US with questions, feedback, corrections, or suggestions about our internet and TV provider information."
+  >
+
+  <title>Contact Us | TV Internet US</title>
+
+
+  <!-- Main Website CSS -->
+  <link
+    rel="stylesheet"
+    href="../css/style.css"
+  >
+
+
+  <!-- Google Fonts -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- Page-Specific Styling -->
+
+  <style>
+
+    /* =========================================
+       CONTACT PAGE
+    ========================================= */
+
+    .contact-page {
+      background: #f8fafc;
+    }
+
+
+    /* =========================================
+       HERO
+    ========================================= */
+
+    .contact-hero {
+
+      padding: 70px 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #172554 55%,
+          #1e3a8a 100%
+        );
+
+      color: #ffffff;
+
+      text-align: center;
+
+    }
+
+
+    .contact-hero-content {
+
+      max-width: 800px;
+
+      margin: 0 auto;
+
+    }
+
+
+    .contact-hero .back-link {
+
+      display: inline-block;
+
+      margin-bottom: 25px;
+
+      color: #bfdbfe;
+
+      text-decoration: none;
+
+      font-weight: 600;
+
+    }
+
+
+    .contact-hero .back-link:hover {
+
+      color: #ffffff;
+
+    }
+
+
+    .contact-hero h1 {
+
+      margin: 0 0 18px;
+
+      font-size:
+        clamp(2.2rem, 5vw, 3.5rem);
+
+      line-height: 1.15;
+
+      font-weight: 800;
+
+      letter-spacing: -1px;
+
+    }
+
+
+    .contact-hero p {
+
+      max-width: 680px;
+
+      margin: 0 auto;
+
+      color: #dbeafe;
+
+      font-size: 1.1rem;
+
+      line-height: 1.7;
+
+    }
+
+
+    /* =========================================
+       CONTACT INTRO
+    ========================================= */
+
+    .contact-intro {
+
+      padding: 70px 20px 35px;
+
+      background: #ffffff;
+
+      text-align: center;
+
+    }
+
+
+    .contact-intro-inner {
+
+      max-width: 800px;
+
+      margin: 0 auto;
+
+    }
+
+
+    .section-label {
+
+      display: inline-block;
+
+      margin-bottom: 12px;
+
+      color: #2563eb;
+
+      font-size: 0.85rem;
+
+      font-weight: 700;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1px;
+
+    }
+
+
+    .contact-intro h2 {
+
+      margin: 0 0 18px;
+
+      color: #0f172a;
+
+      font-size:
+        clamp(1.8rem, 4vw, 2.5rem);
+
+      line-height: 1.25;
+
+    }
+
+
+    .contact-intro p {
+
+      max-width: 720px;
+
+      margin: 0 auto;
+
+      color: #475569;
+
+      font-size: 1.05rem;
+
+      line-height: 1.8;
+
+    }
+
+
+    /* =========================================
+       CONTACT CONTENT
+    ========================================= */
+
+    .contact-section {
+
+      padding: 45px 20px 80px;
+
+      background: #ffffff;
+
+    }
+
+
+    .contact-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        0.9fr 1.1fr;
+
+      gap: 30px;
+
+      max-width: 1100px;
+
+      margin: 0 auto;
+
+      align-items: start;
+
+    }
+
+
+    /* =========================================
+       CONTACT INFO
+    ========================================= */
+
+    .contact-info {
+
+      padding: 35px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #eff6ff,
+          #dbeafe
+        );
+
+      border:
+        1px solid #bfdbfe;
+
+      border-radius: 18px;
+
+    }
+
+
+    .contact-info h2 {
+
+      margin: 0 0 15px;
+
+      color: #0f172a;
+
+      font-size: 1.6rem;
+
+    }
+
+
+    .contact-info > p {
+
+      margin: 0 0 28px;
+
+      color: #475569;
+
+      line-height: 1.7;
+
+    }
+
+
+    .contact-method {
+
+      display: flex;
+
+      gap: 16px;
+
+      align-items: flex-start;
+
+      margin-bottom: 25px;
+
+    }
+
+
+    .contact-method:last-child {
+
+      margin-bottom: 0;
+
+    }
+
+
+    .contact-icon {
+
+      flex-shrink: 0;
+
+      width: 48px;
+
+      height: 48px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 12px;
+
+      background: #ffffff;
+
+      color: #2563eb;
+
+      font-size: 1.3rem;
+
+      box-shadow:
+        0 4px 12px
+        rgba(37, 99, 235, 0.08);
+
+    }
+
+
+    .contact-method h3 {
+
+      margin: 0 0 5px;
+
+      color: #0f172a;
+
+      font-size: 1rem;
+
+    }
+
+
+    .contact-method p {
+
+      margin: 0;
+
+      color: #475569;
+
+      line-height: 1.6;
+
+      font-size: 0.95rem;
+
+    }
+
+
+    .contact-method a {
+
+      color: #2563eb;
+
+      font-weight: 600;
+
+      text-decoration: none;
+
+    }
+
+
+    .contact-method a:hover {
+
+      text-decoration: underline;
+
+    }
+
+
+    /* =========================================
+       CONTACT FORM
+    ========================================= */
+
+    .contact-form-card {
+
+      padding: 40px;
+
+      background: #ffffff;
+
+      border:
+        1px solid #e2e8f0;
+
+      border-radius: 18px;
+
+      box-shadow:
+        0 12px 35px
+        rgba(15, 23, 42, 0.07);
+
+    }
+
+
+    .contact-form-card h2 {
+
+      margin: 0 0 10px;
+
+      color: #0f172a;
+
+      font-size: 1.6rem;
+
+    }
+
+
+    .contact-form-card > p {
+
+      margin: 0 0 28px;
+
+      color: #64748b;
+
+      line-height: 1.7;
+
+    }
+
+
+    .form-group {
+
+      margin-bottom: 20px;
+
+    }
+
+
+    .form-group label {
+
+      display: block;
+
+      margin-bottom: 8px;
+
+      color: #334155;
+
+      font-size: 0.9rem;
+
+      font-weight: 600;
+
+    }
+
+
+    .form-group input,
+
+    .form-group textarea,
+
+    .form-group select {
+
+      width: 100%;
+
+      box-sizing: border-box;
+
+      padding: 13px 15px;
+
+      border:
+        1px solid #cbd5e1;
+
+      border-radius: 8px;
+
+      background: #ffffff;
+
+      color: #0f172a;
+
+      font-family: inherit;
+
+      font-size: 0.95rem;
+
+      outline: none;
+
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+    }
+
+
+    .form-group input:focus,
+
+    .form-group textarea:focus,
+
+    .form-group select:focus {
+
+      border-color: #2563eb;
+
+      box-shadow:
+        0 0 0 3px
+        rgba(37, 99, 235, 0.12);
+
+    }
+
+
+    .form-group textarea {
+
+      min-height: 140px;
+
+      resize: vertical;
+
+    }
+
+
+    .form-submit {
+
+      width: 100%;
+
+      padding: 14px 22px;
+
+      border: none;
+
+      border-radius: 8px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #2563eb,
+          #1d4ed8
+        );
+
+      color: #ffffff;
+
+      font-family: inherit;
+
+      font-size: 1rem;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+    }
+
+
+    .form-submit:hover {
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 8px 20px
+        rgba(37, 99, 235, 0.25);
+
+    }
+
+
+    .form-note {
+
+      margin-top: 15px;
+
+      color: #64748b;
+
+      font-size: 0.8rem;
+
+      line-height: 1.5;
+
+    }
+
+
+    /* =========================================
+       FAQ / HELP SECTION
+    ========================================= */
+
+    .contact-help {
+
+      padding: 75px 20px;
+
+      background: #f8fafc;
+
+      text-align: center;
+
+    }
+
+
+    .contact-help-inner {
+
+      max-width: 850px;
+
+      margin: 0 auto;
+
+    }
+
+
+    .contact-help h2 {
+
+      margin: 0 0 15px;
+
+      color: #0f172a;
+
+      font-size: 2rem;
+
+    }
+
+
+    .contact-help > .contact-help-inner > p {
+
+      margin: 0 auto 35px;
+
+      max-width: 680px;
+
+      color: #64748b;
+
+      line-height: 1.7;
+
+    }
+
+
+    .help-cards {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 20px;
+
+      text-align: left;
+
+    }
+
+
+    .help-card {
+
+      padding: 25px;
+
+      background: #ffffff;
+
+      border:
+        1px solid #e2e8f0;
+
+      border-radius: 14px;
+
+    }
+
+
+    .help-card h3 {
+
+      margin: 0 0 10px;
+
+      color: #0f172a;
+
+      font-size: 1.05rem;
+
+    }
+
+
+    .help-card p {
+
+      margin: 0;
+
+      color: #64748b;
+
+      font-size: 0.9rem;
+
+      line-height: 1.6;
+
+    }
+
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (
+      max-width: 850px
+    ) {
+
+      .contact-grid {
+
+        grid-template-columns:
+          1fr;
+
+        max-width: 650px;
+
+      }
+
+
+      .help-cards {
+
+        grid-template-columns:
+          1fr;
+
+        max-width: 600px;
+
+        margin: 0 auto;
+
+      }
+
+    }
+
+
+    @media (
+      max-width: 600px
+    ) {
+
+      .contact-hero {
+
+        padding:
+          55px 20px;
+
+      }
+
+
+      .contact-intro {
+
+        padding:
+          55px 20px 30px;
+
+      }
+
+
+      .contact-section {
+
+        padding:
+          35px 20px 60px;
+
+      }
+
+
+      .contact-form-card,
+
+      .contact-info {
+
+        padding: 28px 22px;
+
+      }
+
+
+      .contact-help {
+
+        padding:
+          55px 20px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body class="contact-page">
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="site-header">
+
+  <div class="container header-inner">
+
+
+    <a
+      href="../index.html"
+      class="logo"
+    >
+
+      <span class="logo-icon">
+        📡
+      </span>
+
+      <span class="logo-text">
+        TV Internet
+        <strong>US</strong>
+      </span>
+
+    </a>
+
+
+    <nav
+      class="main-nav"
+      id="mainNav"
+    >
+
+      <a href="../index.html#providers">
+        Providers
+      </a>
+
+      <a href="../index.html#how-it-works">
+        How It Works
+      </a>
+
+      <a href="guide.html">
+        Guides
+      </a>
+
+      <a href="../index.html#faq">
+        FAQ
+      </a>
+
+    </nav>
+
+
+    <button
+      class="nav-toggle"
+      id="navToggle"
+      aria-label="Toggle navigation"
+    >
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </button>
+
+
+  </div>
+
+</header>
+
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="contact-hero">
+
+  <div class="contact-hero-content">
+
+
+    <a
+      href="../index.html"
+      class="back-link"
+    >
+      ← Back to Home
+    </a>
+
+
+    <h1>
+      Contact TV Internet US
+    </h1>
+
+
+    <p>
+      Have a question, suggestion, or found something
+      that needs to be corrected? We'd love to hear
+      from you.
+    </p>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
+     INTRO
+========================================= -->
+
+<section class="contact-intro">
+
+  <div class="contact-intro-inner">
+
+
+    <span class="section-label">
+      Get In Touch
+    </span>
+
+
+    <h2>
+      We're Here to Help
+    </h2>
+
+
+    <p>
+      Whether you have feedback about our website,
+      want to report an outdated provider detail,
+      or simply have a question, you can reach us
+      using the information below.
+    </p>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CONTACT SECTION
+========================================= -->
+
+<section class="contact-section">
+
+  <div class="contact-grid">
+
+
+    <!-- CONTACT INFORMATION -->
+
+    <div class="contact-info">
+
+
+      <h2>
+        Contact Information
+      </h2>
+
+
+      <p>
+        For general questions, feedback, corrections,
+        or business inquiries, please contact us by
+        email.
+      </p>
+
+
+      <!-- EMAIL -->
+
+      <div class="contact-method">
+
+
+        <div class="contact-icon">
+          ✉️
+        </div>
+
+
+        <div>
+
+          <h3>
+            Email Us
+          </h3>
+
+
+          <p>
+
+            <a
+              href="mailto:support@tvinternetus.com"
+            >
+              support@tvinternetus.com
+            </a>
+
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- WEBSITE -->
+
+      <div class="contact-method">
+
+
+        <div class="contact-icon">
+          🌐
+        </div>
+
+
+        <div>
+
+          <h3>
+            Website
+          </h3>
+
+
+          <p>
+            TV Internet US
+            <br>
+
+            <a
+              href="../index.html"
+            >
+              tvinternetus.com
+            </a>
+
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- RESPONSE -->
+
+      <div class="contact-method">
+
+
+        <div class="contact-icon">
+          ⏱️
+        </div>
+
+
+        <div>
+
+          <h3>
+            Response Time
+          </h3>
+
+
+          <p>
+            We aim to respond to inquiries as soon
+            as reasonably possible.
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- CONTACT FORM -->
+
+    <div class="contact-form-card">
+
+
+      <h2>
+        Send Us a Message
+      </h2>
+
+
+      <p>
+        Complete the form below and we'll get back
+        to you as soon as possible.
+      </p>
+
+
+      <!--
+        IMPORTANT:
+
+        This form is a visual form only until you
+        connect it to a form service such as
+        Formspree, Netlify Forms, or your own backend.
+
+        The email address below is the destination
+        you should use when connecting the form.
+      -->
+
+
+      <form
+        action="mailto:support@tvinternetus.com"
+        method="post"
+        enctype="text/plain"
+      >
+
+
+        <!-- NAME -->
+
+        <div class="form-group">
+
+          <label for="name">
+            Your Name
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            name="Name"
+            placeholder="Enter your name"
+            autocomplete="name"
+            required
+          >
+
+        </div>
+
+
+
+        <!-- EMAIL -->
+
+        <div class="form-group">
+
+          <label for="email">
+            Email Address
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            name="Email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          >
+
+        </div>
+
+
+
+        <!-- SUBJECT -->
+
+        <div class="form-group">
+
+          <label for="subject">
+            Reason for Contact
+          </label>
+
+          <select
+            id="subject"
+            name="Subject"
+            required
+          >
+
+            <option
+              value=""
+            >
+              Select an option
+            </option>
+
+            <option
+              value="General Question"
+            >
+              General Question
+            </option>
+
+            <option
+              value="Website Feedback"
+            >
+              Website Feedback
+            </option>
+
+            <option
+              value="Report Incorrect Information"
+            >
+              Report Incorrect Information
+            </option>
+
+            <option
+              value="Provider Information"
+            >
+              Provider Information
+            </option>
+
+            <option
+              value="Business Inquiry"
+            >
+              Business Inquiry
+            </option>
+
+            <option
+              value="Other"
+            >
+              Other
+            </option>
+
+          </select>
+
+        </div>
+
+
+
+        <!-- MESSAGE -->
+
+        <div class="form-group">
+
+          <label for="message">
+            Your Message
+          </label>
+
+          <textarea
+            id="message"
+            name="Message"
+            placeholder="Tell us how we can help..."
+            required
+          ></textarea>
+
+        </div>
+
+
+
+        <!-- SUBMIT -->
+
+        <button
+          type="submit"
+          class="form-submit"
+        >
+          Send Message
+        </button>
+
+
+        <p class="form-note">
+
+          By submitting this form, you are contacting
+          TV Internet US regarding your inquiry.
+          Please do not include sensitive personal
+          information.
+
+        </p>
+
+
+      </form>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
+     HELP SECTION
+========================================= -->
+
+<section class="contact-help">
+
+  <div class="contact-help-inner">
+
+
+    <span class="section-label">
+      Before You Contact Us
+    </span>
+
+
+    <h2>
+      Looking for Something Specific?
+    </h2>
+
+
+    <p>
+      You may be able to find the information you're
+      looking for in one of these areas of our website.
+    </p>
+
+
+    <div class="help-cards">
+
+
+      <!-- CARD 1 -->
+
+      <div class="help-card">
+
+        <h3>
+          🔎 Find Internet Providers
+        </h3>
+
+        <p>
+          Enter your ZIP code to explore internet
+          and TV providers that may be available
+          in your area.
+        </p>
+
+      </div>
+
+
+
+      <!-- CARD 2 -->
+
+      <div class="help-card">
+
+        <h3>
+          📚 Read Our Guides
+        </h3>
+
+        <p>
+          Explore our guides to learn more about
+          internet speeds, provider options, and
+          choosing the right service.
+        </p>
+
+      </div>
+
+
+
+      <!-- CARD 3 -->
+
+      <div class="help-card">
+
+        <h3>
+          📡 Provider Information
+        </h3>
+
+        <p>
+          Visit individual provider pages to explore
+          available plans, speeds, pricing, and
+          additional information.
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+
+    <div class="footer-bottom">
+
+
+      <p>
+        We may earn a commission when you sign up
+        through some links on this page.
+        Availability data is estimated and should
+        be confirmed with the provider.
+      </p>
+
+
+      <p>
+        &copy; 2026 TV Internet US.
+        All rights reserved.
+      </p>
+
+
+    </div>
+
+
+  </div>
+
+</footer>
+
+
+
+<!-- =========================================
+     MOBILE NAVIGATION
+========================================= -->
+
+<script>
+
+  const navToggle =
+    document.getElementById("navToggle");
+
+  const mainNav =
+    document.getElementById("mainNav");
+
+
+  if (
+    navToggle &&
+    mainNav
+  ) {
+
+    navToggle.addEventListener(
+      "click",
+      function () {
+
+        mainNav.classList.toggle(
+          "active"
+        );
+
+      }
+    );
+
+  }
+
+</script>
+
+
+</body>
+
+</html>
