@@ -1,219 +1,354 @@
-const PROVIDERS = [
-  {
-    id: 'xfinity',
-    name: 'Xfinity',
-    logo: 'images/logos/xfinity.svg',
-    tech: 'Cable',
-    techClass: 'tech-cable',
-    maxSpeed: '1200 Mbps',
-    priceFrom: '$40/mo',
-    description: 'Best for households streaming on multiple devices at once.',
-    featured: true,
-    featuredLabel: 'Most available',
-    availability: 0.92
-  },
-  {
-    id: 'att',
-    name: 'AT&T Fiber',
-    logo: 'images/logos/att.svg',
-    tech: 'Fiber',
-    techClass: 'tech-fiber',
-    maxSpeed: '5000 Mbps',
-    priceFrom: '$35/mo',
-    description: 'Best for remote work, video calls, and large uploads.',
-    availability: 0.78
-  },
-  {
-    id: 'spectrum',
-    name: 'Spectrum',
-    logo: 'images/logos/spectrum.svg',
-    tech: 'Cable',
-    techClass: 'tech-cable',
-    maxSpeed: '1000 Mbps',
-    priceFrom: '$40/mo',
-    description: 'Best for no-contract plans with no data caps.',
-    availability: 0.85
-  },
-  {
-    id: 'verizon',
-    name: 'Verizon Fios',
-    logo: 'images/logos/verizon.svg',
-    tech: 'Fiber',
-    techClass: 'tech-fiber',
-    maxSpeed: '2300 Mbps',
-    priceFrom: '$50/mo',
-    description: 'Best for symmetrical upload/download speeds.',
-    availability: 0.65
-  },
-  {
-    id: 'tmobile',
-    name: 'T-Mobile Home Internet',
-    logo: 'images/logos/tmobile.svg',
-    tech: '5G Wireless',
-    techClass: 'tech-5g',
-    maxSpeed: '245 Mbps',
-    priceFrom: '$50/mo',
-    description: 'Best for simple setup with no equipment fees.',
-    availability: 0.70
-  },
-  {
-    id: 'centurylink',
-    name: 'CenturyLink',
-    logo: 'images/logos/centurylink.svg',
-    tech: 'Fiber / DSL',
-    techClass: 'tech-dsl',
-    maxSpeed: '940 Mbps',
-    priceFrom: '$50/mo',
-    description: 'Best for rural and semi-rural addresses.',
-    availability: 0.55
-  },
-  {
-    id: 'frontier',
-    name: 'Frontier',
-    logo: 'images/logos/frontier.svg',
-    tech: 'Fiber',
-    techClass: 'tech-fiber',
-    maxSpeed: '5000 Mbps',
-    priceFrom: '$29.99/mo',
-    description: 'Best for gigabit fiber at competitive pricing.',
-    availability: 0.60
-  },
-  {
-    id: 'directv',
-    name: 'DIRECTV STREAM',
-    logo: 'images/logos/directv.svg',
-    tech: 'TV Bundle',
-    techClass: 'tech-cable',
-    maxSpeed: '165+ live channels',
-    priceFrom: '$89.99/mo',
-    description: 'Best for pairing internet with live TV, no dish or contract.',
-    availability: 0.88
-  }
-];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-const PROVIDER_DETAILS = {
-  xfinity: {
-    overview: 'Xfinity by Comcast is one of the largest cable internet providers in the United States, serving millions of households with speeds up to 1.2 Gbps. Known for wide availability and bundled TV options.',
-    plans: [
-      { name: 'Connect', speed: '75 Mbps', price: '$30/mo' },
-      { name: 'Connect More', speed: '200 Mbps', price: '$40/mo' },
-      { name: 'Fast', speed: '400 Mbps', price: '$55/mo' },
-      { name: 'Superfast', speed: '800 Mbps', price: '$70/mo' },
-      { name: 'Gigabit', speed: '1200 Mbps', price: '$80/mo' }
-    ],
-    pros: ['Widest cable coverage in the US', 'No data caps on most plans', 'xFi gateway with advanced WiFi'],
-    cons: ['Prices increase after promotional period', 'Equipment rental fees apply']
-  },
-  att: {
-    overview: 'AT&T Fiber delivers symmetrical upload and download speeds using 100% fiber-optic technology. Ideal for households with heavy streaming, gaming, and remote work needs.',
-    plans: [
-      { name: 'Internet 300', speed: '300 Mbps', price: '$55/mo' },
-      { name: 'Internet 500', speed: '500 Mbps', price: '$65/mo' },
-      { name: 'Internet 1 Gig', speed: '1000 Mbps', price: '$80/mo' },
-      { name: 'Internet 2 Gig', speed: '2000 Mbps', price: '$110/mo' },
-      { name: 'Internet 5 Gig', speed: '5000 Mbps', price: '$180/mo' }
-    ],
-    pros: ['Symmetrical fiber speeds', 'No data caps', 'Price lock guarantee available'],
-    cons: ['Limited to fiber-served areas', 'Installation may require appointment']
-  },
-  spectrum: {
-    overview: 'Spectrum offers contract-free cable internet with no data caps. A popular choice for renters and households that want flexibility without long-term commitments.',
-    plans: [
-      { name: 'Internet', speed: '300 Mbps', price: '$49.99/mo' },
-      { name: 'Internet Ultra', speed: '500 Mbps', price: '$69.99/mo' },
-      { name: 'Internet Gig', speed: '1000 Mbps', price: '$89.99/mo' }
-    ],
-    pros: ['No contracts required', 'Free modem included', 'No data caps'],
-    cons: ['Prices rise after 12 months', 'Upload speeds are slower than fiber']
-  },
-  verizon: {
-    overview: 'Verizon Fios is a 100% fiber-optic network offering some of the fastest and most reliable internet in the Northeast and Mid-Atlantic regions.',
-    plans: [
-      { name: '300 Mbps', speed: '300 Mbps', price: '$49.99/mo' },
-      { name: '500 Mbps', speed: '500 Mbps', price: '$69.99/mo' },
-      { name: '1 Gig', speed: '1000 Mbps', price: '$89.99/mo' },
-      { name: '2 Gig', speed: '2300 Mbps', price: '$119.99/mo' }
-    ],
-    pros: ['True fiber with symmetrical speeds', 'Highly reliable network', 'Whole-home WiFi options'],
-    cons: ['Limited geographic availability', 'Router rental fee on some plans']
-  },
-  tmobile: {
-    overview: 'T-Mobile Home Internet uses the nation\'s largest 5G network to deliver home broadband without cables or installation appointments. Simple plug-and-play setup.',
-    plans: [
-      { name: 'Home Internet', speed: 'Up to 245 Mbps', price: '$50/mo' },
-      { name: 'Home Internet Plus', speed: 'Up to 415 Mbps', price: '$70/mo' }
-    ],
-    pros: ['No equipment fees', 'No annual contract', 'Easy self-installation'],
-    cons: ['Speed varies by location', 'Not ideal for heavy upload users']
-  },
-  centurylink: {
-    overview: 'CenturyLink (now Lumen) serves both urban and rural areas with fiber and DSL options, making it a key provider for addresses outside major metro areas.',
-    plans: [
-      { name: 'Simply Unlimited Internet', speed: '100 Mbps', price: '$50/mo' },
-      { name: 'Fiber Internet', speed: '940 Mbps', price: '$65/mo' }
-    ],
-    pros: ['Strong rural coverage', 'Price for Life on select plans', 'No data caps on fiber'],
-    cons: ['DSL speeds can be slow', 'Customer service ratings vary']
-  },
-  frontier: {
-    overview: 'Frontier FiberOptic is expanding rapidly, offering some of the most competitively priced gigabit fiber plans in the market with no data caps.',
-    plans: [
-      { name: 'Fiber 500', speed: '500 Mbps', price: '$49.99/mo' },
-      { name: 'Fiber 1 Gig', speed: '1000 Mbps', price: '$64.99/mo' },
-      { name: 'Fiber 2 Gig', speed: '2000 Mbps', price: '$99.99/mo' },
-      { name: 'Fiber 5 Gig', speed: '5000 Mbps', price: '$154.99/mo' }
-    ],
-    pros: ['Aggressive fiber pricing', 'No data caps', 'Free installation on select plans'],
-    cons: ['Availability still expanding', 'Legacy DSL areas remain']
-  },
-  directv: {
-    overview: 'DIRECTV STREAM combines live TV streaming with internet bundle options, offering 165+ channels without a satellite dish or long-term contract.',
-    plans: [
-      { name: 'Entertainment', speed: '75+ channels', price: '$69.99/mo' },
-      { name: 'Choice', speed: '105+ channels', price: '$89.99/mo' },
-      { name: 'Ultimate', speed: '140+ channels', price: '$104.99/mo' },
-      { name: 'Premier', speed: '165+ channels', price: '$149.99/mo' }
-    ],
-    pros: ['No satellite dish needed', 'Cloud DVR included', 'Works on all major devices'],
-    cons: ['Requires strong internet connection', 'Regional sports fees may apply']
-  }
-};
+  <title>Internet Providers Available in Your ZIP Code | TV Internet US</title>
 
-/**
- * Simulate provider availability for a ZIP code.
- * Uses ZIP digits as a seed for consistent results per ZIP.
- */
-function getProvidersForZip(zip) {
-  const seed = zip.split('').reduce((acc, d) => acc + parseInt(d, 10), 0);
-  return PROVIDERS
-    .map((p, i) => {
-      const hash = (seed * (i + 3) * 7) % 100;
-      const available = hash < p.availability * 100;
-      return { ...p, available, score: hash };
-    })
-    .filter(p => p.available)
-    .sort((a, b) => b.score - a.score);
-}
+  <meta
+    name="description"
+    content="See internet and TV providers available in your ZIP code. Compare speeds, pricing, technology, and provider options."
+  >
 
-function getProviderById(id) {
-  const provider = PROVIDERS.find(p => p.id === id);
-  const details = PROVIDER_DETAILS[id];
-  if (!provider) return null;
-  return { ...provider, ...details };
-}
+  <link rel="stylesheet" href="../css/style.css">
+</head>
 
-function getCityForZip(zip) {
-  const cities = {
-    '10001': 'New York, NY',
-    '90210': 'Beverly Hills, CA',
-    '60601': 'Chicago, IL',
-    '77001': 'Houston, TX',
-    '33101': 'Miami, FL',
-    '98101': 'Seattle, WA',
-    '80201': 'Denver, CO',
-    '30301': 'Atlanta, GA',
-    '02101': 'Boston, MA',
-    '19101': 'Philadelphia, PA'
-  };
-  return cities[zip] || `ZIP ${zip}`;
-}
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a href="../index.html" class="logo">
+        TV Internet US
+      </a>
+
+      <nav class="main-nav">
+        <a href="../index.html">Home</a>
+        <a href="results.html">Internet Providers</a>
+        <a href="guide.html">Guide</a>
+        <a href="provider.html">Providers</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <section class="page-hero">
+      <div class="container">
+
+        <a href="../index.html" class="back-link">
+          ← Back to Home
+        </a>
+
+        <h1>Internet Providers Available in Your Area</h1>
+
+        <p id="locationText">
+          Checking provider availability...
+        </p>
+
+      </div>
+    </section>
+
+
+    <section class="results-section">
+      <div class="container">
+
+        <div class="results-header">
+
+          <div>
+            <h2>Available Providers</h2>
+
+            <p id="resultsSummary">
+              Finding providers available at your ZIP code...
+            </p>
+          </div>
+
+          <div class="zip-change">
+            <a href="../index.html">
+              Change ZIP Code
+            </a>
+          </div>
+
+        </div>
+
+
+        <div id="loadingMessage" class="loading-message">
+          <h3>Checking availability...</h3>
+          <p>Please wait while we find providers for your area.</p>
+        </div>
+
+
+        <div
+          id="resultsGrid"
+          class="results-grid"
+          style="display: none;"
+        ></div>
+
+
+        <div
+          id="noResults"
+          class="no-results"
+          style="display: none;"
+        >
+
+          <h2>No providers found</h2>
+
+          <p>
+            We couldn't find provider matches for this ZIP code.
+            Try another ZIP code to check availability.
+          </p>
+
+          <a href="../index.html" class="btn">
+            Check Another ZIP Code
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="guide-cta">
+      <div class="container">
+
+        <h2>Need Help Choosing a Provider?</h2>
+
+        <p>
+          Learn more about internet technologies, speeds, pricing,
+          and how to choose the right service for your household.
+        </p>
+
+        <a href="guide.html" class="btn">
+          Read Full Guide
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="guide.html">Guide</a>
+        <a href="provider.html">Providers</a>
+        <a href="results.html">Internet Providers</a>
+      </div>
+
+      <p>
+        © 2026 TV Internet US. All rights reserved.
+      </p>
+
+    </div>
+  </footer>
+
+
+  <script src="../js/providers.js"></script>
+  <script src="../js/main.js"></script>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      const params = new URLSearchParams(window.location.search);
+      const zip = params.get('zip');
+
+      const loadingMessage = document.getElementById('loadingMessage');
+      const resultsGrid = document.getElementById('resultsGrid');
+      const noResults = document.getElementById('noResults');
+      const locationText = document.getElementById('locationText');
+      const resultsSummary = document.getElementById('resultsSummary');
+
+
+      if (!zip) {
+
+        loadingMessage.style.display = 'none';
+        noResults.style.display = 'block';
+
+        locationText.textContent = 'No ZIP code was provided.';
+
+        resultsSummary.textContent =
+          'Please return to the home page and enter your ZIP code.';
+
+        return;
+      }
+
+
+      locationText.textContent =
+        'Results for ZIP code ' + zip;
+
+
+      let providers = [];
+
+
+      try {
+
+        if (typeof getProvidersForZip === 'function') {
+
+          providers = getProvidersForZip(zip);
+
+        } else if (typeof PROVIDERS !== 'undefined') {
+
+          providers = PROVIDERS;
+
+        }
+
+      } catch (error) {
+
+        console.error('Error loading providers:', error);
+
+        providers = [];
+
+      }
+
+
+      loadingMessage.style.display = 'none';
+
+
+      if (!providers || providers.length === 0) {
+
+        resultsGrid.style.display = 'none';
+
+        noResults.style.display = 'block';
+
+        resultsSummary.textContent =
+          'No providers were found for ZIP code ' + zip;
+
+        return;
+      }
+
+
+      noResults.style.display = 'none';
+
+      resultsGrid.style.display = 'grid';
+
+
+      resultsSummary.textContent =
+        providers.length +
+        ' provider' +
+        (providers.length === 1 ? '' : 's') +
+        ' found for ZIP code ' +
+        zip;
+
+
+      providers.forEach(function (provider) {
+
+        const card = document.createElement('article');
+
+        card.className = 'provider-card';
+
+
+        let logoPath = '';
+
+        if (provider.logo) {
+
+          logoPath = provider.logo;
+
+          if (logoPath.startsWith('images/')) {
+
+            logoPath = '../' + logoPath;
+
+          }
+
+        }
+
+
+        let logoHTML = '';
+
+        if (logoPath) {
+
+          logoHTML = `
+            <div class="provider-logo">
+              <img
+                src="${logoPath}"
+                alt="${provider.name} logo"
+                onerror="this.style.display='none'"
+              >
+            </div>
+          `;
+
+        }
+
+
+        let featuredHTML = '';
+
+        if (provider.featured) {
+
+          featuredHTML = `
+            <span class="featured-badge">
+              ${provider.featuredLabel || 'Featured'}
+            </span>
+          `;
+
+        }
+
+
+        card.innerHTML = `
+
+          ${featuredHTML}
+
+          ${logoHTML}
+
+          <div class="provider-card-content">
+
+            <h3>
+              ${provider.name || 'Internet Provider'}
+            </h3>
+
+            <div class="provider-tech">
+              ${provider.tech || ''}
+            </div>
+
+            <p>
+              ${provider.description || ''}
+            </p>
+
+            <div class="provider-info">
+
+              <div>
+                <strong>Max Speed</strong>
+                <span>
+                  ${provider.maxSpeed || 'Varies'}
+                </span>
+              </div>
+
+              <div>
+                <strong>Starting Price</strong>
+                <span>
+                  ${provider.priceFrom || 'Check availability'}
+                </span>
+              </div>
+
+            </div>
+
+            <div class="provider-actions">
+
+              <a
+                href="provider.html?id=${encodeURIComponent(provider.id)}"
+                class="btn"
+              >
+                View Provider
+              </a>
+
+            </div>
+
+          </div>
+
+        `;
+
+
+        resultsGrid.appendChild(card);
+
+      });
+
+    });
+  </script>
+
+</body>
+</html>
