@@ -41,35 +41,21 @@
 
     .states-hero {
       padding: 70px 20px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #0f172a,
-          #1e3a8a
-        );
-
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
       color: white;
-
       text-align: center;
     }
 
     .states-hero h1 {
       margin: 15px 0;
-
-      font-size:
-        clamp(2.2rem, 5vw, 3.5rem);
-
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
       font-weight: 800;
     }
 
     .states-hero p {
       max-width: 700px;
-
       margin: 0 auto;
-
       color: #dbeafe;
-
       line-height: 1.7;
     }
 
@@ -79,10 +65,7 @@
 
     .states-header {
       max-width: 800px;
-
-      margin:
-        0 auto 40px;
-
+      margin: 0 auto 40px;
       text-align: center;
     }
 
@@ -92,109 +75,70 @@
 
     .states-header p {
       color: #64748b;
-
       line-height: 1.7;
     }
 
     .states-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(
-          auto-fit,
-          minmax(260px, 1fr)
-        );
-
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 22px;
-
       max-width: 1200px;
-
       margin: 0 auto;
     }
 
     .state-card {
       padding: 25px;
-
       background: #ffffff;
-
-      border:
-        1px solid #e2e8f0;
-
+      border: 1px solid #e2e8f0;
       border-radius: 14px;
-
-      box-shadow:
-        0 8px 25px
-        rgba(15, 23, 42, 0.06);
-
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+      box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .state-card:hover {
-      transform:
-        translateY(-4px);
-
-      box-shadow:
-        0 15px 35px
-        rgba(15, 23, 42, 0.12);
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(15, 23, 42, 0.12);
     }
 
     .state-card h3 {
-      margin:
-        0 0 8px;
-
+      margin: 0 0 8px;
       font-size: 1.35rem;
-
       color: #0f172a;
     }
 
     .state-card h3 span {
       color: #2563eb;
-
       font-size: 0.9rem;
-
       margin-left: 6px;
     }
 
     .state-city {
       margin-bottom: 18px;
-
       color: #64748b;
-
       font-size: 0.95rem;
     }
 
     .state-stats {
       display: grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
+      grid-template-columns: 1fr 1fr;
       gap: 12px;
-
       margin-bottom: 20px;
     }
 
     .state-stat {
       padding: 12px;
-
       background: #f8fafc;
-
       border-radius: 8px;
     }
 
     .state-stat strong {
       display: block;
-
       color: #0f172a;
-
       font-size: 1.05rem;
     }
 
     .state-stat span {
       color: #64748b;
-
       font-size: 0.8rem;
     }
 
@@ -204,59 +148,51 @@
 
     .state-providers strong {
       display: block;
-
       margin-bottom: 8px;
-
       color: #334155;
     }
 
     .provider-tags {
       display: flex;
-
       flex-wrap: wrap;
-
       gap: 6px;
     }
 
     .provider-tag {
       padding: 5px 9px;
-
       background: #eff6ff;
-
       color: #1d4ed8;
-
       border-radius: 5px;
-
       font-size: 0.78rem;
-
       font-weight: 600;
     }
 
     .state-button {
       display: inline-block;
-
       width: 100%;
-
       padding: 12px 18px;
-
       background: #2563eb;
-
       color: white;
-
       text-align: center;
-
       text-decoration: none;
-
       border-radius: 7px;
-
       font-weight: 600;
-
-      transition:
-        background 0.2s ease;
+      transition: background 0.2s ease;
+      box-sizing: border-box;
     }
 
     .state-button:hover {
       background: #1d4ed8;
+    }
+
+    .loading-message,
+    .error-message {
+      grid-column: 1 / -1;
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      text-align: center;
+      color: #64748b;
     }
 
   </style>
@@ -375,7 +311,13 @@
   <div
     id="statesGrid"
     class="states-grid"
-  ></div>
+  >
+
+    <div class="loading-message">
+      Loading states...
+    </div>
+
+  </div>
 
 </section>
 
@@ -407,9 +349,14 @@
 
 
 
+<!-- Load JavaScript files from the correct location -->
+
 <script src="../../js/providers.js"></script>
 
 <script src="../../js/states.js"></script>
+
+<script src="../../js/main.js"></script>
+
 
 
 <script>
@@ -419,21 +366,19 @@ document.addEventListener(
   function () {
 
     const grid =
-      document.getElementById(
-        "statesGrid"
-      );
+      document.getElementById("statesGrid");
 
 
     if (
-      typeof getStatesSorted !==
-      "function"
+      typeof getStatesSorted !== "function"
     ) {
 
       grid.innerHTML = `
-        <p>
-          Unable to load states.
+        <div class="error-message">
+          <strong>Unable to load states.</strong>
+          <br><br>
           Please try again later.
-        </p>
+        </div>
       `;
 
       return;
@@ -443,6 +388,27 @@ document.addEventListener(
 
     const states =
       getStatesSorted();
+
+
+    if (
+      !states ||
+      states.length === 0
+    ) {
+
+      grid.innerHTML = `
+        <div class="error-message">
+          <strong>No states found.</strong>
+          <br><br>
+          Please try again later.
+        </div>
+      `;
+
+      return;
+
+    }
+
+
+    grid.innerHTML = "";
 
 
     states.forEach(
@@ -468,10 +434,24 @@ document.addEventListener(
             .filter(Boolean);
 
 
+        const providerTags =
+          providerNames
+            .map(
+              function (name) {
+
+                return `
+                  <span class="provider-tag">
+                    ${name}
+                  </span>
+                `;
+
+              }
+            )
+            .join("");
+
+
         const card =
-          document.createElement(
-            "article"
-          );
+          document.createElement("article");
 
 
         card.className =
@@ -487,10 +467,14 @@ document.addEventListener(
             </span>
           </h3>
 
+
           <div class="state-city">
+
             Major area:
             ${state.topCity}
+
           </div>
+
 
           <div class="state-stats">
 
@@ -530,21 +514,7 @@ document.addEventListener(
 
             <div class="provider-tags">
 
-              ${
-                providerNames
-                  .map(
-                    function (name) {
-
-                      return `
-                        <span class="provider-tag">
-                          ${name}
-                        </span>
-                      `;
-
-                    }
-                  )
-                  .join("")
-              }
+              ${providerTags}
 
             </div>
 
@@ -552,10 +522,13 @@ document.addEventListener(
 
 
           <a
-            href="state.html?state=${state.abbr}"
+            href="../results.html?state=${state.abbr}"
             class="state-button"
           >
-            View Providers in ${state.name}
+
+            View Providers in
+            ${state.name}
+
           </a>
 
         `;
