@@ -1,244 +1,233 @@
 // states.js
-// Provides state-level coverage data used by the homepage preview grid
+// State-level broadband data used by the homepage preview grid
 // and the full States page (pages/states/index.html).
 //
-// NOTE: coverage % and avgSpeed values below are placeholder estimates.
-// Replace with real figures (e.g. from the Broadband Map API) when ready.
+// DATA SOURCE: "coverage" = fiber-availability percentage, and
+// "providerCount" = major-provider count, both sourced from FCC
+// Broadband Data Collection (Q1 2026 filing) via InternetProviders.ai's
+// 2026 state broadband report. These are real, cited figures.
+//
+// NOTE: The "providers" list per state is an estimate (dominant provider
+// confirmed by source, remaining providers inferred from typical regional
+// coverage) since a full verified ISP roster per state wasn't available.
+// Replace with your own Broadband Map API lookups over time if you want
+// per-state provider lists to be fully verified.
 
 const STATES_DATA = [
   {
     "name": "Alabama",
     "abbr": "AL",
     "topCity": "Birmingham",
-    "coverage": 81,
-    "avgSpeed": 300,
+    "coverage": 42,
+    "providerCount": 3,
     "providers": [
       "att",
-      "spectrum",
-      "centurylink",
       "tmobile",
-      "directv"
+      "spectrum"
     ]
   },
   {
     "name": "Alaska",
     "abbr": "AK",
     "topCity": "Anchorage",
-    "coverage": 86,
-    "avgSpeed": 400,
+    "coverage": 28,
+    "providerCount": 4,
     "providers": [
-      "att",
       "spectrum",
-      "centurylink",
       "tmobile",
-      "directv"
+      "att",
+      "xfinity"
     ]
   },
   {
     "name": "Arizona",
     "abbr": "AZ",
     "topCity": "Phoenix",
-    "coverage": 85,
-    "avgSpeed": 400,
+    "coverage": 55,
+    "providerCount": 3,
     "providers": [
-      "att",
-      "spectrum",
       "centurylink",
       "tmobile",
-      "directv",
-      "frontier"
+      "spectrum"
     ]
   },
   {
     "name": "Arkansas",
     "abbr": "AR",
     "topCity": "Little Rock",
-    "coverage": 81,
-    "avgSpeed": 900,
+    "coverage": 38,
+    "providerCount": 5,
     "providers": [
       "att",
-      "spectrum",
-      "centurylink",
       "tmobile",
-      "directv"
+      "spectrum",
+      "xfinity"
     ]
   },
   {
     "name": "California",
     "abbr": "CA",
     "topCity": "Los Angeles",
-    "coverage": 95,
-    "avgSpeed": 300,
+    "coverage": 62,
+    "providerCount": 7,
     "providers": [
-      "att",
-      "spectrum",
-      "centurylink",
+      "xfinity",
       "tmobile",
-      "directv",
-      "frontier"
+      "spectrum",
+      "att"
     ]
   },
   {
     "name": "Colorado",
     "abbr": "CO",
     "topCity": "Denver",
-    "coverage": 96,
-    "avgSpeed": 600,
+    "coverage": 58,
+    "providerCount": 8,
     "providers": [
-      "att",
-      "spectrum",
-      "centurylink",
+      "xfinity",
       "tmobile",
-      "directv"
+      "spectrum",
+      "att"
     ]
   },
   {
     "name": "Connecticut",
     "abbr": "CT",
     "topCity": "Bridgeport",
-    "coverage": 79,
-    "avgSpeed": 300,
+    "coverage": 61,
+    "providerCount": 8,
     "providers": [
       "xfinity",
-      "verizon",
-      "spectrum",
       "tmobile",
-      "frontier"
+      "spectrum",
+      "att"
     ]
   },
   {
     "name": "Delaware",
     "abbr": "DE",
     "topCity": "Wilmington",
-    "coverage": 80,
-    "avgSpeed": 400,
+    "coverage": 52,
+    "providerCount": 6,
     "providers": [
       "xfinity",
-      "verizon",
+      "tmobile",
       "spectrum",
-      "tmobile"
+      "att"
     ]
   },
   {
     "name": "District of Columbia",
     "abbr": "DC",
     "topCity": "Washington",
-    "coverage": 85,
-    "avgSpeed": 750,
+    "coverage": 78,
+    "providerCount": 8,
     "providers": [
       "xfinity",
-      "verizon",
+      "tmobile",
       "spectrum",
-      "tmobile"
+      "att"
     ]
   },
   {
     "name": "Florida",
     "abbr": "FL",
     "topCity": "Miami",
-    "coverage": 97,
-    "avgSpeed": 300,
+    "coverage": 59,
+    "providerCount": 6,
     "providers": [
-      "att",
-      "spectrum",
-      "centurylink",
+      "xfinity",
       "tmobile",
-      "directv",
-      "frontier"
+      "spectrum",
+      "att"
     ]
   },
   {
     "name": "Georgia",
     "abbr": "GA",
     "topCity": "Atlanta",
-    "coverage": 95,
-    "avgSpeed": 400,
+    "coverage": 51,
+    "providerCount": 7,
     "providers": [
       "att",
-      "spectrum",
-      "centurylink",
       "tmobile",
-      "directv"
+      "spectrum",
+      "xfinity"
     ]
   },
   {
     "name": "Hawaii",
     "abbr": "HI",
     "topCity": "Honolulu",
-    "coverage": 95,
-    "avgSpeed": 600,
+    "coverage": 45,
+    "providerCount": 5,
     "providers": [
-      "att",
       "spectrum",
-      "centurylink",
       "tmobile",
-      "directv"
+      "att",
+      "xfinity"
     ]
   },
   {
     "name": "Idaho",
     "abbr": "ID",
     "topCity": "Boise",
-    "coverage": 85,
-    "avgSpeed": 600,
+    "coverage": 35,
+    "providerCount": 5,
     "providers": [
-      "att",
-      "spectrum",
       "centurylink",
       "tmobile",
-      "directv"
+      "spectrum",
+      "att"
     ]
   },
   {
     "name": "Illinois",
     "abbr": "IL",
     "topCity": "Chicago",
-    "coverage": 96,
-    "avgSpeed": 500,
+    "coverage": 54,
+    "providerCount": 8,
     "providers": [
       "xfinity",
-      "centurylink",
+      "tmobile",
       "spectrum",
-      "tmobile"
+      "att"
     ]
   },
   {
     "name": "Indiana",
     "abbr": "IN",
     "topCity": "Indianapolis",
-    "coverage": 78,
-    "avgSpeed": 1000,
+    "coverage": 47,
+    "providerCount": 7,
     "providers": [
       "xfinity",
-      "centurylink",
-      "spectrum",
       "tmobile",
-      "frontier"
+      "spectrum",
+      "att"
     ]
   },
   {
     "name": "Iowa",
     "abbr": "IA",
     "topCity": "Des Moines",
-    "coverage": 83,
-    "avgSpeed": 900,
+    "coverage": 40,
+    "providerCount": 5,
     "providers": [
-      "xfinity",
       "centurylink",
+      "tmobile",
       "spectrum",
-      "tmobile"
+      "att"
     ]
   },
   {
     "name": "Kansas",
     "abbr": "KS",
     "topCity": "Wichita",
-    "coverage": 91,
-    "avgSpeed": 500,
+    "coverage": 44,
+    "providerCount": 2,
     "providers": [
-      "xfinity",
-      "centurylink",
-      "spectrum",
+      "att",
       "tmobile"
     ]
   },
@@ -246,464 +235,439 @@ const STATES_DATA = [
     "name": "Kentucky",
     "abbr": "KY",
     "topCity": "Louisville",
-    "coverage": 86,
-    "avgSpeed": 400,
+    "coverage": 39,
+    "providerCount": 3,
     "providers": [
-      "att",
       "spectrum",
-      "centurylink",
       "tmobile",
-      "directv"
+      "att"
     ]
   },
   {
     "name": "Louisiana",
     "abbr": "LA",
     "topCity": "New Orleans",
-    "coverage": 84,
-    "avgSpeed": 1000,
+    "coverage": 43,
+    "providerCount": 4,
     "providers": [
       "att",
-      "spectrum",
-      "centurylink",
       "tmobile",
-      "directv"
+      "spectrum",
+      "xfinity"
     ]
   },
   {
     "name": "Maine",
     "abbr": "ME",
     "topCity": "Portland",
-    "coverage": 88,
-    "avgSpeed": 300,
+    "coverage": 36,
+    "providerCount": 4,
     "providers": [
-      "xfinity",
-      "verizon",
       "spectrum",
-      "tmobile"
+      "tmobile",
+      "att",
+      "xfinity"
     ]
   },
   {
     "name": "Maryland",
     "abbr": "MD",
     "topCity": "Baltimore",
-    "coverage": 80,
-    "avgSpeed": 600,
+    "coverage": 60,
+    "providerCount": 6,
     "providers": [
       "xfinity",
-      "verizon",
+      "tmobile",
       "spectrum",
-      "tmobile"
+      "att"
     ]
   },
   {
     "name": "Massachusetts",
     "abbr": "MA",
     "topCity": "Boston",
-    "coverage": 81,
-    "avgSpeed": 500,
+    "coverage": 63,
+    "providerCount": 3,
     "providers": [
       "xfinity",
-      "verizon",
-      "spectrum",
-      "tmobile"
+      "tmobile",
+      "spectrum"
     ]
   },
   {
     "name": "Michigan",
     "abbr": "MI",
     "topCity": "Detroit",
-    "coverage": 89,
-    "avgSpeed": 750,
+    "coverage": 48,
+    "providerCount": 6,
     "providers": [
       "xfinity",
-      "centurylink",
-      "spectrum",
       "tmobile",
-      "frontier"
+      "spectrum",
+      "att"
     ]
   },
   {
     "name": "Minnesota",
     "abbr": "MN",
     "topCity": "Minneapolis",
-    "coverage": 86,
-    "avgSpeed": 1000,
+    "coverage": 51,
+    "providerCount": 5,
     "providers": [
-      "xfinity",
       "centurylink",
+      "tmobile",
       "spectrum",
-      "tmobile"
+      "att"
     ]
   },
   {
     "name": "Mississippi",
     "abbr": "MS",
     "topCity": "Jackson",
-    "coverage": 79,
-    "avgSpeed": 900,
+    "coverage": 33,
+    "providerCount": 8,
     "providers": [
       "att",
-      "spectrum",
-      "centurylink",
       "tmobile",
-      "directv"
+      "spectrum",
+      "xfinity"
     ]
   },
   {
     "name": "Missouri",
     "abbr": "MO",
     "topCity": "Kansas City",
-    "coverage": 92,
-    "avgSpeed": 750,
+    "coverage": 46,
+    "providerCount": 6,
     "providers": [
-      "xfinity",
-      "centurylink",
       "spectrum",
-      "tmobile"
+      "tmobile",
+      "att",
+      "xfinity"
     ]
   },
   {
     "name": "Montana",
     "abbr": "MT",
     "topCity": "Billings",
-    "coverage": 81,
-    "avgSpeed": 600,
+    "coverage": 25,
+    "providerCount": 6,
     "providers": [
-      "att",
-      "spectrum",
       "centurylink",
       "tmobile",
-      "directv"
+      "spectrum",
+      "att"
     ]
   },
   {
     "name": "Nebraska",
     "abbr": "NE",
     "topCity": "Omaha",
-    "coverage": 80,
-    "avgSpeed": 750,
+    "coverage": 42,
+    "providerCount": 4,
     "providers": [
-      "xfinity",
       "centurylink",
+      "tmobile",
       "spectrum",
-      "tmobile"
+      "att"
     ]
   },
   {
     "name": "Nevada",
     "abbr": "NV",
     "topCity": "Las Vegas",
-    "coverage": 87,
-    "avgSpeed": 1000,
+    "coverage": 52,
+    "providerCount": 5,
     "providers": [
-      "att",
-      "spectrum",
       "centurylink",
       "tmobile",
-      "directv"
+      "spectrum",
+      "att"
     ]
   },
   {
     "name": "New Hampshire",
     "abbr": "NH",
     "topCity": "Manchester",
-    "coverage": 97,
-    "avgSpeed": 1000,
+    "coverage": 41,
+    "providerCount": 6,
     "providers": [
       "xfinity",
-      "verizon",
+      "tmobile",
       "spectrum",
-      "tmobile"
+      "att"
     ]
   },
   {
     "name": "New Jersey",
     "abbr": "NJ",
     "topCity": "Newark",
-    "coverage": 89,
-    "avgSpeed": 750,
+    "coverage": 66,
+    "providerCount": 4,
     "providers": [
-      "xfinity",
       "verizon",
+      "tmobile",
       "spectrum",
-      "tmobile"
+      "att"
     ]
   },
   {
     "name": "New Mexico",
     "abbr": "NM",
     "topCity": "Albuquerque",
-    "coverage": 84,
-    "avgSpeed": 900,
+    "coverage": 30,
+    "providerCount": 6,
     "providers": [
-      "att",
-      "spectrum",
       "centurylink",
       "tmobile",
-      "directv"
+      "spectrum",
+      "att"
     ]
   },
   {
     "name": "New York",
     "abbr": "NY",
     "topCity": "New York City",
-    "coverage": 80,
-    "avgSpeed": 300,
+    "coverage": 64,
+    "providerCount": 5,
     "providers": [
-      "xfinity",
       "verizon",
-      "spectrum",
       "tmobile",
-      "frontier"
+      "spectrum",
+      "att"
     ]
   },
   {
     "name": "North Carolina",
     "abbr": "NC",
     "topCity": "Charlotte",
-    "coverage": 85,
-    "avgSpeed": 1000,
+    "coverage": 53,
+    "providerCount": 8,
     "providers": [
-      "att",
       "spectrum",
-      "centurylink",
       "tmobile",
-      "directv"
+      "att",
+      "xfinity"
     ]
   },
   {
     "name": "North Dakota",
     "abbr": "ND",
     "topCity": "Fargo",
-    "coverage": 87,
-    "avgSpeed": 300,
+    "coverage": 38,
+    "providerCount": 5,
     "providers": [
-      "xfinity",
       "centurylink",
+      "tmobile",
       "spectrum",
-      "tmobile"
+      "att"
     ]
   },
   {
     "name": "Ohio",
     "abbr": "OH",
     "topCity": "Columbus",
-    "coverage": 85,
-    "avgSpeed": 1000,
+    "coverage": 55,
+    "providerCount": 11,
     "providers": [
-      "xfinity",
-      "centurylink",
       "spectrum",
-      "tmobile"
+      "tmobile",
+      "att",
+      "xfinity"
     ]
   },
   {
     "name": "Oklahoma",
     "abbr": "OK",
     "topCity": "Oklahoma City",
-    "coverage": 81,
-    "avgSpeed": 600,
+    "coverage": 40,
+    "providerCount": 4,
     "providers": [
       "att",
-      "spectrum",
-      "centurylink",
       "tmobile",
-      "directv"
+      "spectrum",
+      "xfinity"
     ]
   },
   {
     "name": "Oregon",
     "abbr": "OR",
     "topCity": "Portland",
-    "coverage": 86,
-    "avgSpeed": 600,
+    "coverage": 50,
+    "providerCount": 8,
     "providers": [
-      "att",
-      "spectrum",
-      "centurylink",
+      "xfinity",
       "tmobile",
-      "directv"
+      "spectrum",
+      "att"
     ]
   },
   {
     "name": "Pennsylvania",
     "abbr": "PA",
     "topCity": "Philadelphia",
-    "coverage": 89,
-    "avgSpeed": 400,
+    "coverage": 53,
+    "providerCount": 7,
     "providers": [
       "xfinity",
-      "verizon",
-      "spectrum",
       "tmobile",
-      "frontier"
+      "spectrum",
+      "att"
     ]
   },
   {
     "name": "Rhode Island",
     "abbr": "RI",
     "topCity": "Providence",
-    "coverage": 89,
-    "avgSpeed": 500,
+    "coverage": 65,
+    "providerCount": 7,
     "providers": [
-      "xfinity",
-      "verizon",
+      "centurylink",
+      "tmobile",
       "spectrum",
-      "tmobile"
+      "att"
     ]
   },
   {
     "name": "South Carolina",
     "abbr": "SC",
     "topCity": "Charleston",
-    "coverage": 84,
-    "avgSpeed": 900,
+    "coverage": 46,
+    "providerCount": 4,
     "providers": [
-      "att",
       "spectrum",
-      "centurylink",
       "tmobile",
-      "directv"
+      "att",
+      "xfinity"
     ]
   },
   {
     "name": "South Dakota",
     "abbr": "SD",
     "topCity": "Sioux Falls",
-    "coverage": 86,
-    "avgSpeed": 900,
+    "coverage": 34,
+    "providerCount": 3,
     "providers": [
-      "xfinity",
       "centurylink",
-      "spectrum",
-      "tmobile"
+      "tmobile",
+      "spectrum"
     ]
   },
   {
     "name": "Tennessee",
     "abbr": "TN",
     "topCity": "Nashville",
-    "coverage": 80,
-    "avgSpeed": 750,
+    "coverage": 49,
+    "providerCount": 6,
     "providers": [
       "att",
-      "spectrum",
-      "centurylink",
       "tmobile",
-      "directv"
+      "spectrum",
+      "xfinity"
     ]
   },
   {
     "name": "Texas",
     "abbr": "TX",
     "topCity": "Houston",
-    "coverage": 83,
-    "avgSpeed": 750,
+    "coverage": 57,
+    "providerCount": 6,
     "providers": [
       "att",
-      "spectrum",
-      "centurylink",
       "tmobile",
-      "directv",
-      "frontier"
+      "spectrum",
+      "xfinity"
     ]
   },
   {
     "name": "Utah",
     "abbr": "UT",
     "topCity": "Salt Lake City",
-    "coverage": 85,
-    "avgSpeed": 400,
+    "coverage": 68,
+    "providerCount": 7,
     "providers": [
-      "att",
-      "spectrum",
-      "centurylink",
+      "xfinity",
       "tmobile",
-      "directv"
+      "spectrum",
+      "att"
     ]
   },
   {
     "name": "Vermont",
     "abbr": "VT",
     "topCity": "Burlington",
-    "coverage": 92,
-    "avgSpeed": 600,
+    "coverage": 37,
+    "providerCount": 4,
     "providers": [
-      "xfinity",
-      "verizon",
+      "centurylink",
+      "tmobile",
       "spectrum",
-      "tmobile"
+      "att"
     ]
   },
   {
     "name": "Virginia",
     "abbr": "VA",
     "topCity": "Virginia Beach",
-    "coverage": 86,
-    "avgSpeed": 900,
+    "coverage": 59,
+    "providerCount": 7,
     "providers": [
-      "att",
-      "spectrum",
-      "centurylink",
+      "xfinity",
       "tmobile",
-      "directv"
+      "spectrum",
+      "att"
     ]
   },
   {
     "name": "Washington",
     "abbr": "WA",
     "topCity": "Seattle",
-    "coverage": 95,
-    "avgSpeed": 400,
+    "coverage": 56,
+    "providerCount": 10,
     "providers": [
-      "att",
-      "spectrum",
-      "centurylink",
+      "xfinity",
       "tmobile",
-      "directv"
+      "spectrum",
+      "att"
     ]
   },
   {
     "name": "West Virginia",
     "abbr": "WV",
     "topCity": "Charleston",
-    "coverage": 88,
-    "avgSpeed": 1000,
+    "coverage": 27,
+    "providerCount": 10,
     "providers": [
-      "att",
-      "spectrum",
-      "centurylink",
+      "frontier",
       "tmobile",
-      "directv",
-      "frontier"
+      "spectrum",
+      "att"
     ]
   },
   {
     "name": "Wisconsin",
     "abbr": "WI",
     "topCity": "Milwaukee",
-    "coverage": 79,
-    "avgSpeed": 400,
+    "coverage": 49,
+    "providerCount": 7,
     "providers": [
-      "xfinity",
-      "centurylink",
       "spectrum",
-      "tmobile"
+      "tmobile",
+      "att",
+      "xfinity"
     ]
   },
   {
     "name": "Wyoming",
     "abbr": "WY",
     "topCity": "Cheyenne",
-    "coverage": 79,
-    "avgSpeed": 1000,
+    "coverage": 22,
+    "providerCount": 8,
     "providers": [
-      "att",
-      "spectrum",
       "centurylink",
       "tmobile",
-      "directv"
+      "spectrum",
+      "att"
     ]
   }
 ];
@@ -734,7 +698,7 @@ document.addEventListener("DOMContentLoaded", function () {
         state.abbr +
         '">' +
         '<strong>' + state.name + '</strong>' +
-        '<span>' + state.coverage + '% coverage</span>' +
+        '<span>' + state.coverage + '% fiber availability</span>' +
         '</a>'
       );
     })
