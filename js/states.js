@@ -1,85 +1,577 @@
-const STATES = [
-  { abbr: 'AL', name: 'Alabama', providers: ['att', 'spectrum', 'xfinity', 'centurylink'], coverage: 89, avgSpeed: 142, topCity: 'Birmingham' },
-  { abbr: 'AK', name: 'Alaska', providers: ['centurylink', 'tmobile', 'frontier'], coverage: 72, avgSpeed: 98, topCity: 'Anchorage' },
-  { abbr: 'AZ', name: 'Arizona', providers: ['centurylink', 'xfinity', 'spectrum', 'tmobile', 'frontier'], coverage: 94, avgSpeed: 186, topCity: 'Phoenix' },
-  { abbr: 'AR', name: 'Arkansas', providers: ['att', 'centurylink', 'xfinity', 'spectrum'], coverage: 86, avgSpeed: 128, topCity: 'Little Rock' },
-  { abbr: 'CA', name: 'California', providers: ['xfinity', 'att', 'spectrum', 'frontier', 'tmobile', 'verizon'], coverage: 97, avgSpeed: 224, topCity: 'Los Angeles' },
-  { abbr: 'CO', name: 'Colorado', providers: ['xfinity', 'centurylink', 'spectrum', 'tmobile', 'att'], coverage: 95, avgSpeed: 198, topCity: 'Denver' },
-  { abbr: 'CT', name: 'Connecticut', providers: ['xfinity', 'verizon', 'spectrum', 'frontier'], coverage: 98, avgSpeed: 212, topCity: 'Hartford' },
-  { abbr: 'DE', name: 'Delaware', providers: ['verizon', 'xfinity', 'spectrum'], coverage: 97, avgSpeed: 205, topCity: 'Wilmington' },
-  { abbr: 'DC', name: 'District of Columbia', providers: ['xfinity', 'verizon', 'att', 'tmobile'], coverage: 99, avgSpeed: 238, topCity: 'Washington' },
-  { abbr: 'FL', name: 'Florida', providers: ['xfinity', 'att', 'spectrum', 'frontier', 'tmobile', 'centurylink'], coverage: 96, avgSpeed: 192, topCity: 'Miami' },
-  { abbr: 'GA', name: 'Georgia', providers: ['xfinity', 'att', 'spectrum', 'tmobile', 'frontier'], coverage: 94, avgSpeed: 178, topCity: 'Atlanta' },
-  { abbr: 'HI', name: 'Hawaii', providers: ['spectrum', 'tmobile', 'centurylink'], coverage: 91, avgSpeed: 156, topCity: 'Honolulu' },
-  { abbr: 'ID', name: 'Idaho', providers: ['centurylink', 'xfinity', 'tmobile', 'frontier'], coverage: 88, avgSpeed: 134, topCity: 'Boise' },
-  { abbr: 'IL', name: 'Illinois', providers: ['xfinity', 'att', 'spectrum', 'frontier', 'tmobile'], coverage: 96, avgSpeed: 201, topCity: 'Chicago' },
-  { abbr: 'IN', name: 'Indiana', providers: ['xfinity', 'att', 'spectrum', 'frontier', 'tmobile'], coverage: 92, avgSpeed: 168, topCity: 'Indianapolis' },
-  { abbr: 'IA', name: 'Iowa', providers: ['centurylink', 'xfinity', 'mediacom', 'tmobile'], coverage: 90, avgSpeed: 152, topCity: 'Des Moines' },
-  { abbr: 'KS', name: 'Kansas', providers: ['att', 'xfinity', 'spectrum', 'centurylink', 'tmobile'], coverage: 91, avgSpeed: 162, topCity: 'Wichita' },
-  { abbr: 'KY', name: 'Kentucky', providers: ['att', 'spectrum', 'xfinity', 'frontier', 'tmobile'], coverage: 89, avgSpeed: 148, topCity: 'Louisville' },
-  { abbr: 'LA', name: 'Louisiana', providers: ['att', 'xfinity', 'spectrum', 'centurylink', 'tmobile'], coverage: 90, avgSpeed: 154, topCity: 'New Orleans' },
-  { abbr: 'ME', name: 'Maine', providers: ['spectrum', 'frontier', 'xfinity', 'tmobile'], coverage: 87, avgSpeed: 138, topCity: 'Portland' },
-  { abbr: 'MD', name: 'Maryland', providers: ['verizon', 'xfinity', 'att', 'spectrum', 'tmobile'], coverage: 98, avgSpeed: 218, topCity: 'Baltimore' },
-  { abbr: 'MA', name: 'Massachusetts', providers: ['xfinity', 'verizon', 'att', 'spectrum', 'frontier'], coverage: 98, avgSpeed: 226, topCity: 'Boston' },
-  { abbr: 'MI', name: 'Michigan', providers: ['xfinity', 'att', 'spectrum', 'frontier', 'tmobile'], coverage: 93, avgSpeed: 172, topCity: 'Detroit' },
-  { abbr: 'MN', name: 'Minnesota', providers: ['xfinity', 'centurylink', 'spectrum', 'tmobile', 'frontier'], coverage: 94, avgSpeed: 184, topCity: 'Minneapolis' },
-  { abbr: 'MS', name: 'Mississippi', providers: ['att', 'xfinity', 'centurylink', 'tmobile'], coverage: 84, avgSpeed: 118, topCity: 'Jackson' },
-  { abbr: 'MO', name: 'Missouri', providers: ['att', 'xfinity', 'spectrum', 'centurylink', 'tmobile'], coverage: 92, avgSpeed: 166, topCity: 'Kansas City' },
-  { abbr: 'MT', name: 'Montana', providers: ['centurylink', 'charter', 'tmobile', 'frontier'], coverage: 78, avgSpeed: 102, topCity: 'Billings' },
-  { abbr: 'NE', name: 'Nebraska', providers: ['centurylink', 'xfinity', 'spectrum', 'tmobile'], coverage: 89, avgSpeed: 146, topCity: 'Omaha' },
-  { abbr: 'NV', name: 'Nevada', providers: ['xfinity', 'centurylink', 'spectrum', 'tmobile', 'att'], coverage: 95, avgSpeed: 194, topCity: 'Las Vegas' },
-  { abbr: 'NH', name: 'New Hampshire', providers: ['xfinity', 'consolidated', 'verizon', 'tmobile'], coverage: 93, avgSpeed: 176, topCity: 'Manchester' },
-  { abbr: 'NJ', name: 'New Jersey', providers: ['verizon', 'xfinity', 'optimum', 'att', 'tmobile'], coverage: 99, avgSpeed: 242, topCity: 'Newark' },
-  { abbr: 'NM', name: 'New Mexico', providers: ['xfinity', 'centurylink', 'tmobile', 'frontier'], coverage: 85, avgSpeed: 124, topCity: 'Albuquerque' },
-  { abbr: 'NY', name: 'New York', providers: ['verizon', 'xfinity', 'spectrum', 'frontier', 'att', 'tmobile'], coverage: 98, avgSpeed: 232, topCity: 'New York City' },
-  { abbr: 'NC', name: 'North Carolina', providers: ['att', 'xfinity', 'spectrum', 'frontier', 'tmobile'], coverage: 94, avgSpeed: 182, topCity: 'Charlotte' },
-  { abbr: 'ND', name: 'North Dakota', providers: ['midco', 'centurylink', 'tmobile'], coverage: 86, avgSpeed: 132, topCity: 'Fargo' },
-  { abbr: 'OH', name: 'Ohio', providers: ['att', 'xfinity', 'spectrum', 'frontier', 'tmobile'], coverage: 95, avgSpeed: 188, topCity: 'Columbus' },
-  { abbr: 'OK', name: 'Oklahoma', providers: ['att', 'xfinity', 'cableone', 'tmobile', 'centurylink'], coverage: 88, avgSpeed: 142, topCity: 'Oklahoma City' },
-  { abbr: 'OR', name: 'Oregon', providers: ['xfinity', 'centurylink', 'frontier', 'tmobile', 'spectrum'], coverage: 93, avgSpeed: 178, topCity: 'Portland' },
-  { abbr: 'PA', name: 'Pennsylvania', providers: ['xfinity', 'verizon', 'att', 'spectrum', 'frontier', 'tmobile'], coverage: 96, avgSpeed: 196, topCity: 'Philadelphia' },
-  { abbr: 'RI', name: 'Rhode Island', providers: ['xfinity', 'verizon', 'cox', 'tmobile'], coverage: 97, avgSpeed: 208, topCity: 'Providence' },
-  { abbr: 'SC', name: 'South Carolina', providers: ['att', 'xfinity', 'spectrum', 'frontier', 'tmobile'], coverage: 91, avgSpeed: 158, topCity: 'Charleston' },
-  { abbr: 'SD', name: 'South Dakota', providers: ['midco', 'centurylink', 'tmobile'], coverage: 85, avgSpeed: 126, topCity: 'Sioux Falls' },
-  { abbr: 'TN', name: 'Tennessee', providers: ['att', 'xfinity', 'spectrum', 'frontier', 'tmobile'], coverage: 92, avgSpeed: 164, topCity: 'Nashville' },
-  { abbr: 'TX', name: 'Texas', providers: ['att', 'xfinity', 'spectrum', 'frontier', 'tmobile', 'centurylink'], coverage: 95, avgSpeed: 198, topCity: 'Houston' },
-  { abbr: 'UT', name: 'Utah', providers: ['xfinity', 'centurylink', 'google', 'tmobile', 'frontier'], coverage: 96, avgSpeed: 206, topCity: 'Salt Lake City' },
-  { abbr: 'VT', name: 'Vermont', providers: ['consolidated', 'xfinity', 'vtel', 'tmobile'], coverage: 84, avgSpeed: 122, topCity: 'Burlington' },
-  { abbr: 'VA', name: 'Virginia', providers: ['xfinity', 'verizon', 'att', 'spectrum', 'frontier', 'tmobile'], coverage: 96, avgSpeed: 204, topCity: 'Virginia Beach' },
-  { abbr: 'WA', name: 'Washington', providers: ['xfinity', 'centurylink', 'frontier', 'tmobile', 'wave'], coverage: 96, avgSpeed: 210, topCity: 'Seattle' },
-  { abbr: 'WV', name: 'West Virginia', providers: ['frontier', 'xfinity', 'spectrum', 'tmobile'], coverage: 82, avgSpeed: 112, topCity: 'Charleston' },
-  { abbr: 'WI', name: 'Wisconsin', providers: ['att', 'xfinity', 'spectrum', 'tmobile', 'centurylink'], coverage: 93, avgSpeed: 174, topCity: 'Milwaukee' },
-  { abbr: 'WY', name: 'Wyoming', providers: ['centurylink', 'spectrum', 'tmobile'], coverage: 80, avgSpeed: 108, topCity: 'Cheyenne' }
-];
+<!DOCTYPE html>
+<html lang="en">
 
-function getStateByAbbr(abbr) {
-  return STATES.find(s => s.abbr.toLowerCase() === abbr.toLowerCase());
-}
+<head>
 
-function getStatesSorted() {
-  return [...STATES].sort((a, b) => a.name.localeCompare(b.name));
-}
+  <meta charset="UTF-8">
 
-function getProvidersForState(abbr) {
-  const state = getStateByAbbr(abbr);
-  if (!state) return [];
-  return state.providers
-    .map(id => getProviderById(id))
-    .filter(Boolean);
-}
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-function getStateSampleZips(abbr) {
-  const samples = {
-    CA: ['90210', '94102', '92101'],
-    TX: ['77001', '75201', '78701'],
-    NY: ['10001', '11201', '14201'],
-    FL: ['33101', '32801', '33602'],
-    IL: ['60601', '60614', '62701'],
-    PA: ['19101', '15201', '18101'],
-    OH: ['43201', '44101', '45202'],
-    GA: ['30301', '31401', '30901'],
-    NC: ['28202', '27601', '27101'],
-    MI: ['48201', '49503', '48933']
-  };
-  return samples[abbr] || [`${abbr}0001`.slice(0, 5)];
-}
+  <meta
+    name="description"
+    content="Explore internet providers and broadband coverage by state across the United States."
+  >
+
+  <title>Internet Providers by State | TV Internet US</title>
+
+  <link
+    rel="stylesheet"
+    href="../../css/style.css"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    .states-hero {
+      padding: 70px 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #0f172a,
+          #1e3a8a
+        );
+
+      color: white;
+
+      text-align: center;
+    }
+
+    .states-hero h1 {
+      margin: 15px 0;
+
+      font-size:
+        clamp(2.2rem, 5vw, 3.5rem);
+
+      font-weight: 800;
+    }
+
+    .states-hero p {
+      max-width: 700px;
+
+      margin: 0 auto;
+
+      color: #dbeafe;
+
+      line-height: 1.7;
+    }
+
+    .states-section {
+      padding: 70px 20px;
+    }
+
+    .states-header {
+      max-width: 800px;
+
+      margin:
+        0 auto 40px;
+
+      text-align: center;
+    }
+
+    .states-header h2 {
+      margin-bottom: 12px;
+    }
+
+    .states-header p {
+      color: #64748b;
+
+      line-height: 1.7;
+    }
+
+    .states-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(260px, 1fr)
+        );
+
+      gap: 22px;
+
+      max-width: 1200px;
+
+      margin: 0 auto;
+    }
+
+    .state-card {
+      padding: 25px;
+
+      background: #ffffff;
+
+      border:
+        1px solid #e2e8f0;
+
+      border-radius: 14px;
+
+      box-shadow:
+        0 8px 25px
+        rgba(15, 23, 42, 0.06);
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .state-card:hover {
+      transform:
+        translateY(-4px);
+
+      box-shadow:
+        0 15px 35px
+        rgba(15, 23, 42, 0.12);
+    }
+
+    .state-card h3 {
+      margin:
+        0 0 8px;
+
+      font-size: 1.35rem;
+
+      color: #0f172a;
+    }
+
+    .state-card h3 span {
+      color: #2563eb;
+
+      font-size: 0.9rem;
+
+      margin-left: 6px;
+    }
+
+    .state-city {
+      margin-bottom: 18px;
+
+      color: #64748b;
+
+      font-size: 0.95rem;
+    }
+
+    .state-stats {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 12px;
+
+      margin-bottom: 20px;
+    }
+
+    .state-stat {
+      padding: 12px;
+
+      background: #f8fafc;
+
+      border-radius: 8px;
+    }
+
+    .state-stat strong {
+      display: block;
+
+      color: #0f172a;
+
+      font-size: 1.05rem;
+    }
+
+    .state-stat span {
+      color: #64748b;
+
+      font-size: 0.8rem;
+    }
+
+    .state-providers {
+      margin-bottom: 20px;
+    }
+
+    .state-providers strong {
+      display: block;
+
+      margin-bottom: 8px;
+
+      color: #334155;
+    }
+
+    .provider-tags {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 6px;
+    }
+
+    .provider-tag {
+      padding: 5px 9px;
+
+      background: #eff6ff;
+
+      color: #1d4ed8;
+
+      border-radius: 5px;
+
+      font-size: 0.78rem;
+
+      font-weight: 600;
+    }
+
+    .state-button {
+      display: inline-block;
+
+      width: 100%;
+
+      padding: 12px 18px;
+
+      background: #2563eb;
+
+      color: white;
+
+      text-align: center;
+
+      text-decoration: none;
+
+      border-radius: 7px;
+
+      font-weight: 600;
+
+      transition:
+        background 0.2s ease;
+    }
+
+    .state-button:hover {
+      background: #1d4ed8;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+  <div class="container header-inner">
+
+    <a
+      href="../../index.html"
+      class="logo"
+    >
+
+      <span class="logo-icon">
+        📡
+      </span>
+
+      <span class="logo-text">
+        TV Internet <strong>US</strong>
+      </span>
+
+    </a>
+
+
+    <nav
+      class="main-nav"
+      id="mainNav"
+    >
+
+      <a href="../../index.html#providers">
+        Providers
+      </a>
+
+      <a href="../../index.html#how-it-works">
+        How It Works
+      </a>
+
+      <a href="../guide.html">
+        Guides
+      </a>
+
+      <a href="../../index.html#faq">
+        FAQ
+      </a>
+
+    </nav>
+
+
+    <button
+      class="nav-toggle"
+      id="navToggle"
+      aria-label="Toggle navigation"
+    >
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </button>
+
+  </div>
+
+</header>
+
+
+
+<section class="states-hero">
+
+  <div class="container">
+
+    <a
+      href="../../index.html"
+      style="color:#bfdbfe;text-decoration:none;font-weight:600;"
+    >
+      ← Back to Home
+    </a>
+
+    <h1>
+      Internet Providers by State
+    </h1>
+
+    <p>
+      Explore internet providers, broadband coverage,
+      average speeds, and major service areas across
+      the United States.
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<section class="states-section">
+
+  <div class="states-header">
+
+    <h2>
+      Find Internet Providers in Your State
+    </h2>
+
+    <p>
+      Select a state to explore available providers
+      and compare internet options in your area.
+    </p>
+
+  </div>
+
+
+  <div
+    id="statesGrid"
+    class="states-grid"
+  ></div>
+
+</section>
+
+
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <div class="footer-bottom">
+
+      <p>
+        We may earn a commission when you sign up
+        through some links on this page.
+        Availability data is estimated and should
+        be confirmed with the provider.
+      </p>
+
+      <p>
+        &copy; 2026 TV Internet US.
+        All rights reserved.
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<script src="../../js/providers.js"></script>
+
+<script src="../../js/states.js"></script>
+
+
+<script>
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+
+    const grid =
+      document.getElementById(
+        "statesGrid"
+      );
+
+
+    if (
+      typeof getStatesSorted !==
+      "function"
+    ) {
+
+      grid.innerHTML = `
+        <p>
+          Unable to load states.
+          Please try again later.
+        </p>
+      `;
+
+      return;
+
+    }
+
+
+    const states =
+      getStatesSorted();
+
+
+    states.forEach(
+      function (state) {
+
+        const providerNames =
+          state.providers
+            .map(
+              function (id) {
+
+                const provider =
+                  typeof getProviderById ===
+                  "function"
+                    ? getProviderById(id)
+                    : null;
+
+                return provider
+                  ? provider.name
+                  : id;
+
+              }
+            )
+            .filter(Boolean);
+
+
+        const card =
+          document.createElement(
+            "article"
+          );
+
+
+        card.className =
+          "state-card";
+
+
+        card.innerHTML = `
+
+          <h3>
+            ${state.name}
+            <span>
+              ${state.abbr}
+            </span>
+          </h3>
+
+          <div class="state-city">
+            Major area:
+            ${state.topCity}
+          </div>
+
+          <div class="state-stats">
+
+            <div class="state-stat">
+
+              <strong>
+                ${state.coverage}%
+              </strong>
+
+              <span>
+                Estimated Coverage
+              </span>
+
+            </div>
+
+
+            <div class="state-stat">
+
+              <strong>
+                ${state.avgSpeed} Mbps
+              </strong>
+
+              <span>
+                Average Speed
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="state-providers">
+
+            <strong>
+              Providers
+            </strong>
+
+            <div class="provider-tags">
+
+              ${
+                providerNames
+                  .map(
+                    function (name) {
+
+                      return `
+                        <span class="provider-tag">
+                          ${name}
+                        </span>
+                      `;
+
+                    }
+                  )
+                  .join("")
+              }
+
+            </div>
+
+          </div>
+
+
+          <a
+            href="state.html?state=${state.abbr}"
+            class="state-button"
+          >
+            View Providers in ${state.name}
+          </a>
+
+        `;
+
+
+        grid.appendChild(card);
+
+      }
+    );
+
+  }
+);
+
+</script>
+
+
+</body>
+
+</html>
