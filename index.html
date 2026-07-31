@@ -319,5 +319,26 @@
   <script src="js/states.js"></script>
   <script src="js/speedtest.js"></script>
   <script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const grid = document.getElementById("providersGrid");
+  if (!grid || typeof PROVIDERS === "undefined") return;
+
+  grid.innerHTML = PROVIDERS.map(function (provider) {
+    return `
+      <article class="provider-card">
+        <div class="provider-logo">
+          ${provider.logo ? `<img src="${provider.logo}" alt="${provider.name} logo" style="max-width:180px;">` : ""}
+        </div>
+        <h3>${provider.name}</h3>
+        <p>${provider.description || ""}</p>
+        <p><strong>Technology:</strong> ${provider.tech || "N/A"}</p>
+        <p><strong>Max Speed:</strong> ${provider.maxSpeed || "N/A"}</p>
+        <p><strong>Starting Price:</strong> ${provider.priceFrom || "N/A"}</p>
+        <a href="pages/provider.html?id=${encodeURIComponent(provider.id)}" class="btn">View Provider</a>
+      </article>
+    `;
+  }).join("");
+});
+</script>
 </body>
-</html>
