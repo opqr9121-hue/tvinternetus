@@ -13,7 +13,7 @@ body{
   color:#1a1a1a;
 }
 .container{
-  max-width:1000px;
+  max-width:1100px;
   margin:auto;
   background:#fff;
   padding:30px;
@@ -26,13 +26,8 @@ body{
   padding:40px;
   border-radius:12px;
 }
-.hero h1{
-  margin:0;
-  font-size:32px;
-}
-.hero p{
-  margin-top:10px;
-}
+.hero h1{margin:0;font-size:34px;}
+.hero p{margin-top:10px;font-size:16px;}
 
 /* CTA */
 .cta{
@@ -40,7 +35,7 @@ body{
 }
 .cta a{
   background:#ffcc00;
-  padding:12px 18px;
+  padding:12px 20px;
   color:#000;
   text-decoration:none;
   border-radius:6px;
@@ -49,14 +44,13 @@ body{
 
 /* TABLE */
 .table{
-  margin-top:30px;
-  border-collapse:collapse;
   width:100%;
+  border-collapse:collapse;
+  margin-top:30px;
 }
 .table th,.table td{
-  padding:12px;
+  padding:14px;
   border-bottom:1px solid #ddd;
-  text-align:left;
 }
 .table th{
   background:#f0f4f8;
@@ -66,27 +60,28 @@ body{
 .btn{
   background:#1d4ed8;
   color:#fff;
-  padding:10px 15px;
-  text-decoration:none;
+  padding:10px 14px;
   border-radius:6px;
+  text-decoration:none;
 }
 
-/* SECTION */
-h2{
-  margin-top:40px;
-  color:#0f2540;
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  margin-top:30px;
 }
-p{
-  line-height:1.7;
-}
-
-/* BOX */
-.box{
-  background:#f7f9fc;
+.card{
+  border:1px solid #eee;
   padding:20px;
   border-radius:10px;
-  margin:20px 0;
 }
+.card h3{margin-top:0}
+
+/* SECTION */
+h2{margin-top:40px;color:#0f2540;}
+p{line-height:1.7;}
 
 /* AUTHOR */
 .author{
@@ -104,20 +99,20 @@ p{
 
 <div class="hero">
 <h1>Best Internet Providers in the USA (2026 Guide)</h1>
-<p>Compare top internet providers based on speed, pricing, and availability.</p>
+<p>Compare the fastest, cheapest, and most reliable internet providers available in your area.</p>
 
 <div class="cta">
 <a href="https://tvinternetus.com/">Check Availability</a>
 </div>
 </div>
 
-<h2>Top Providers Comparison</h2>
+<h2>Top Internet Providers Comparison</h2>
 
 <table class="table">
 <tr>
 <th>Provider</th>
 <th>Starting Price</th>
-<th>Speed</th>
+<th>Max Speed</th>
 <th>Best For</th>
 <th></th>
 </tr>
@@ -125,7 +120,7 @@ p{
 <tr>
 <td>Spectrum</td>
 <td>$30/mo</td>
-<td>Up to 1 Gbps</td>
+<td>1 Gbps</td>
 <td>Best Overall</td>
 <td><a href="#" class="btn">View Plans</a></td>
 </tr>
@@ -133,15 +128,15 @@ p{
 <tr>
 <td>AT&T Fiber</td>
 <td>$35/mo</td>
-<td>Up to 5 Gbps</td>
-<td>Fastest Speeds</td>
+<td>5 Gbps</td>
+<td>Fastest Speed</td>
 <td><a href="#" class="btn">View Plans</a></td>
 </tr>
 
 <tr>
 <td>Xfinity</td>
 <td>$40/mo</td>
-<td>Up to 1.2 Gbps</td>
+<td>1.2 Gbps</td>
 <td>High-Speed Cable</td>
 <td><a href="#" class="btn">View Plans</a></td>
 </tr>
@@ -149,20 +144,40 @@ p{
 <tr>
 <td>Frontier</td>
 <td>$30/mo</td>
-<td>Up to 2 Gbps</td>
+<td>2 Gbps</td>
 <td>Affordable Fiber</td>
 <td><a href="#" class="btn">View Plans</a></td>
 </tr>
 
 </table>
 
-<div class="box">
-<strong>Pro Tip:</strong> Fiber internet is the best option if available in your area.
+<h2>Top Picks Breakdown</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Spectrum</h3>
+<p>Wide availability and affordable pricing make Spectrum a top choice.</p>
+<a href="#" class="btn">View Plans</a>
 </div>
 
-<h2>How to Choose the Right Provider</h2>
+<div class="card">
+<h3>AT&T Fiber</h3>
+<p>Best for ultra-fast speeds and reliable performance.</p>
+<a href="#" class="btn">View Plans</a>
+</div>
 
-<p>When selecting an internet provider, consider your speed requirements, budget, and availability in your ZIP code. Fiber connections offer the best performance, while cable providers are more widely available.</p>
+<div class="card">
+<h3>Xfinity</h3>
+<p>Offers fast cable speeds with nationwide coverage.</p>
+<a href="#" class="btn">View Plans</a>
+</div>
+
+</div>
+
+<h2>How to Choose the Best Provider</h2>
+
+<p>Fiber is the best option if available, offering the fastest and most stable connection. Cable is a strong alternative with wide availability.</p>
 
 <div class="cta">
 <a href="https://tvinternetus.com/">Find Providers Near You</a>
@@ -170,11 +185,11 @@ p{
 
 <h2>Final Verdict</h2>
 
-<p>The best internet provider depends on your location. AT&T Fiber leads in performance, while Spectrum and Xfinity provide strong nationwide coverage.</p>
+<p>The best provider depends on your location. AT&T Fiber is ideal for speed, while Spectrum and Xfinity provide reliable coverage nationwide.</p>
 
 <div class="author">
 <strong>TVInternetUS Editorial Team</strong><br>
-Helping users compare internet and TV providers across the USA.
+Helping users compare internet providers across the USA.
 </div>
 
 </div>
