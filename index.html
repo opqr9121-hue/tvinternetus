@@ -275,43 +275,56 @@
     </div>
   </section>
 
+  <!-- Blog Section -->
+  <section style="padding:40px;">
+    <div class="container">
+      <h2>Latest Guides</h2>
+      <ul>
+        <li>
+          <a href="pages/blog/best-internet-providers.html">
+            Best Internet Providers 2026
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="logo">
-            <span class="logo-icon">📡</span>
-            <span class="logo-text">TV Internet <strong>US</strong></span>
-          </a>
-          <p>Compare real internet providers available in your ZIP code instantly.</p>
-        </div>
-        <div class="footer-links">
-          <h4>Explore</h4>
-          <a href="#providers">Providers</a>
-          <a href="pages/states/index.html">States</a>
-          <a href="pages/speed-test.html">Speed Test</a>
-          <a href="pages/guide.html">Guides</a>
-          <a href="#faq">FAQ</a>
-        </div>
-        <div class="footer-links">
-          <h4>Providers</h4>
-          <a href="pages/provider.html?id=xfinity">Xfinity</a>
-          <a href="pages/provider.html?id=att">AT&amp;T Fiber</a>
-          <a href="pages/provider.html?id=spectrum">Spectrum</a>
-          <a href="pages/provider.html?id=verizon">Verizon Fios</a>
-        <div class="footer-links">
-  <h4>Company</h4>
-  <a href="contact.html">Contact Us</a>
-  <a href="privacy.html">Privacy Policy</a>
-  <a href="terms.html">Terms &amp; Conditions</a>
-  <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
-</div>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">📡</span>
+          <span class="logo-text">TV Internet <strong>US</strong></span>
+        </a>
+        <p>Compare TV &amp; internet providers across the USA and find the best plan for your address.</p>
       </div>
-      <div class="footer-bottom">
-        <p>We may earn a commission when you sign up through some links on this page. Availability data is estimated and should be confirmed with the provider.</p>
-        <p>&copy; 2026 TV Internet US. All rights reserved.</p>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <a href="#providers">Providers</a>
+        <a href="pages/states/index.html">States</a>
+        <a href="pages/speed-test.html">Speed Test</a>
+        <a href="pages/guide.html">Guides</a>
+        <a href="#faq">FAQ</a>
       </div>
+      <div class="footer-links">
+        <h4>Providers</h4>
+        <a href="pages/provider.html?id=xfinity">Xfinity</a>
+        <a href="pages/provider.html?id=att">AT&amp;T Fiber</a>
+        <a href="pages/provider.html?id=spectrum">Spectrum</a>
+        <a href="pages/provider.html?id=verizon">Verizon Fios</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="contact.html">Contact Us</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>We may earn a commission when you sign up through some links on this page. Availability data is estimated and should be confirmed with the provider.</p>
+      <p>&copy; 2026 TV Internet US. All rights reserved.</p>
     </div>
   </footer>
 
@@ -319,26 +332,27 @@
   <script src="js/states.js"></script>
   <script src="js/speedtest.js"></script>
   <script src="js/main.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const grid = document.getElementById("providersGrid");
-  if (!grid || typeof PROVIDERS === "undefined") return;
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const grid = document.getElementById("providersGrid");
+      if (!grid || typeof PROVIDERS === "undefined") return;
 
-  grid.innerHTML = PROVIDERS.map(function (provider) {
-    return `
-      <article class="provider-card">
-        <div class="provider-logo">
-          ${provider.logo ? `<img src="${provider.logo}" alt="${provider.name} logo" style="max-width:180px;">` : ""}
-        </div>
-        <h3>${provider.name}</h3>
-        <p>${provider.description || ""}</p>
-        <p><strong>Technology:</strong> ${provider.tech || "N/A"}</p>
-        <p><strong>Max Speed:</strong> ${provider.maxSpeed || "N/A"}</p>
-        <p><strong>Starting Price:</strong> ${provider.priceFrom || "N/A"}</p>
-        <a href="pages/provider.html?id=${encodeURIComponent(provider.id)}" class="btn">View Provider</a>
-      </article>
-    `;
-  }).join("");
-});
-</script>
+      grid.innerHTML = PROVIDERS.map(function (provider) {
+        return `
+          <article class="provider-card">
+            <div class="provider-logo">
+              ${provider.logo ? `<img src="${provider.logo}" alt="${provider.name} logo" style="max-width:180px;">` : ""}
+            </div>
+            <h3>${provider.name}</h3>
+            <p>${provider.description || ""}</p>
+            <p><strong>Technology:</strong> ${provider.tech || "N/A"}</p>
+            <p><strong>Max Speed:</strong> ${provider.maxSpeed || "N/A"}</p>
+            <p><strong>Starting Price:</strong> ${provider.priceFrom || "N/A"}</p>
+            <a href="pages/provider.html?id=${encodeURIComponent(provider.id)}" class="btn">View Provider</a>
+          </article>
+        `;
+      }).join("");
+    });
+  </script>
 </body>
+</html>
