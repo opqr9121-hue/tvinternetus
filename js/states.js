@@ -678,10 +678,13 @@ function getStatesSorted() {
   });
 }
 
-function getStateByAbbr(abbr) {
-  return STATES_DATA.find(function (s) {
-    return s.abbr === abbr;
-  });
+function slugifyStateName(name) {
+  return name
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
 }
 
 // Auto-populate the homepage preview grid (#statesHomeGrid) if present.
