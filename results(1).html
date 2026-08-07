@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internet Providers in Your Area | TV Internet US</title>
+<meta name="description" content="Compare internet and TV providers available for your ZIP code. Availability and pricing vary by address.">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  body{font-family:Inter,Arial,sans-serif;margin:0;color:#14213d;background:#fff}
+  .container{max-width:900px;margin:auto;padding:0 20px}
+  header{border-bottom:1px solid #e5e7eb;padding:16px 0}
+  header .container{display:flex;justify-content:space-between;align-items:center}
+  .logo{font-weight:700;text-decoration:none;color:#123b7a}
+  nav a{margin-left:18px;text-decoration:none;color:#334155;font-size:14px}
+  .hero{background:#f5f8fc;padding:42px 0 30px;border-bottom:1px solid #e5e7eb}
+  h1{margin:0 0 10px;font-size:34px}
+  .muted{color:#64748b}
+  .results{padding:30px 0}
+  .provider{border:1px solid #dbe3ee;border-radius:12px;padding:22px;margin:0 0 18px;box-shadow:0 3px 12px rgba(15,23,42,.06)}
+  .provider h2{margin:0 0 8px;font-size:22px}
+  .tag{display:inline-block;background:#eef4ff;color:#174ea6;border-radius:20px;padding:5px 10px;font-size:12px;font-weight:700;margin-bottom:10px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:15px 0}
+  .stat{background:#f8fafc;padding:12px;border-radius:8px}
+  .stat strong{display:block;margin-top:3px}
+  .btn{display:inline-block;background:#1d4ed8;color:#fff;text-decoration:none;padding:11px 18px;border-radius:7px;font-weight:700}
+  .btn:hover{background:#1e40af}
+  .notice{background:#fff8e1;border:1px solid #f0d98a;padding:13px;border-radius:8px;margin-top:20px;font-size:13px;color:#5f4b00}
+  @media(max-width:650px){h1{font-size:27px}.grid{grid-template-columns:1fr}nav{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a class="logo" href="../index.html">TV Internet US</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="providers.html">Providers</a>
+      <a href="guide.html">Guide</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="muted">Home / Provider Results</div>
+    <h1>Internet Providers in Your Area</h1>
+    <p id="zipText" class="muted">Checking providers for your ZIP code...</p>
+  </div>
+</section>
+
+<main class="results">
+  <div class="container">
+    <div id="providerList"></div>
+    <div class="notice">
+      Availability, speeds, prices, promotions, and equipment fees can vary by exact service address.
+      Clicking “Check Provider” will take you directly to the provider website or your affiliate tracking link.
+    </div>
+  </div>
+</main>
+
+<script>
+const PROVIDERS = [
+  {
+    id:'xfinity', name:'Xfinity', tech:'Cable', maxSpeed:'1200 Mbps', priceFrom:'$40/mo',
+    description:'Best for households streaming on multiple devices at once.',
+    link:'https://www.xfinity.com/learn/deals/internet?cjdata=MXxOfDB8WXwxNzkzMDUzNzIyOTA1&cjevent=58a0c60092af11f1837f00170a18ba74&cmp=aff__2639103'
+  },
+  {
+    id:'att', name:'AT&T Fiber', tech:'Fiber', maxSpeed:'5000 Mbps', priceFrom:'$35/mo',
+    description:'Best for remote work, video calls, gaming, and large uploads.',
+    link:'https://www.att.com/bundles/save.html?source=ECAuAT10600aff12A&wtExtndSource=2639103&CI=CJ_AFFILIATE&RI=CJ1&RD=37922269&tfn=aff&cjevent=e459227e92af11f18243001b0a18b8fb'
+  },
+  {
+    id:'spectrum', name:'Spectrum', tech:'Cable', maxSpeed:'1000 Mbps', priceFrom:'$40/mo',
+    description:'Best for broad cable availability and no annual contracts.',
+    link:'https://www.spectrum.com/internet'
+  },
+  {
+    id:'verizon', name:'Verizon Fios', tech:'Fiber', maxSpeed:'2300 Mbps', priceFrom:'$50/mo',
+    description:'Best for fast fiber service and symmetrical speeds where available.',
+    link:'https://www.verizon.com/home/internet/fios-fastest-internet/?cjdata=MXxOfDB8WXwxNzkwMDMwMDQ2NTY5&promotion_code=JUNCT%2FW04&CMP=afc_h_p_cj_oth_fios_2022_04&SID=c-448945&cjevent=198bbbaf92b011f1814a00190a18b8fa&vendorid=CJM&PID=2639103&AID=11023385'
+  },
+  {
+    id:'tmobile', name:'T-Mobile Home Internet', tech:'5G Wireless', maxSpeed:'245 Mbps', priceFrom:'$50/mo',
+    description:'Best for simple setup without a traditional wired installation.',
+    link:'https://www.t-mobile.com/?im_ref=Vpz1qTRWBxyZTPOyPbX%3AByJDUkuSZczZaRfwTA0&sharedid=&irpid=190488&cmpid=MGPO_AF_P_POSTEVGPZ_2F3E88C2D9EA26AF137360&prgm_id=38171&irgwc=1&afsrc=1'
+  },
+  {
+    id:'centurylink', name:'CenturyLink', tech:'Fiber / DSL', maxSpeed:'940 Mbps', priceFrom:'$50/mo',
+    description:'Best for fiber or DSL service in supported areas.',
+    link:'https://www.centurylink.com/internet/'
+  },
+  {
+    id:'frontier', name:'Frontier', tech:'Fiber', maxSpeed:'5000 Mbps', priceFrom:'$29.99/mo',
+    description:'Best for competitive fiber plans where Frontier is available.',
+    link:'https://frontier.com/why-frontier/get-fiber?cjdata=MXxOfDB8WXwxNzk2NTExNTk4MzI1&AID=15236456&PID=2639103&SID=c-448945&tid=b677261692b311f1814a001b0a18b8fa&tprovider=cj&kbid=158664&utm_source=cj&utm_mcid=3576696&affiliateKey=536485ec-bfe7-4a87-a1e0-159423c032ce&utm_campaign=cross-sell&utm_medium=affiliate&utm_term=ftr-cart&cjevent=b677261692b311f1814a001b0a18b8fa&utm_content=frontier&phone_number=833-922-5959'
+  },
+  {
+    id:'directv', name:'DIRECTV STREAM', tech:'Live TV Streaming', maxSpeed:'165+ channels', priceFrom:'$59.99/mo*',
+    description:'Best for live TV streaming without a satellite dish.',
+    link:'https://www.directv.com/affiliates/genre-packs?cjdata=MXxOfDB8WXwxNzg3NDM3ODM3Mjk4&utm_medium=Affiliate&utm_source=2179451&utm_campaign=Premium&utm_audience=Prospect&utm_creative=Yazing&cjevent=9ccfbcad92af11f183e5001a0a18b8f9&utm_content=Get+Duo%3A+MyEntertainment+%2B+MyNews+for+%2459.99%2Fmo.+for+your+1st+2+mos.+Learn+how%21'
+  }
+];
+
+function getZip(){
+  const params = new URLSearchParams(window.location.search);
+  return (params.get('zip') || '').trim();
+}
+
+function render(){
+  const zip = getZip();
+  document.getElementById('zipText').textContent =
+    zip ? `Showing provider options for ZIP ${zip}. Confirm availability for your exact address.` :
+          'Enter your ZIP code on the homepage to see provider options.';
+
+  const list = document.getElementById('providerList');
+
+  if(!zip){
+    list.innerHTML = '<p>Please return to the homepage and enter a ZIP code.</p>';
+    return;
+  }
+
+  list.innerHTML = PROVIDERS.map(p => `
+    <article class="provider">
+      <span class="tag">${p.tech}</span>
+      <h2>${p.name}</h2>
+      <p>${p.description}</p>
+      <div class="grid">
+        <div class="stat">Technology<strong>${p.tech}</strong></div>
+        <div class="stat">Maximum speed<strong>${p.maxSpeed}</strong></div>
+        <div class="stat">Starting price<strong>${p.priceFrom}</strong></div>
+      </div>
+      <a class="btn" href="${p.link}" target="_blank" rel="sponsored nofollow noopener">Check Provider</a>
+    </article>
+  `).join('');
+}
+
+render();
+</script>
+</body>
+</html>
