@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compare internet and TV provider options across the USA. Enter your ZIP code to see providers, connection types, speeds, and available options for your area.">
+  <title>TV Internet US | Compare Internet & TV Providers by ZIP Code</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-77M6PSGT25"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-77M6PSGT25');
+  </script>
+
+  <style>
+    /* Homepage conversion layer — scoped so the existing site CSS remains intact. */
+    .home-conversion-strip{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:14px auto 0;font-size:.92rem}
+    .home-conversion-strip span{display:inline-flex;align-items:center;gap:5px}
+    .hero .hero-sub{max-width:760px;margin-left:auto;margin-right:auto}
+    .zip-form{max-width:680px;margin-left:auto;margin-right:auto}
+    .zip-help{text-align:center;margin:10px 0 0;font-size:.88rem;opacity:.9}
+    .section-intro{max-width:760px;margin:0 auto;text-align:center}
+    .provider-card .provider-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .provider-card .provider-actions .btn{flex:1 1 150px;text-align:center}
+    .provider-card .provider-meta{margin-top:12px}
+    .provider-card .provider-meta p{margin:6px 0}
+    .home-trust{padding:18px 0}
+    .home-trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .home-trust-item{padding:16px;border:1px solid rgba(0,0,0,.08);border-radius:10px;text-align:center}
+    .home-trust-item strong{display:block;margin-bottom:5px}
+    .home-trust-item span{font-size:.9rem}
+    .home-cta{margin-top:20px}
+    .home-cta .btn{min-width:190px}
+    @media(max-width:700px){
+      .home-trust-grid{grid-template-columns:1fr}
+      .provider-card .provider-actions{flex-direction:column}
+      .provider-card .provider-actions .btn{width:100%}
+    }
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"TV Internet US",
+    "url":"https://tvinternetus.com/",
+    "description":"Compare internet and TV provider options across the USA by ZIP code."
+  }
+  </script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="TV Internet US home">
+        <span class="logo-icon">📡</span>
+        <span class="logo-text">TV Internet <strong>US</strong></span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a href="#providers">Providers</a>
+        <a href="pages/states/index.html">States</a>
+        <a href="#speed-test">Speed Test</a>
+        <a href="pages/blog/index.html">Guides</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Primary conversion area -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-badge">Free to check • No account required</div>
+
+        <h1>Find Internet &amp; TV Options in Your Area</h1>
+
+        <p class="hero-sub">
+          Enter your ZIP code to compare internet providers, connection types, advertised speeds,
+          and available options for your area.
+        </p>
+
+        <form class="zip-form" id="zipForm" action="pages/results.html" method="get" novalidate>
+          <div class="zip-input-group">
+            <label for="zipInput" class="sr-only">ZIP code</label>
+            <input
+              type="text"
+              id="zipInput"
+              name="zip"
+              placeholder="Enter ZIP code"
+              maxlength="5"
+              pattern="[0-9]{5}"
+              inputmode="numeric"
+              autocomplete="postal-code"
+              required
+              aria-describedby="zipHelp formError"
+            >
+            <button type="submit" class="btn btn-primary">Check Availability</button>
+          </div>
+
+          <p class="zip-help" id="zipHelp">Use your 5-digit ZIP code to start your comparison.</p>
+          <p class="form-error" id="formError" hidden>Please enter a valid 5-digit ZIP code.</p>
+        </form>
+
+        <div class="home-conversion-strip" aria-label="Benefits">
+          <span>✓ Free to check</span>
+          <span>✓ No signup required</span>
+          <span>✓ Compare multiple provider options</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust / expectation setting -->
+    <section class="home-trust" aria-label="What to expect">
+      <div class="container">
+        <div class="home-trust-grid">
+          <div class="home-trust-item">
+            <strong>Start with your ZIP</strong>
+            <span>We use your ZIP code to begin the availability search.</span>
+          </div>
+          <div class="home-trust-item">
+            <strong>Compare options</strong>
+            <span>Review provider type, technology, speeds and other available details.</span>
+          </div>
+          <div class="home-trust-item">
+            <strong>Confirm before ordering</strong>
+            <span>Exact availability, pricing and promotions can vary by address.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Providers -->
+    <section class="providers-section" id="providers">
+      <div class="container">
+        <div class="section-header">
+          <h2>Compare Internet Providers</h2>
+          <p class="section-intro">
+            Explore provider information and compare connection types and advertised speeds.
+            Enter your ZIP code above to check what may be available in your area.
+          </p>
+        </div>
+
+        <div class="providers-grid" id="providersGrid" aria-live="polite">
+          <p>Loading provider information…</p>
+        </div>
+
+        <p class="disclaimer">
+          Information shown on this site may vary by location. Pricing, speeds, equipment,
+          promotions and availability should be confirmed directly with the provider for your address.
+        </p>
+      </div>
+    </section>
+
+    <!-- Why us -->
+    <section class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Use TV Internet US?</h2>
+          <p class="section-intro">A simple starting point for comparing internet and TV service options.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Start in seconds</h3>
+            <p>Enter a ZIP code to begin instead of filling out a long account form.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Compare provider details</h3>
+            <p>Review available provider information, technology types and advertised speeds.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3>Multiple connection types</h3>
+            <p>Explore fiber, cable, fixed wireless, DSL and satellite options where applicable.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>No account required</h3>
+            <p>You can begin the ZIP-code comparison without creating an account.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Speed test: useful secondary tool, not the main conversion -->
+    <section class="speed-test-section" id="speed-test">
+      <div class="container">
+        <div class="section-header">
+          <h2>Test Your Current Internet Speed</h2>
+          <p class="section-intro">Check download, upload and latency, then compare your results with the options you are considering.</p>
+        </div>
+
+        <div class="speed-test-widget" id="speedTestWidget">
+          <div class="speed-gauge">
+            <div class="speed-gauge-value">—</div>
+            <div class="speed-gauge-unit">Mbps</div>
+          </div>
+
+          <div class="speed-phase-label">Ready to test</div>
+          <div class="speed-progress"><div class="speed-progress-bar"></div></div>
+
+          <button type="button" class="btn btn-primary speed-start-btn">Start Speed Test</button>
+          <p class="speed-error" hidden></p>
+
+          <div class="speed-results" hidden>
+            <div class="speed-result-item"><span>Ping</span><strong data-metric="ping">—</strong></div>
+            <div class="speed-result-item"><span>Download</span><strong data-metric="download">—</strong></div>
+            <div class="speed-result-item"><span>Upload</span><strong data-metric="upload">—</strong></div>
+          </div>
+
+          <p class="speed-note">Powered by Cloudflare. Results may vary based on your device and network.</p>
+          <a href="pages/speed-test.html" class="speed-full-link">Open full speed test page →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- States / SEO discovery -->
+    <section class="states-section" id="states">
+      <div class="container">
+        <div class="section-header">
+          <h2>Internet Availability by State</h2>
+          <p class="section-intro">Browse state-level provider information and availability guides for the USA.</p>
+        </div>
+
+        <div class="states-grid states-grid-home" id="statesHomeGrid"></div>
+
+        <div class="states-cta">
+          <a href="pages/states/index.html" class="btn btn-outline">View All States</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <h2>How It Works</h2>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Enter your ZIP</h3>
+            <p>Enter your 5-digit ZIP code to start the comparison.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Review available options</h3>
+            <p>See provider information and connection types associated with your area.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Confirm the exact plan</h3>
+            <p>Provider availability, pricing, speeds and promotions should be confirmed for your address.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Secondary conversion CTA -->
+    <section class="cta-section home-cta">
+      <div class="container">
+        <h2>Ready to Compare Your Options?</h2>
+        <p>Enter your ZIP code and start checking what may be available in your area.</p>
+        <a href="#zipForm" class="btn btn-primary btn-lg" data-cta="bottom_zip">Check My ZIP Code</a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <h2>Common Questions</h2>
+        </div>
+
+        <div class="faq-list" id="faqList">
+          <details class="faq-item">
+            <summary>Is checking availability free?</summary>
+            <p>Yes. You can use the ZIP-code comparison without creating an account or paying a fee to use the checker.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Does a ZIP code guarantee service at my address?</summary>
+            <p>No. ZIP-code results are a starting point. Exact service availability, pricing, speeds, equipment and promotions can vary by address and should be confirmed with the provider.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>What if I don't see the provider I want?</summary>
+            <p>Provider availability varies by location. You can also browse our state and provider guides for additional information.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Do you sell my information?</summary>
+            <p>TV Internet US does not require an account to start a ZIP-code comparison. Review our Privacy Policy for details about information collected and how it is used.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guides -->
+    <section class="guides-section" style="padding:40px 0;">
+      <div class="container">
+        <div class="section-header">
+          <h2>Internet &amp; TV Guides</h2>
+          <p class="section-intro">Helpful information for comparing internet service, connection types and provider options.</p>
+        </div>
+
+        <ul>
+          <li><a href="pages/blog/best-internet-providers.html">Best Internet Providers 2026</a></li>
+          <li><a href="pages/blog/cable-vs-fiber-internet.html">Cable vs Fiber Internet: Which Is Right for You?</a></li>
+          <li><a href="pages/blog/lower-your-internet-bill.html">How to Lower Your Internet Bill</a></li>
+          <li><a href="pages/blog/rural-internet-options.html">Best Internet Options for Rural Areas</a></li>
+          <li><a href="pages/blog/how-to-switch-internet-providers.html">How to Switch Internet Providers Without the Headache</a></li>
+        </ul>
+
+        <p><a href="pages/blog/index.html" class="btn btn-outline">View All Guides</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">📡</span>
+          <span class="logo-text">TV Internet <strong>US</strong></span>
+        </a>
+        <p>Compare TV &amp; internet providers across the USA and explore options for your area.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <a href="#providers">Providers</a>
+        <a href="pages/states/index.html">States</a>
+        <a href="pages/speed-test.html">Speed Test</a>
+        <a href="pages/blog/index.html">Guides</a>
+        <a href="#faq">FAQ</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>Providers</h4>
+        <a href="pages/provider.html?id=xfinity">Xfinity</a>
+        <a href="pages/provider.html?id=att">AT&amp;T Fiber</a>
+        <a href="pages/provider.html?id=spectrum">Spectrum</a>
+        <a href="pages/provider.html?id=verizon">Verizon Fios</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="contact.html">Contact Us</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>We may earn a commission when you sign up through some links on this site. Availability data is estimated and should be confirmed with the provider.</p>
+      <p>&copy; 2026 TV Internet US. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/providers.js"></script>
+  <script src="js/states.js"></script>
+  <script src="js/speedtest.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const grid = document.getElementById("providersGrid");
+
+      if (grid && typeof PROVIDERS !== "undefined") {
+        grid.innerHTML = PROVIDERS.map(function (provider) {
+          const providerUrl = "pages/provider.html?id=" + encodeURIComponent(provider.id);
+
+          return `
+            <article class="provider-card">
+              <div class="provider-logo">
+                ${provider.logo ? `<img src="${provider.logo}" alt="${provider.name} logo" style="max-width:180px;" loading="lazy">` : ""}
+              </div>
+
+              <h3>${provider.name}</h3>
+              <p>${provider.description || ""}</p>
+
+              <div class="provider-meta">
+                <p><strong>Technology:</strong> ${provider.tech || "N/A"}</p>
+                <p><strong>Max advertised speed:</strong> ${provider.maxSpeed || "N/A"}</p>
+                <p><strong>Starting price:</strong> ${provider.priceFrom || "N/A"}</p>
+              </div>
+
+              <div class="provider-actions">
+                <a href="${providerUrl}" class="btn" data-provider-id="${provider.id}" data-provider-click="true">View Provider</a>
+                <a href="#zipForm" class="btn btn-primary" data-cta="provider_zip" data-provider-id="${provider.id}">Check Availability</a>
+              </div>
+            </article>
+          `;
+        }).join("");
+      }
+
+      // ZIP validation + analytics event.
+      const form = document.getElementById("zipForm");
+      const input = document.getElementById("zipInput");
+      const error = document.getElementById("formError");
+
+      if (form && input && error) {
+        form.addEventListener("submit", function (event) {
+          const zip = input.value.trim();
+
+          if (!/^[0-9]{5}$/.test(zip)) {
+            event.preventDefault();
+            error.hidden = false;
+            input.setAttribute("aria-invalid", "true");
+            input.focus();
+            return;
+          }
+
+          error.hidden = true;
+          input.removeAttribute("aria-invalid");
+
+          if (typeof gtag === "function") {
+            gtag("event", "zip_check_submit", {
+              event_category: "conversion",
+              event_label: "homepage_zip_checker"
+            });
+          }
+
+          if (window.dataLayer) {
+            window.dataLayer.push({
+              event: "availability_check_submit",
+              conversion_location: "homepage"
+            });
+          }
+        });
+      }
+
+      // Track provider clicks without blocking navigation.
+      document.addEventListener("click", function (event) {
+        const providerLink = event.target.closest("[data-provider-click='true']");
+        if (providerLink && typeof gtag === "function") {
+          gtag("event", "provider_click", {
+            event_category: "engagement",
+            provider_id: providerLink.dataset.providerId || ""
+          });
+        }
+
+        const cta = event.target.closest("[data-cta]");
+        if (cta && typeof gtag === "function") {
+          gtag("event", "cta_click", {
+            event_category: "conversion",
+            cta_name: cta.dataset.cta || ""
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
