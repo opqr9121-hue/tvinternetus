@@ -697,9 +697,9 @@ document.addEventListener("DOMContentLoaded", function () {
   homeGrid.innerHTML = preview
     .map(function (state) {
       return (
-        '<a class="state-card-home" href="pages/results.html?state=' +
-        state.abbr +
-        '">' +
+        '<a class="state-card-home" href="pages/internet-in-' +
+        slugifyStateName(state.name) +
+        '.html">' +
         '<strong>' + state.name + '</strong>' +
         '<span>' + state.coverage + '% fiber availability</span>' +
         '</a>'
