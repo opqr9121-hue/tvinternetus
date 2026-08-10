@@ -1,149 +1,1225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Best Internet, TV &amp; Wireless Providers in the USA (2026)</title>
-<meta name="description" content="Compare DIRECTV, AT&T, Xfinity, Verizon, T-Mobile, Frontier, Optimum, and Spectrum plans in one place — TV, home internet, and wireless.">
-<link rel="canonical" href="https://tvinternetus.com/pages/provider.html">
-<link rel="stylesheet" href="../css/style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  .provider-page .table{margin-top:20px;border-collapse:collapse;width:100%;}
-  .provider-page .table th,.provider-page .table td{padding:12px;border-bottom:1px solid #e2e8f0;text-align:left;}
-  .provider-page .table th{background:#f0f4f8;}
-  .provider-page .btn{background:#1d4ed8;color:#fff;padding:9px 14px;text-decoration:none;border-radius:6px;font-weight:600;display:inline-block;}
-  .provider-page .btn:hover{background:#153ba8;}
-  .provider-page .box{background:#f7f9fc;padding:18px 20px;border-radius:10px;margin:20px 0;}
-  .provider-page h2{margin-top:44px;color:#0f2540;}
-  .provider-page section p{line-height:1.7;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Best Internet, TV & Wireless Providers in the USA (2026) | TV Internet US</title>
+
+  <meta name="description" content="Compare internet, TV and wireless providers including Xfinity, AT&T, Verizon, Frontier, T-Mobile, Spectrum and DIRECTV. Check current offers and availability.">
+
+  <link rel="canonical" href="https://tvinternetus.com/pages/provider.html">
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      background: #f6f8fc;
+      color: #172033;
+    }
+
+    .provider-v2 {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 55px 20px 80px;
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 45px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #e8f0ff;
+      color: #1554c7;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin: 0 0 18px;
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: #0b1f3a;
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #637083;
+    }
+
+    .hero-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: #1554c7;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .hero-link:hover {
+      text-decoration: underline;
+    }
+
+    .section-heading {
+      margin: 55px 0 22px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 7px;
+      font-size: 28px;
+      color: #0b1f3a;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: #718096;
+    }
+
+    .provider-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .provider-card {
+      position: relative;
+      background: #ffffff;
+      border: 1px solid #e4e9f1;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 5px 20px rgba(15, 35, 64, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .provider-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(15, 35, 64, 0.10);
+    }
+
+    .featured {
+      border: 2px solid #2563eb;
+    }
+
+    .featured-label {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: #2563eb;
+      color: white;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .provider-top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .provider-logo {
+      width: 58px;
+      height: 58px;
+      border: 1px solid #e7ebf2;
+      border-radius: 12px;
+      padding: 9px;
+      object-fit: contain;
+      background: white;
+    }
+
+    .provider-name {
+      margin: 0 0 5px;
+      font-size: 21px;
+      color: #10233f;
+    }
+
+    .provider-type {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #64748b;
+      background: #f1f5f9;
+      padding: 5px 9px;
+      border-radius: 999px;
+    }
+
+    .provider-description {
+      color: #637083;
+      line-height: 1.6;
+      font-size: 14px;
+      margin: 0 0 20px;
+    }
+
+    .provider-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .stat {
+      background: #f7f9fc;
+      border-radius: 10px;
+      padding: 12px;
+    }
+
+    .stat-label {
+      display: block;
+      font-size: 11px;
+      color: #7b8798;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: .3px;
+    }
+
+    .stat-value {
+      font-weight: 800;
+      color: #152a46;
+      font-size: 15px;
+    }
+
+    .provider-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .best-for {
+      font-size: 12px;
+      color: #64748b;
+      line-height: 1.4;
+      max-width: 55%;
+    }
+
+    .offer-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 43px;
+      padding: 10px 17px;
+      border-radius: 9px;
+      background: #1554c7;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .offer-btn:hover {
+      background: #0d3f9e;
+      transform: translateY(-1px);
+    }
+
+    .secondary-btn {
+      background: #0f766e;
+    }
+
+    .secondary-btn:hover {
+      background: #0b5f59;
+    }
+
+    .disclosure {
+      margin-top: 50px;
+      background: #ffffff;
+      border: 1px solid #e4e9f1;
+      border-radius: 14px;
+      padding: 20px;
+      color: #667085;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .choose-box {
+      margin-top: 45px;
+      background: linear-gradient(135deg, #0b1f3a, #164e8a);
+      color: white;
+      border-radius: 20px;
+      padding: 35px;
+    }
+
+    .choose-box h2 {
+      margin: 0 0 12px;
+      font-size: 27px;
+    }
+
+    .choose-box p {
+      margin: 0 0 20px;
+      line-height: 1.7;
+      color: #dce8f7;
+    }
+
+    .choose-btn {
+      display: inline-block;
+      background: white;
+      color: #0b3d78;
+      padding: 12px 20px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .choose-btn:hover {
+      background: #edf4ff;
+    }
+
+    @media (max-width: 760px) {
+      .provider-v2 {
+        padding: 35px 15px 60px;
+      }
+
+      .provider-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .provider-bottom {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .best-for {
+        max-width: 100%;
+      }
+
+      .offer-btn {
+        width: 100%;
+      }
+
+      .featured-label {
+        position: static;
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
 <header class="site-header">
   <div class="container header-inner">
+
     <a href="../index.html" class="logo">
-      <span class="logo-icon">\U0001F4E1</span>
+      <span class="logo-icon">📡</span>
       <span class="logo-text">TV Internet <strong>US</strong></span>
     </a>
+
     <nav class="main-nav" id="mainNav">
       <a href="../index.html#providers">Providers</a>
       <a href="../index.html#how-it-works">How It Works</a>
       <a href="guide.html">Guides</a>
       <a href="../index.html#faq">FAQ</a>
     </nav>
+
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
+
   </div>
 </header>
 
-<main class="page-content provider-page">
-<div class="container">
 
-<h1>Best Internet, TV &amp; Wireless Providers in the USA (2026)</h1>
-<p class="intro">Compare TV, home internet, and wireless plans side by side. Availability varies by address — <a href="../index.html#providers">check what's available at your address</a> before choosing.</p>
+<main class="provider-v2">
 
-<h2>TV Providers</h2>
-<table class="table">
-  <tr><th>Provider</th><th>Type</th><th>Best For</th><th></th></tr>
-  <tr>
-    <td>DIRECTV Satellite</td>
-    <td>Satellite TV</td>
-    <td>Areas without cable/fiber TV bundles</td>
-    <td><a href="https://www.directv.com/affiliates/genre-packs?cjdata=MXxOfDB8WXwxNzg3MzQzNzg1ODcz&utm_medium=Affiliate&utm_source=2179451&utm_campaign=Premium&utm_audience=Prospect&utm_creative=Yazing&cjevent=a1cb10a991d411f180ec00260a18ba72&utm_content=Get+Duo%3A+MyEntertainment+%2B+MyNews+for+%2459.99%2Fmo.+for+your+1st+2+mos.+Learn+how%21+" class="btn" target="_blank" rel="sponsored noopener">View Plans</a></td>
-  </tr>
-  <tr>
-    <td>DIRECTV Stream</td>
-    <td>Live TV streaming</td>
-    <td>Streaming over any existing internet connection</td>
-    <td><a href="https://www.directv.com/?cjdata=MXxOfDB8WXwxNzg3MzQzODI4ODI0&utm_campaign=STREAM&utm_medium=Affiliate&utm_source=2179451&utm_audience=Prospect&utm_creative=Yazing&cjevent=bb64fcbc91d411f181f1002c0a18ba73&utm_content=Sign+up+for+DIRECTV+STREAMa%C2%A0+and+start+streaming+instantly+Start+with+a+free+trial+Restr%27s+apply" class="btn" target="_blank" rel="sponsored noopener">View Plans</a></td>
-  </tr>
-</table>
+  <section class="hero">
 
-<h2>Home Internet Providers</h2>
-<table class="table">
-  <tr><th>Provider</th><th>Type</th><th>Best For</th><th></th></tr>
-  <tr>
-    <td>AT&amp;T Internet</td>
-    <td>Fiber / DSL</td>
-    <td>Bundling with AT&amp;T wireless</td>
-    <td><a href="https://www.att.com/bundles/save.html?source=ECAuAT10600aff12A&wtExtndSource=2639103&CI=CJ_AFFILIATE&RI=CJ1&RD=37922269&tfn=aff&cjevent=f1a8f71491d411f1825d002b0a18b8f6" class="btn" target="_blank" rel="sponsored noopener">View Plans</a></td>
-  </tr>
-  <tr>
-    <td>Xfinity</td>
-    <td>Cable</td>
-    <td>Wide metro availability</td>
-    <td><a href="https://www.xfinity.com/overview?cjdata=MXxOfDB8WXwxNzkzMDQ1MDY5NDE3&cjevent=32bf4302929b11f1826900050a18ba72&cmp=aff__2639103" class="btn" target="_blank" rel="sponsored noopener">View Plans</a></td>
-  </tr>
-  <tr>
-    <td>Verizon Fios</td>
-    <td>Fiber</td>
-    <td>Fastest available speeds where covered</td>
-    <td><a href="https://www.verizon.com/home/internet/fios-fastest-internet/?cjdata=MXxOfDB8WXwxNzkwMDIwNjc0MjIz&promotion_code=JUNCT/W04&CMP=afc_h_p_cj_oth_fios_2022_04&SID=c-448945&cjevent=47317283929a11f1826900040a18ba72&vendorid=CJM&PID=2639103&AID=11023385" class="btn" target="_blank" rel="sponsored noopener">View Plans</a></td>
-  </tr>
-  <tr>
-    <td>Frontier</td>
-    <td>Fiber</td>
-    <td>Affordable fiber where available</td>
-    <td><a href="https://frontier.com/why-frontier/get-fiber?cjdata=MXxOfDB8WXwxNzk2NTAwNjEwNTAw&AID=15236456&PID=2639103&SID=c-448945&tid=213615cc929a11f1824300070a18b8fb&tprovider=cj&kbid=158664&utm_source=cj&utm_mcid=3576696&affiliateKey=536485ec-bfe7-4a87-a1e0-159423c032ce&utm_campaign=cross-sell&utm_medium=affiliate&utm_term=ftr-cart&cjevent=213615cc929a11f1824300070a18b8fb&utm_content=frontier&phone_number=833-922-5959" class="btn" target="_blank" rel="sponsored noopener">View Plans</a></td>
-  </tr>
-  <tr>
-    <td>Optimum</td>
-    <td>Cable / Fiber</td>
-    <td>Northeast coverage areas</td>
-    <td><a href="https://www.optimum.com/?cjdata=MXxOfDB8WXwxNzg4NzI0NTU3MTg3&cjevent=016f2711929a11f1822400070a18b8f6&utm_campaign=CJ_2179451&utm_source=CJ&utm_medium=affiliate&s_cid=2179451-_-gm-_-acq-_-aff-_-bnr-_-CJ-_-X-X-X-X" class="btn" target="_blank" rel="sponsored noopener">View Plans</a></td>
-  </tr>
-  <tr>
-    <td>Spectrum</td>
-    <td>Cable</td>
-    <td>No-contract plans, broad availability</td>
-    <td><a href="https://www.spectrum.com/" class="btn" target="_blank" rel="noopener">View Plans</a></td>
-  </tr>
-</table>
+    <span class="hero-badge">2026 PROVIDER GUIDE</span>
 
-<h2>Wireless &amp; Mobile</h2>
-<table class="table">
-  <tr><th>Provider</th><th>Type</th><th>Best For</th><th></th></tr>
-  <tr>
-    <td>AT&amp;T Wireless</td>
-    <td>Mobile</td>
-    <td>Bundling with AT&amp;T Internet</td>
-    <td><a href="https://www.att.com/wireless/?cjevent=d331809d91d411f18187002e0a18b8f7&source=EC1NAT10600aff12A&wtExtndSource=2639103" class="btn" target="_blank" rel="sponsored noopener">View Plans</a></td>
-  </tr>
-  <tr>
-    <td>T-Mobile</td>
-    <td>Mobile / 5G Home Internet</td>
-    <td>No annual contract, nationwide network</td>
-    <td><a href="https://www.t-mobile.com/?im_ref=Vpz1qTRWBxyZTPOyPbX%3AByJDUkuSZ10paRfwTA0&sharedid=&irpid=190488&cmpid=MGPO_AF_P_POSTEVGPZ_2F3E88C2D9EA26AF137360&prgm_id=38171&irgwc=1&afsrc=1" class="btn" target="_blank" rel="sponsored noopener">View Plans</a></td>
-  </tr>
-</table>
+    <h1>Compare the Best Internet, TV & Wireless Providers</h1>
 
-<div class="box">
-  <strong>Note:</strong> Pricing and promotions change frequently and vary by address — check the provider's page for current offers rather than relying on advertised rates elsewhere.
-</div>
+    <p>
+      Compare major U.S. providers, internet technologies, speeds,
+      starting prices and current offers in one place.
+    </p>
 
-<h2>How to Choose the Right Provider</h2>
-<p>Start with what's actually available at your address, not what's nationally popular — fiber from AT&amp;T or Verizon Fios outperforms cable where it's offered, but cable (Xfinity, Spectrum, Optimum) still covers far more addresses. If you want TV without a traditional cable bundle, DIRECTV Stream works over any existing internet connection. In areas without reliable wired options, T-Mobile's wireless network can also serve as a home internet substitute.</p>
+    <a class="hero-link" href="../index.html#providers">
+      Check providers available at your address →
+    </a>
 
-<div class="cta">
-  <a href="../index.html#providers" class="btn">Find Providers Near You</a>
-</div>
+  </section>
 
-</div>
+
+  <!-- INTERNET -->
+
+  <div class="section-heading">
+    <h2>Home Internet Providers</h2>
+    <p>Compare fiber, cable and 5G home internet options.</p>
+  </div>
+
+  <div class="provider-grid">
+
+
+    <!-- XFINITY -->
+
+    <article class="provider-card featured">
+
+      <span class="featured-label">Popular Choice</span>
+
+      <div class="provider-top">
+
+        <img
+          class="provider-logo"
+          src="../images/xfinity.svg"
+          alt="Xfinity logo"
+        >
+
+        <div>
+          <h3 class="provider-name">Xfinity</h3>
+          <span class="provider-type">Cable Internet</span>
+        </div>
+
+      </div>
+
+      <p class="provider-description">
+        Wide cable availability with plans designed for streaming,
+        gaming and connected households.
+      </p>
+
+      <div class="provider-stats">
+
+        <div class="stat">
+          <span class="stat-label">Max Speed</span>
+          <span class="stat-value">1,200 Mbps</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-label">Starting Price</span>
+          <span class="stat-value">$40/mo</span>
+        </div>
+
+      </div>
+
+      <div class="provider-bottom">
+
+        <span class="best-for">
+          Best for wide availability
+        </span>
+
+        <a
+          class="offer-btn"
+          href="https://www.xfinity.com/learn/deals/internet?cjdata=MXxOfDB8WXwxNzkzMDUzNzIyOTA1&cjevent=58a0c60092af11f1837f00170a18ba74&cmp=aff__2639103"
+          target="_blank"
+          rel="sponsored noopener"
+        >
+          View Xfinity Offers →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <!-- AT&T -->
+
+    <article class="provider-card">
+
+      <div class="provider-top">
+
+        <img
+          class="provider-logo"
+          src="../images/att.svg"
+          alt="AT&T logo"
+        >
+
+        <div>
+          <h3 class="provider-name">AT&T Fiber</h3>
+          <span class="provider-type">Fiber Internet</span>
+        </div>
+
+      </div>
+
+      <p class="provider-description">
+        Fiber internet with fast upload and download speeds,
+        ideal for remote work, gaming and large households.
+      </p>
+
+      <div class="provider-stats">
+
+        <div class="stat">
+          <span class="stat-label">Max Speed</span>
+          <span class="stat-value">5,000 Mbps</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-label">Starting Price</span>
+          <span class="stat-value">$35/mo</span>
+        </div>
+
+      </div>
+
+      <div class="provider-bottom">
+
+        <span class="best-for">
+          Best for fiber speeds
+        </span>
+
+        <a
+          class="offer-btn"
+          href="https://www.att.com/bundles/save.html?source=ECAuAT10600aff12A&wtExtndSource=2639103&CI=CJ_AFFILIATE&RI=CJ1&RD=37922269&tfn=aff&cjevent=e459227e92af11f18243001b0a18b8fb"
+          target="_blank"
+          rel="sponsored noopener"
+        >
+          View AT&T Offers →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <!-- SPECTRUM -->
+
+    <article class="provider-card">
+
+      <div class="provider-top">
+
+        <img
+          class="provider-logo"
+          src="../images/spectrum.svg"
+          alt="Spectrum logo"
+        >
+
+        <div>
+          <h3 class="provider-name">Spectrum</h3>
+          <span class="provider-type">Cable Internet</span>
+        </div>
+
+      </div>
+
+      <p class="provider-description">
+        Cable internet with broad availability and no-contract
+        options in many service areas.
+      </p>
+
+      <div class="provider-stats">
+
+        <div class="stat">
+          <span class="stat-label">Max Speed</span>
+          <span class="stat-value">1,000 Mbps</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-label">Starting Price</span>
+          <span class="stat-value">$40/mo</span>
+        </div>
+
+      </div>
+
+      <div class="provider-bottom">
+
+        <span class="best-for">
+          Best for flexibility
+        </span>
+
+        <a
+          class="offer-btn"
+          href="https://www.spectrum.com/"
+          target="_blank"
+          rel="noopener"
+        >
+          View Spectrum Offers →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <!-- VERIZON -->
+
+    <article class="provider-card">
+
+      <div class="provider-top">
+
+        <img
+          class="provider-logo"
+          src="../images/verizon.svg"
+          alt="Verizon logo"
+        >
+
+        <div>
+          <h3 class="provider-name">Verizon Fios</h3>
+          <span class="provider-type">Fiber Internet</span>
+        </div>
+
+      </div>
+
+      <p class="provider-description">
+        100% fiber internet with fast symmetrical speeds in
+        covered areas.
+      </p>
+
+      <div class="provider-stats">
+
+        <div class="stat">
+          <span class="stat-label">Max Speed</span>
+          <span class="stat-value">2,300 Mbps</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-label">Starting Price</span>
+          <span class="stat-value">$50/mo</span>
+        </div>
+
+      </div>
+
+      <div class="provider-bottom">
+
+        <span class="best-for">
+          Best for reliable fiber
+        </span>
+
+        <a
+          class="offer-btn"
+          href="https://www.verizon.com/home/internet/fios-fastest-internet/?cjdata=MXxOfDB8WXwxNzkwMDMwMDQ2NTY5&promotion_code=JUNCT/W04&CMP=afc_h_p_cj_oth_fios_2022_04&SID=c-448945&cjevent=198bbbaf92b011f1814a00190a18b8fa&vendorid=CJM&PID=2639103&AID=11023385"
+          target="_blank"
+          rel="sponsored noopener"
+        >
+          View Verizon Offers →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <!-- T-MOBILE -->
+
+    <article class="provider-card">
+
+      <div class="provider-top">
+
+        <img
+          class="provider-logo"
+          src="../images/tmobile.svg"
+          alt="T-Mobile logo"
+        >
+
+        <div>
+          <h3 class="provider-name">T-Mobile Home Internet</h3>
+          <span class="provider-type">5G Home Internet</span>
+        </div>
+
+      </div>
+
+      <p class="provider-description">
+        Wireless home internet with simple setup and no traditional
+        cable installation.
+      </p>
+
+      <div class="provider-stats">
+
+        <div class="stat">
+          <span class="stat-label">Max Speed</span>
+          <span class="stat-value">245+ Mbps</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-label">Starting Price</span>
+          <span class="stat-value">$50/mo</span>
+        </div>
+
+      </div>
+
+      <div class="provider-bottom">
+
+        <span class="best-for">
+          Best for easy setup
+        </span>
+
+        <a
+          class="offer-btn"
+          href="https://www.t-mobile.com/?im_ref=Vpz1qTRWBxyZTPOyPbX%3AByJDUkuSZczZaRfwTA0&sharedid=&irpid=190488&cmpid=MGPO_AF_P_POSTEVGPZ_2F3E88C2D9EA26AF137360&prgm_id=38171&irgwc=1&afsrc=1"
+          target="_blank"
+          rel="sponsored noopener"
+        >
+          View T-Mobile Offers →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <!-- FRONTIER -->
+
+    <article class="provider-card">
+
+      <div class="provider-top">
+
+        <img
+          class="provider-logo"
+          src="../images/frontier.svg"
+          alt="Frontier logo"
+        >
+
+        <div>
+          <h3 class="provider-name">Frontier</h3>
+          <span class="provider-type">Fiber Internet</span>
+        </div>
+
+      </div>
+
+      <p class="provider-description">
+        Expanding fiber network with competitive high-speed
+        internet plans.
+      </p>
+
+      <div class="provider-stats">
+
+        <div class="stat">
+          <span class="stat-label">Max Speed</span>
+          <span class="stat-value">5,000 Mbps</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-label">Starting Price</span>
+          <span class="stat-value">$29.99/mo</span>
+        </div>
+
+      </div>
+
+      <div class="provider-bottom">
+
+        <span class="best-for">
+          Best for affordable fiber
+        </span>
+
+        <a
+          class="offer-btn"
+          href="https://frontier.com/why-frontier/get-fiber?cjdata=MXxOfDB8WXwxNzk2NTExNTk4MzI1&AID=15236456&PID=2639103&SID=c-448945&tid=b677261692b311f1814a001b0a18b8fa&tprovider=cj&kbid=158664&utm_source=cj&utm_mcid=3576696&affiliateKey=536485ec-bfe7-4a87-a1e0-159423c032ce&utm_campaign=cross-sell&utm_medium=affiliate&utm_term=ftr-cart&cjevent=b677261692b311f1814a001b0a18b8fa&utm_content=frontier&phone_number=833-922-5959"
+          target="_blank"
+          rel="sponsored noopener"
+        >
+          View Frontier Offers →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <!-- CENTURYLINK -->
+
+    <article class="provider-card">
+
+      <div class="provider-top">
+
+        <img
+          class="provider-logo"
+          src="../images/centurylink.svg"
+          alt="CenturyLink logo"
+        >
+
+        <div>
+          <h3 class="provider-name">CenturyLink</h3>
+          <span class="provider-type">Fiber / DSL</span>
+        </div>
+
+      </div>
+
+      <p class="provider-description">
+        Fiber and DSL service in selected markets, including
+        some areas outside major metro regions.
+      </p>
+
+      <div class="provider-stats">
+
+        <div class="stat">
+          <span class="stat-label">Max Speed</span>
+          <span class="stat-value">940 Mbps</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-label">Starting Price</span>
+          <span class="stat-value">$50/mo</span>
+        </div>
+
+      </div>
+
+      <div class="provider-bottom">
+
+        <span class="best-for">
+          Best for select rural areas
+        </span>
+
+        <a
+          class="offer-btn"
+          href="https://www.centurylink.com/"
+          target="_blank"
+          rel="noopener"
+        >
+          View CenturyLink Offers →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <!-- OPTIMUM -->
+
+    <article class="provider-card">
+
+      <div class="provider-top">
+
+        <div class="provider-logo" aria-label="Optimum logo">
+          <strong>OPT</strong>
+        </div>
+
+        <div>
+          <h3 class="provider-name">Optimum</h3>
+          <span class="provider-type">Cable / Fiber</span>
+        </div>
+
+      </div>
+
+      <p class="provider-description">
+        Cable and fiber internet service across selected areas,
+        particularly in parts of the Northeast.
+      </p>
+
+      <div class="provider-stats">
+
+        <div class="stat">
+          <span class="stat-label">Technology</span>
+          <span class="stat-value">Cable / Fiber</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-label">Coverage</span>
+          <span class="stat-value">Regional</span>
+        </div>
+
+      </div>
+
+      <div class="provider-bottom">
+
+        <span class="best-for">
+          Best for Northeast coverage
+        </span>
+
+        <a
+          class="offer-btn"
+          href="https://www.optimum.com/"
+          target="_blank"
+          rel="noopener"
+        >
+          View Optimum Offers →
+        </a>
+
+      </div>
+
+    </article>
+
+  </div>
+
+
+  <!-- TV -->
+
+  <div class="section-heading">
+    <h2>TV Providers</h2>
+    <p>Live television and streaming options.</p>
+  </div>
+
+  <div class="provider-grid">
+
+
+    <!-- DIRECTV STREAM -->
+
+    <article class="provider-card featured">
+
+      <span class="featured-label">TV Pick</span>
+
+      <div class="provider-top">
+
+        <img
+          class="provider-logo"
+          src="../images/directv.svg"
+          alt="DIRECTV logo"
+        >
+
+        <div>
+          <h3 class="provider-name">DIRECTV STREAM</h3>
+          <span class="provider-type">Live TV Streaming</span>
+        </div>
+
+      </div>
+
+      <p class="provider-description">
+        Live television streaming with hundreds of channels and
+        no traditional satellite dish required.
+      </p>
+
+      <div class="provider-stats">
+
+        <div class="stat">
+          <span class="stat-label">Channels</span>
+          <span class="stat-value">165+ options</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-label">From</span>
+          <span class="stat-value">$89.99/mo</span>
+        </div>
+
+      </div>
+
+      <div class="provider-bottom">
+
+        <span class="best-for">
+          Best for live TV streaming
+        </span>
+
+        <a
+          class="offer-btn secondary-btn"
+          href="https://www.directv.com/affiliates/genre-packs?cjdata=MXxOfDB8WXwxNzg3NDM3ODM3Mjk4&utm_medium=Affiliate&utm_source=2179451&utm_campaign=Premium&utm_audience=Prospect&utm_creative=Yazing&cjevent=9ccfbcad92af11f183e5001a0a18b8f9&utm_content=Get+Duo%3A+MyEntertainment+%2B+MyNews+for+%2459.99%2Fmo.+for+your+1st+2+mos.+Learn+how%21+"
+          target="_blank"
+          rel="sponsored noopener"
+        >
+          View DIRECTV Offers →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <!-- DIRECTV SATELLITE -->
+
+    <article class="provider-card">
+
+      <div class="provider-top">
+
+        <img
+          class="provider-logo"
+          src="../images/directv.svg"
+          alt="DIRECTV logo"
+        >
+
+        <div>
+          <h3 class="provider-name">DIRECTV</h3>
+          <span class="provider-type">Satellite TV</span>
+        </div>
+
+      </div>
+
+      <p class="provider-description">
+        Traditional DIRECTV television service with live programming
+        and satellite delivery.
+      </p>
+
+      <div class="provider-stats">
+
+        <div class="stat">
+          <span class="stat-label">Service</span>
+          <span class="stat-value">Satellite TV</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-label">Availability</span>
+          <span class="stat-value">Nationwide*</span>
+        </div>
+
+      </div>
+
+      <div class="provider-bottom">
+
+        <span class="best-for">
+          Best for traditional satellite TV
+        </span>
+
+        <a
+          class="offer-btn secondary-btn"
+          href="https://www.directv.com/?cjdata=MXxOfDB8WXwxNzg3NDM3OTA5MDQw&utm_campaign=STREAM&utm_medium=Affiliate&utm_source=2179451&utm_audience=Prospect&utm_creative=Yazing&cjevent=c79299c792af11f182f800190a18b8fc&utm_content=Sign+up+for+DIRECTV+STREAM"
+          target="_blank"
+          rel="sponsored noopener"
+        >
+          View DIRECTV Offers →
+        </a>
+
+      </div>
+
+    </article>
+
+  </div>
+
+
+  <!-- WIRELESS -->
+
+  <div class="section-heading">
+    <h2>Wireless & Mobile</h2>
+    <p>Mobile and wireless options from major U.S. carriers.</p>
+  </div>
+
+  <div class="provider-grid">
+
+
+    <!-- AT&T WIRELESS -->
+
+    <article class="provider-card">
+
+      <div class="provider-top">
+
+        <img
+          class="provider-logo"
+          src="../images/att.svg"
+          alt="AT&T logo"
+        >
+
+        <div>
+          <h3 class="provider-name">AT&T Wireless</h3>
+          <span class="provider-type">Mobile</span>
+        </div>
+
+      </div>
+
+      <p class="provider-description">
+        Nationwide mobile service with options for individual,
+        family and bundled customers.
+      </p>
+
+      <div class="provider-stats">
+
+        <div class="stat">
+          <span class="stat-label">Network</span>
+          <span class="stat-value">5G</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-label">Service</span>
+          <span class="stat-value">Mobile</span>
+        </div>
+
+      </div>
+
+      <div class="provider-bottom">
+
+        <span class="best-for">
+          Best for mobile bundles
+        </span>
+
+        <a
+          class="offer-btn"
+          href="https://www.att.com/wireless/?cjevent=f94789b892af11f182f800190a18b8fc&source=EC1NAT10600aff12A&wtExtndSource=2639103"
+          target="_blank"
+          rel="sponsored noopener"
+        >
+          View AT&T Wireless →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <!-- VERIZON WIRELESS -->
+
+    <article class="provider-card">
+
+      <div class="provider-top">
+
+        <img
+          class="provider-logo"
+          src="../images/verizon.svg"
+          alt="Verizon logo"
+        >
+
+        <div>
+          <h3 class="provider-name">Verizon Wireless</h3>
+          <span class="provider-type">Mobile</span>
+        </div>
+
+      </div>
+
+      <p class="provider-description">
+        Verizon wireless plans and mobile services across the
+        United States.
+      </p>
+
+      <div class="provider-stats">
+
+        <div class="stat">
+          <span class="stat-label">Network</span>
+          <span class="stat-value">5G</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-label">Service</span>
+          <span class="stat-value">Mobile</span>
+        </div>
+
+      </div>
+
+      <div class="provider-bottom">
+
+        <span class="best-for">
+          Best for nationwide mobile service
+        </span>
+
+        <a
+          class="offer-btn"
+          href="https://www.verizon.com/?cjdata=MXxOfDB8WXwxNzkwMDMwMDgyMzY3&URL=https%3A%2F%2Fwww.verizon.com%2F&CMP=afc_h_p_cj_oth_fios_2022_04&SID=c-448945&cjevent=2ee24b9692b011f183a0001f0a18b8f8&vendorid=CJM&PID=2639103&AID=11557999"
+          target="_blank"
+          rel="sponsored noopener"
+        >
+          View Verizon Wireless →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <!-- T-MOBILE WIRELESS -->
+
+    <article class="provider-card">
+
+      <div class="provider-top">
+
+        <img
+          class="provider-logo"
+          src="../images/tmobile.svg"
+          alt="T-Mobile logo"
+        >
+
+        <div>
+          <h3 class="provider-name">T-Mobile</h3>
+          <span class="provider-type">Mobile / 5G</span>
+        </div>
+
+      </div>
+
+      <p class="provider-description">
+        Mobile service and 5G connectivity with a wide range of
+        wireless plans.
+      </p>
+
+      <div class="provider-stats">
+
+        <div class="stat">
+          <span class="stat-label">Network</span>
+          <span class="stat-value">5G</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-label">Service</span>
+          <span class="stat-value">Mobile</span>
+        </div>
+
+      </div>
+
+      <div class="provider-bottom">
+
+        <span class="best-for">
+          Best for 5G coverage
+        </span>
+
+        <a
+          class="offer-btn"
+          href="https://www.t-mobile.com/?im_ref=Vpz1qTRWBxyZTPOyPbX%3AByJDUkuSZczZaRfwTA0&sharedid=&irpid=190488&cmpid=MGPO_AF_P_POSTEVGPZ_2F3E88C2D9EA26AF137360&prgm_id=38171&irgwc=1&afsrc=1"
+          target="_blank"
+          rel="sponsored noopener"
+        >
+          View T-Mobile Offers →
+        </a>
+
+      </div>
+
+    </article>
+
+  </div>
+
+
+  <!-- CTA -->
+
+  <section class="choose-box">
+
+    <h2>Not sure which provider is available?</h2>
+
+    <p>
+      Availability depends on your exact address. Enter your ZIP code
+      to see the providers available in your area.
+    </p>
+
+    <a
+      class="choose-btn"
+      href="../index.html#providers"
+    >
+      Check My Area →
+    </a>
+
+  </section>
+
+
+  <div class="disclosure">
+
+    <strong>Important:</strong>
+    Prices, promotions, speeds and availability can change and may
+    vary by location. Check the provider's website for the latest
+    information before purchasing.
+
+    <br><br>
+
+    TV Internet US may receive compensation when you purchase through
+    certain links on this page. This does not affect the information
+    presented to you.
+
+  </div>
+
 </main>
 
+
 <footer class="site-footer">
+
   <div class="container">
+
     <div class="footer-bottom">
-      <p>We may earn a commission when you sign up through some links on this page. Availability data is estimated and should be confirmed with the provider.</p>
-      <p>&copy; 2026 TV Internet US. All rights reserved.</p>
+
+      <p>
+        We may earn a commission when you sign up through some links
+        on this page.
+      </p>
+
+      <p>
+        &copy; 2026 TV Internet US. All rights reserved.
+      </p>
+
     </div>
+
   </div>
+
 </footer>
+
 
 <script src="../js/main.js"></script>
 
