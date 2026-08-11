@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Internet Providers in Dallas, TX | Compare Plans & Availability</title>
+
+  <meta name="description" content="Compare internet providers in Dallas, TX. Check AT&T Fiber, Frontier, Spectrum, T-Mobile Home Internet and other options by ZIP code.">
+
+  <link rel="canonical" href="https://tvinternetus.com/pages/internet-in-dallas.html">
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      color: #14213d;
+      background: #f8fafc;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    .city-header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      text-decoration: none;
+      font-size: 21px;
+      font-weight: 800;
+      color: #123b7a;
+    }
+
+    .logo span {
+      color: #1d4ed8;
+    }
+
+    .nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .nav a:hover {
+      color: #1d4ed8;
+    }
+
+    /* HERO */
+    .hero {
+      background:
+        radial-gradient(circle at top right, rgba(37,99,235,.12), transparent 35%),
+        linear-gradient(135deg, #eef5ff, #ffffff);
+      padding: 65px 0 60px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .breadcrumb {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 18px;
+    }
+
+    .breadcrumb a {
+      text-decoration: none;
+      color: #1d4ed8;
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      margin: 0;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      color: #0f2540;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 20px 0 0;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #526174;
+    }
+
+    /* ZIP BOX */
+    .zip-card {
+      margin-top: 30px;
+      max-width: 760px;
+      background: #ffffff;
+      border: 1px solid #dbe4ef;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, .08);
+    }
+
+    .zip-title {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #0f2540;
+    }
+
+    .zip-form {
+      display: flex;
+      gap: 10px;
+    }
+
+    .zip-input {
+      flex: 1;
+      min-width: 0;
+      height: 52px;
+      border: 1px solid #cbd5e1;
+      border-radius: 9px;
+      padding: 0 15px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .zip-input:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+    }
+
+    .zip-button {
+      height: 52px;
+      border: 0;
+      border-radius: 9px;
+      padding: 0 23px;
+      background: #1d4ed8;
+      color: white;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .zip-button:hover {
+      background: #1e40af;
+    }
+
+    .zip-help {
+      margin: 10px 0 0;
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    #zipError {
+      display: none;
+      margin-top: 10px;
+      color: #b91c1c;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* CONTENT */
+    .section {
+      padding: 55px 0;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .section-header h2 {
+      margin: 0 0 10px;
+      font-size: 31px;
+      color: #0f2540;
+      letter-spacing: -.5px;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: #64748b;
+      line-height: 1.7;
+    }
+
+    /* PROVIDER CARDS */
+    .provider-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .provider-card {
+      background: #ffffff;
+      border: 1px solid #dbe4ef;
+      border-radius: 15px;
+      padding: 24px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .provider-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(15,23,42,.08);
+    }
+
+    .provider-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .provider-card h3 {
+      margin: 0;
+      font-size: 22px;
+      color: #0f2540;
+    }
+
+    .provider-type {
+      display: inline-block;
+      margin-top: 7px;
+      padding: 5px 9px;
+      border-radius: 20px;
+      background: #eef4ff;
+      color: #174ea6;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .provider-card p {
+      color: #64748b;
+      line-height: 1.65;
+      margin: 16px 0;
+    }
+
+    .provider-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .stat {
+      background: #f8fafc;
+      border-radius: 9px;
+      padding: 12px;
+    }
+
+    .stat small {
+      display: block;
+      color: #64748b;
+      font-size: 11px;
+      margin-bottom: 4px;
+    }
+
+    .stat strong {
+      color: #0f2540;
+      font-size: 15px;
+    }
+
+    .provider-button {
+      display: block;
+      text-align: center;
+      background: #1d4ed8;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .provider-button:hover {
+      background: #1e40af;
+    }
+
+    /* CITY INFO */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border: 1px solid #dbe4ef;
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .info-card h3 {
+      margin: 0 0 10px;
+      color: #0f2540;
+      font-size: 18px;
+    }
+
+    .info-card p {
+      margin: 0;
+      color: #64748b;
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 50px 0;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #0f2540, #1d4ed8);
+      border-radius: 18px;
+      padding: 42px;
+      color: white;
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      margin: 0 0 10px;
+      font-size: 30px;
+    }
+
+    .cta-box p {
+      margin: 0 auto 22px;
+      max-width: 650px;
+      line-height: 1.6;
+      color: #dbeafe;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #ffffff;
+      color: #174ea6;
+      text-decoration: none;
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-weight: 800;
+    }
+
+    /* FAQ */
+    .faq {
+      max-width: 850px;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid #dbe4ef;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      cursor: pointer;
+      padding: 17px 18px;
+      font-weight: 700;
+      color: #0f2540;
+    }
+
+    .faq-answer {
+      padding: 0 18px 18px;
+      color: #64748b;
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 35px 0;
+      margin-top: 20px;
+    }
+
+    .footer-inner {
+      text-align: center;
+    }
+
+    .footer-inner p {
+      margin: 7px 0;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      margin-bottom: 15px;
+    }
+
+    .footer-links a {
+      color: #e2e8f0;
+      text-decoration: none;
+      margin: 0 8px;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 750px) {
+      .nav {
+        display: none;
+      }
+
+      .hero {
+        padding: 45px 0;
+      }
+
+      .zip-form {
+        flex-direction: column;
+      }
+
+      .zip-button {
+        width: 100%;
+      }
+
+      .provider-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-box {
+        padding: 30px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .provider-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="city-header">
+  <div class="container header-inner">
+
+    <a href="../index.html" class="logo">
+      TV Internet <span>US</span>
+    </a>
+
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="provider.html">Providers</a>
+      <a href="speed-test.html">Speed Test</a>
+      <a href="guide.html">Guides</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="container">
+
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        &nbsp; / &nbsp;
+        <a href="internet-in-texas.html">Texas</a>
+        &nbsp; / &nbsp;
+        Dallas
+      </div>
+
+      <h1>Internet Providers in Dallas, TX</h1>
+
+      <p>
+        Compare internet providers available in Dallas, Texas.
+        Check your ZIP code to see provider options, speeds, pricing,
+        and internet technologies available in your area.
+      </p>
+
+      <!-- ZIP CHECKER -->
+      <div class="zip-card">
+
+        <div class="zip-title">
+          Check Internet Availability at Your Address
+        </div>
+
+        <form class="zip-form" id="zipForm">
+
+          <input
+            type="text"
+            id="zipInput"
+            class="zip-input"
+            placeholder="Enter Dallas ZIP code"
+            inputmode="numeric"
+            maxlength="5"
+            autocomplete="postal-code"
+            required
+          >
+
+          <button type="submit" class="zip-button">
+            Check Availability
+          </button>
+
+        </form>
+
+        <div id="zipError">
+          Please enter a valid 5-digit ZIP code.
+        </div>
+
+        <p class="zip-help">
+          Availability, speeds and pricing can vary by exact address.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROVIDERS -->
+  <section class="section">
+
+    <div class="container">
+
+      <div class="section-header">
+
+        <h2>Internet Providers in Dallas</h2>
+
+        <p>
+          Dallas residents may have access to fiber, cable and
+          fixed-wireless internet depending on their exact location.
+          Compare the major providers below.
+        </p>
+
+      </div>
+
+
+      <div class="provider-grid">
+
+        <!-- AT&T -->
+        <article class="provider-card">
+
+          <div class="provider-top">
+
+            <div>
+              <h3>AT&T Fiber</h3>
+              <span class="provider-type">FIBER INTERNET</span>
+            </div>
+
+          </div>
+
+          <p>
+            AT&T Fiber can provide high-speed fiber internet in
+            eligible Dallas neighborhoods, with fast download and
+            upload performance.
+          </p>
+
+          <div class="provider-stats">
+
+            <div class="stat">
+              <small>Technology</small>
+              <strong>Fiber</strong>
+            </div>
+
+            <div class="stat">
+              <small>Speeds</small>
+              <strong>Up to 5 Gbps</strong>
+            </div>
+
+          </div>
+
+          <a
+            class="provider-button"
+            href="https://www.att.com/bundles/save.html"
+            target="_blank"
+            rel="sponsored nofollow noopener"
+          >
+            Check AT&T
+          </a>
+
+        </article>
+
+
+        <!-- Frontier -->
+        <article class="provider-card">
+
+          <div class="provider-top">
+
+            <div>
+              <h3>Frontier</h3>
+              <span class="provider-type">FIBER INTERNET</span>
+            </div>
+
+          </div>
+
+          <p>
+            Frontier offers fiber internet in selected Dallas-area
+            locations with high-speed plans designed for streaming,
+            gaming and large households.
+          </p>
+
+          <div class="provider-stats">
+
+            <div class="stat">
+              <small>Technology</small>
+              <strong>Fiber</strong>
+            </div>
+
+            <div class="stat">
+              <small>Speeds</small>
+              <strong>Up to 5 Gbps</strong>
+            </div>
+
+          </div>
+
+          <a
+            class="provider-button"
+            href="https://frontier.com/why-frontier/get-fiber"
+            target="_blank"
+            rel="sponsored nofollow noopener"
+          >
+            Check Frontier
+          </a>
+
+        </article>
+
+
+        <!-- Spectrum -->
+        <article class="provider-card">
+
+          <div class="provider-top">
+
+            <div>
+              <h3>Spectrum</h3>
+              <span class="provider-type">CABLE INTERNET</span>
+            </div>
+
+          </div>
+
+          <p>
+            Spectrum provides cable internet service across many
+            Dallas-area neighborhoods and offers plans without
+            traditional annual contracts.
+          </p>
+
+          <div class="provider-stats">
+
+            <div class="stat">
+              <small>Technology</small>
+              <strong>Cable</strong>
+            </div>
+
+            <div class="stat">
+              <small>Speeds</small>
+              <strong>Up to 1 Gbps</strong>
+            </div>
+
+          </div>
+
+          <a
+            class="provider-button"
+            href="https://www.spectrum.com/internet"
+            target="_blank"
+            rel="sponsored nofollow noopener"
+          >
+            Check Spectrum
+          </a>
+
+        </article>
+
+
+        <!-- T-Mobile -->
+        <article class="provider-card">
+
+          <div class="provider-top">
+
+            <div>
+              <h3>T-Mobile Home Internet</h3>
+              <span class="provider-type">5G HOME INTERNET</span>
+            </div>
+
+          </div>
+
+          <p>
+            T-Mobile Home Internet uses its 5G wireless network to
+            provide home broadband without traditional cable or fiber
+            installation.
+          </p>
+
+          <div class="provider-stats">
+
+            <div class="stat">
+              <small>Technology</small>
+              <strong>5G Wireless</strong>
+            </div>
+
+            <div class="stat">
+              <small>Setup</small>
+              <strong>Self Installation</strong>
+            </div>
+
+          </div>
+
+          <a
+            class="provider-button"
+            href="https://www.t-mobile.com/home-internet"
+            target="_blank"
+            rel="sponsored nofollow noopener"
+          >
+            Check T-Mobile
+          </a>
+
+        </article>
+
+
+        <!-- Verizon -->
+        <article class="provider-card">
+
+          <div class="provider-top">
+
+            <div>
+              <h3>Verizon</h3>
+              <span class="provider-type">FIBER / 5G</span>
+            </div>
+
+          </div>
+
+          <p>
+            Verizon offers fiber and fixed-wireless internet in
+            selected locations. Availability depends on the exact
+            Dallas address.
+          </p>
+
+          <div class="provider-stats">
+
+            <div class="stat">
+              <small>Technology</small>
+              <strong>Fiber / 5G</strong>
+            </div>
+
+            <div class="stat">
+              <small>Availability</small>
+              <strong>Address Dependent</strong>
+            </div>
+
+          </div>
+
+          <a
+            class="provider-button"
+            href="https://www.verizon.com/home/internet/"
+            target="_blank"
+            rel="sponsored nofollow noopener"
+          >
+            Check Verizon
+          </a>
+
+        </article>
+
+
+        <!-- Provider Comparison -->
+        <article class="provider-card">
+
+          <div class="provider-top">
+
+            <div>
+              <h3>Compare All Providers</h3>
+              <span class="provider-type">PROVIDER COMPARISON</span>
+            </div>
+
+          </div>
+
+          <p>
+            Want to compare more providers? View our complete
+            provider comparison page and check which options may
+            be available for your ZIP code.
+          </p>
+
+          <div class="provider-stats">
+
+            <div class="stat">
+              <small>Compare</small>
+              <strong>Multiple Providers</strong>
+            </div>
+
+            <div class="stat">
+              <small>Check</small>
+              <strong>ZIP Availability</strong>
+            </div>
+
+          </div>
+
+          <a
+            class="provider-button"
+            href="provider.html"
+          >
+            Compare Providers
+          </a>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- DALLAS INFO -->
+  <section class="section" style="background:#ffffff;">
+
+    <div class="container">
+
+      <div class="section-header">
+
+        <h2>Choosing Internet in Dallas</h2>
+
+        <p>
+          The best internet provider depends on the service available
+          at your specific address, your desired speed and your monthly
+          budget.
+        </p>
+
+      </div>
+
+      <div class="info-grid">
+
+        <div class="info-card">
+
+          <h3>Fiber Internet</h3>
+
+          <p>
+            Fiber is generally a strong option for households that need
+            fast downloads and uploads, especially for remote work,
+            gaming, video calls and large file transfers.
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <h3>Cable Internet</h3>
+
+          <p>
+            Cable internet can provide high download speeds and broad
+            coverage across many Dallas neighborhoods.
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <h3>5G Home Internet</h3>
+
+          <p>
+            Fixed-wireless services can be useful when wired internet
+            options are limited or when you prefer a simple installation.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SPEED TEST -->
+  <section class="section">
+
+    <div class="container">
+
+      <div class="cta-box">
+
+        <h2>Want to Test Your Current Internet Speed?</h2>
+
+        <p>
+          Run a quick internet speed test to see your current download,
+          upload and connection performance.
+        </p>
+
+        <a
+          href="speed-test.html"
+          class="cta-button"
+        >
+          Run Speed Test
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FAQ -->
+  <section class="section">
+
+    <div class="container">
+
+      <div class="section-header">
+
+        <h2>Dallas Internet Provider FAQ</h2>
+
+      </div>
+
+      <div class="faq">
+
+        <details class="faq-item">
+          <summary>What is the best internet provider in Dallas?</summary>
+          <div class="faq-answer">
+            The best provider depends on your exact address, available
+            technology, desired speed and budget. Fiber may be preferable
+            for users who need fast upload and download performance, while
+            cable and 5G options may offer broader availability in some
+            locations.
+          </div>
+        </details>
+
+
+        <details class="faq-item">
+          <summary>Is fiber internet available everywhere in Dallas?</summary>
+          <div class="faq-answer">
+            No. Fiber availability varies by neighborhood and exact
+            service address. Enter your ZIP code above to begin checking
+            available provider options.
+          </div>
+        </details>
+
+
+        <details class="faq-item">
+          <summary>Can I check internet availability by ZIP code?</summary>
+          <div class="faq-answer">
+            Yes. Use the ZIP code checker above to continue to the
+            provider-results page and compare available options.
+          </div>
+        </details>
+
+
+        <details class="faq-item">
+          <summary>What internet speed do I need?</summary>
+          <div class="faq-answer">
+            Basic browsing and email generally require less bandwidth
+            than households that regularly stream 4K video, game online,
+            work remotely or connect many devices simultaneously.
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FINAL CTA -->
+  <section class="cta">
+
+    <div class="container">
+
+      <div class="cta-box">
+
+        <h2>Find Internet Options for Your Dallas ZIP Code</h2>
+
+        <p>
+          Enter your ZIP code to compare provider options and then
+          confirm availability for your exact service address.
+        </p>
+
+        <a href="#top" class="cta-button" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">
+          Check Availability
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="container footer-inner">
+
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="provider.html">Providers</a>
+      <a href="speed-test.html">Speed Test</a>
+      <a href="guide.html">Guides</a>
+    </div>
+
+    <p>
+      Availability, pricing, speeds and promotions may vary by address
+      and provider. Confirm current offers directly with the provider.
+    </p>
+
+    <p>
+      We may earn a commission when you sign up through some links on this website.
+    </p>
+
+    <p>
+      © 2026 TV Internet US. All rights reserved.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<script>
+  /*
+    Dallas ZIP → Existing Provider Results System
+
+    This sends the visitor to:
+    pages/results.html?zip=XXXXX
+
+    If your working results file has a different filename,
+    change ONLY the destination below.
+  */
+
+  document.getElementById("zipForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const input = document.getElementById("zipInput");
+    const error = document.getElementById("zipError");
+
+    const zip = input.value.trim();
+
+    if (!/^\d{5}$/.test(zip)) {
+
+      error.style.display = "block";
+      input.focus();
+
+      return;
+    }
+
+    error.style.display = "none";
+
+    window.location.href = "results.html?zip=" + encodeURIComponent(zip);
+
+  });
+</script>
+
+</body>
+</html>
