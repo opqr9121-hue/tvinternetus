@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Internet Providers in Texas | Compare Internet, Fiber & Cable</title>
+
+<meta name="description" content="Compare internet providers in Texas, including fiber, cable and 5G home internet. Explore providers, speeds, pricing and ZIP code availability.">
+
+<link rel="canonical" href="https://tvinternetus.com/pages/texas.html">
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+:root{
+  --blue:#1d4ed8;
+  --dark:#0f172a;
+  --muted:#64748b;
+  --light:#f8fafc;
+  --border:#e2e8f0;
+  --green:#15803d;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Inter,Arial,sans-serif;
+  color:var(--dark);
+  background:#fff;
+}
+
+.container{
+  width:min(1100px,92%);
+  margin:auto;
+}
+
+.site-header{
+  border-bottom:1px solid var(--border);
+  background:#fff;
+}
+
+.header-inner{
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  text-decoration:none;
+  font-weight:800;
+  font-size:20px;
+  color:#123b7a;
+}
+
+.main-nav{
+  display:flex;
+  gap:24px;
+}
+
+.main-nav a{
+  text-decoration:none;
+  color:#334155;
+  font-size:14px;
+  font-weight:600;
+}
+
+.main-nav a:hover{
+  color:var(--blue);
+}
+
+.hero{
+  background:linear-gradient(135deg,#eff6ff,#f8fafc);
+  padding:70px 0 60px;
+  border-bottom:1px solid var(--border);
+}
+
+.eyebrow{
+  display:inline-block;
+  background:#dbeafe;
+  color:#1e40af;
+  padding:7px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:16px;
+}
+
+.hero h1{
+  max-width:850px;
+  font-size:44px;
+  line-height:1.12;
+  margin:0 0 18px;
+  letter-spacing:-1px;
+}
+
+.hero p{
+  max-width:780px;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.7;
+  margin:0;
+}
+
+.zip-box{
+  margin-top:30px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px;
+  max-width:650px;
+  box-shadow:0 8px 30px rgba(15,23,42,.08);
+}
+
+.zip-box-title{
+  font-size:17px;
+  font-weight:800;
+  margin-bottom:12px;
+}
+
+.zip-form{
+  display:flex;
+  gap:10px;
+}
+
+.zip-form input{
+  flex:1;
+  min-width:0;
+  padding:14px 15px;
+  border:1px solid #cbd5e1;
+  border-radius:9px;
+  font-size:16px;
+  outline:none;
+}
+
+.zip-form input:focus{
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(29,78,216,.1);
+}
+
+.zip-form button{
+  border:0;
+  background:var(--blue);
+  color:#fff;
+  padding:14px 22px;
+  border-radius:9px;
+  font-weight:800;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.zip-form button:hover{
+  background:#1e40af;
+}
+
+.zip-message{
+  margin-top:10px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+.section{
+  padding:55px 0;
+}
+
+.section h2{
+  font-size:30px;
+  margin:0 0 14px;
+}
+
+.section-intro{
+  color:var(--muted);
+  line-height:1.7;
+  max-width:800px;
+}
+
+.provider-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:30px;
+}
+
+.provider-card{
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:22px;
+  background:#fff;
+  box-shadow:0 4px 18px rgba(15,23,42,.05);
+  transition:.2s ease;
+}
+
+.provider-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(15,23,42,.1);
+}
+
+.provider-type{
+  display:inline-block;
+  font-size:11px;
+  font-weight:800;
+  color:#1e40af;
+  background:#eff6ff;
+  padding:6px 9px;
+  border-radius:999px;
+  margin-bottom:12px;
+}
+
+.provider-card h3{
+  margin:0 0 8px;
+  font-size:20px;
+}
+
+.provider-card p{
+  color:var(--muted);
+  line-height:1.6;
+  font-size:14px;
+}
+
+.provider-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:17px 0;
+}
+
+.provider-stat{
+  background:var(--light);
+  padding:11px;
+  border-radius:8px;
+}
+
+.provider-stat small{
+  display:block;
+  color:var(--muted);
+  margin-bottom:3px;
+}
+
+.provider-stat strong{
+  font-size:14px;
+}
+
+.provider-link{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  background:var(--blue);
+  color:#fff;
+  padding:11px 14px;
+  border-radius:8px;
+  font-weight:800;
+  font-size:14px;
+}
+
+.provider-link:hover{
+  background:#1e40af;
+}
+
+.city-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.city-card{
+  display:block;
+  text-decoration:none;
+  color:#1e293b;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:15px;
+  font-weight:700;
+  background:#fff;
+}
+
+.city-card:hover{
+  border-color:#93c5fd;
+  color:var(--blue);
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:28px;
+}
+
+.info-card{
+  background:var(--light);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:22px;
+}
+
+.info-card h3{
+  margin-top:0;
+  font-size:19px;
+}
+
+.info-card p{
+  color:var(--muted);
+  line-height:1.7;
+  font-size:14px;
+}
+
+.faq{
+  border-top:1px solid var(--border);
+  padding:20px 0;
+}
+
+.faq h3{
+  margin:0 0 8px;
+  font-size:18px;
+}
+
+.faq p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.cta{
+  background:#0f172a;
+  color:#fff;
+  padding:50px 0;
+  text-align:center;
+}
+
+.cta h2{
+  margin:0 0 12px;
+  font-size:30px;
+}
+
+.cta p{
+  color:#cbd5e1;
+  max-width:650px;
+  margin:0 auto 24px;
+  line-height:1.7;
+}
+
+.cta-button{
+  display:inline-block;
+  background:#fff;
+  color:#0f172a;
+  padding:13px 22px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:800;
+}
+
+footer{
+  padding:30px 0;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+}
+
+@media(max-width:850px){
+  .provider-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .info-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .city-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .hero h1{
+    font-size:36px;
+  }
+}
+
+@media(max-width:600px){
+  .main-nav{
+    display:none;
+  }
+
+  .hero{
+    padding:48px 0;
+  }
+
+  .hero h1{
+    font-size:30px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .zip-form{
+    flex-direction:column;
+  }
+
+  .provider-grid,
+  .info-grid{
+    grid-template-columns:1fr;
+  }
+
+  .city-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="../index.html">
+      TV Internet US
+    </a>
+
+    <nav class="main-nav">
+      <a href="../index.html">Home</a>
+      <a href="provider.html">Providers</a>
+      <a href="speed-test.html">Speed Test</a>
+      <a href="guide.html">Guides</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<section class="hero">
+  <div class="container">
+
+    <span class="eyebrow">TEXAS INTERNET GUIDE</span>
+
+    <h1>
+      Internet Providers in Texas
+    </h1>
+
+    <p>
+      Compare internet providers available across Texas, including
+      fiber, cable and 5G home internet. Enter your ZIP code to see
+      provider options for your area.
+    </p>
+
+    <div class="zip-box">
+
+      <div class="zip-box-title">
+        Check Internet Providers in Your ZIP Code
+      </div>
+
+      <form class="zip-form" id="texasZipForm">
+
+        <input
+          id="texasZip"
+          type="text"
+          inputmode="numeric"
+          maxlength="5"
+          placeholder="Enter 5-digit ZIP code"
+          aria-label="ZIP code"
+        >
+
+        <button type="submit">
+          Check Availability
+        </button>
+
+      </form>
+
+      <div class="zip-message" id="zipMessage">
+        Availability varies by exact address.
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<main>
+
+
+<section class="section">
+  <div class="container">
+
+    <h2>Popular Internet Providers in Texas</h2>
+
+    <p class="section-intro">
+      Texas has a wide range of internet options. Depending on your
+      location, you may have access to fiber, cable, DSL or fixed
+      wireless home internet. The providers below are among the
+      major options consumers may encounter in Texas.
+    </p>
+
+
+    <div class="provider-grid">
+
+
+      <article class="provider-card">
+
+        <span class="provider-type">CABLE</span>
+
+        <h3>Xfinity</h3>
+
+        <p>
+          Cable internet with broad availability in many Texas
+          communities and metro areas.
+        </p>
+
+        <div class="provider-stats">
+
+          <div class="provider-stat">
+            <small>Technology</small>
+            <strong>Cable</strong>
+          </div>
+
+          <div class="provider-stat">
+            <small>Max listed speed</small>
+            <strong>1,200 Mbps</strong>
+          </div>
+
+        </div>
+
+        <a
+          class="provider-link"
+          href="https://www.xfinity.com/learn/deals/internet?cjdata=MXxOfDB8WXwxNzkzMDUzNzIyOTA1&cjevent=58a0c60092af11f1837f00170a18ba74&cmp=aff__2639103"
+          target="_blank"
+          rel="sponsored nofollow noopener"
+        >
+          Check Xfinity
+        </a>
+
+      </article>
+
+
+      <article class="provider-card">
+
+        <span class="provider-type">FIBER</span>
+
+        <h3>AT&amp;T Fiber</h3>
+
+        <p>
+          Fiber internet designed for fast downloads, uploads,
+          streaming, gaming and remote work.
+        </p>
+
+        <div class="provider-stats">
+
+          <div class="provider-stat">
+            <small>Technology</small>
+            <strong>Fiber</strong>
+          </div>
+
+          <div class="provider-stat">
+            <small>Max listed speed</small>
+            <strong>5,000 Mbps</strong>
+          </div>
+
+        </div>
+
+        <a
+          class="provider-link"
+          href="https://www.att.com/bundles/save.html?source=ECAuAT10600aff12A&wtExtndSource=2639103&CI=CJ_AFFILIATE&RI=CJ1&RD=37922269&tfn=aff&cjevent=e459227e92af11f18243001b0a18b8fb"
+          target="_blank"
+          rel="sponsored nofollow noopener"
+        >
+          Check AT&amp;T
+        </a>
+
+      </article>
+
+
+      <article class="provider-card">
+
+        <span class="provider-type">CABLE</span>
+
+        <h3>Spectrum</h3>
+
+        <p>
+          Cable internet available in many Texas communities,
+          with plans that can vary by address.
+        </p>
+
+        <div class="provider-stats">
+
+          <div class="provider-stat">
+            <small>Technology</small>
+            <strong>Cable</strong>
+          </div>
+
+          <div class="provider-stat">
+            <small>Max listed speed</small>
+            <strong>1,000 Mbps</strong>
+          </div>
+
+        </div>
+
+        <a
+          class="provider-link"
+          href="https://www.spectrum.com/internet"
+          target="_blank"
+          rel="noopener"
+        >
+          Check Spectrum
+        </a>
+
+      </article>
+
+
+      <article class="provider-card">
+
+        <span class="provider-type">FIBER</span>
+
+        <h3>Verizon Fios</h3>
+
+        <p>
+          Fiber internet in supported Texas locations, with
+          availability depending on the exact address.
+        </p>
+
+        <div class="provider-stats">
+
+          <div class="provider-stat">
+            <small>Technology</small>
+            <strong>Fiber</strong>
+          </div>
+
+          <div class="provider-stat">
+            <small>Max listed speed</small>
+            <strong>2,300 Mbps</strong>
+          </div>
+
+        </div>
+
+        <a
+          class="provider-link"
+          href="https://www.verizon.com/home/internet/fios-fastest-internet/?cjdata=MXxOfDB8WXwxNzkwMDMwMDQ2NTY5&promotion_code=JUNCT%2FW04&CMP=afc_h_p_cj_oth_fios_2022_04&SID=c-448945&cjevent=198bbbaf92b011f1814a00190a18b8fa&vendorid=CJM&PID=2639103&AID=11023385"
+          target="_blank"
+          rel="sponsored nofollow noopener"
+        >
+          Check Verizon
+        </a>
+
+      </article>
+
+
+      <article class="provider-card">
+
+        <span class="provider-type">5G HOME INTERNET</span>
+
+        <h3>T-Mobile Home Internet</h3>
+
+        <p>
+          Wireless home internet using T-Mobile's 5G network
+          where service is offered.
+        </p>
+
+        <div class="provider-stats">
+
+          <div class="provider-stat">
+            <small>Technology</small>
+            <strong>5G</strong>
+          </div>
+
+          <div class="provider-stat">
+            <small>Listed speed</small>
+            <strong>245 Mbps</strong>
+          </div>
+
+        </div>
+
+        <a
+          class="provider-link"
+          href="https://www.t-mobile.com/?im_ref=Vpz1qTRWBxyZTPOyPbX%3AByJDUkuSZczZaRfwTA0&sharedid=&irpid=190488&cmpid=MGPO_AF_P_POSTEVGPZ_2F3E88C2D9EA26AF137360&prgm_id=38171&irgwc=1&afsrc=1"
+          target="_blank"
+          rel="sponsored nofollow noopener"
+        >
+          Check T-Mobile
+        </a>
+
+      </article>
+
+
+      <article class="provider-card">
+
+        <span class="provider-type">FIBER</span>
+
+        <h3>Frontier</h3>
+
+        <p>
+          Fiber internet in supported Texas locations with
+          competitive plans where available.
+        </p>
+
+        <div class="provider-stats">
+
+          <div class="provider-stat">
+            <small>Technology</small>
+            <strong>Fiber</strong>
+          </div>
+
+          <div class="provider-stat">
+            <small>Max listed speed</small>
+            <strong>5,000 Mbps</strong>
+          </div>
+
+        </div>
+
+        <a
+          class="provider-link"
+          href="https://frontier.com/why-frontier/get-fiber?cjdata=MXxOfDB8WXwxNzk2NTExNTk4MzI1&AID=15236456&PID=2639103&SID=c-448945&tid=b677261692b311f1814a001b0a18b8fa&tprovider=cj&kbid=158664&utm_source=cj&utm_mcid=3576696&affiliateKey=536485ec-bfe7-4a87-a1e0-159423c032ce&utm_campaign=cross-sell&utm_medium=affiliate&utm_term=ftr-cart&cjevent=b677261692b311f1814a001b0a18b8fa&utm_content=frontier&phone_number=833-922-5959"
+          target="_blank"
+          rel="sponsored nofollow noopener"
+        >
+          Check Frontier
+        </a>
+
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" style="background:#f8fafc;">
+  <div class="container">
+
+    <h2>Major Texas Cities</h2>
+
+    <p class="section-intro">
+      Internet availability can vary significantly between cities
+      and even between neighboring addresses. Explore local pages
+      as we expand our Texas coverage.
+    </p>
+
+    <div class="city-grid">
+
+      <a class="city-card" href="houston.html">
+        Houston, TX
+      </a>
+
+      <a class="city-card" href="dallas.html">
+        Dallas, TX
+      </a>
+
+      <a class="city-card" href="san-antonio.html">
+        San Antonio, TX
+      </a>
+
+      <a class="city-card" href="austin.html">
+        Austin, TX
+      </a>
+
+      <a class="city-card" href="fort-worth.html">
+        Fort Worth, TX
+      </a>
+
+      <a class="city-card" href="el-paso.html">
+        El Paso, TX
+      </a>
+
+      <a class="city-card" href="arlington.html">
+        Arlington, TX
+      </a>
+
+      <a class="city-card" href="corpus-christi.html">
+        Corpus Christi, TX
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section">
+
+  <div class="container">
+
+    <h2>Internet Options in Texas</h2>
+
+    <div class="info-grid">
+
+      <div class="info-card">
+
+        <h3>Fiber Internet</h3>
+
+        <p>
+          Fiber can provide very high download and upload speeds
+          and is often attractive for households with gaming,
+          streaming, large uploads and remote work needs.
+        </p>
+
+      </div>
+
+
+      <div class="info-card">
+
+        <h3>Cable Internet</h3>
+
+        <p>
+          Cable networks can provide broad coverage and fast
+          download speeds across many metropolitan and suburban
+          areas.
+        </p>
+
+      </div>
+
+
+      <div class="info-card">
+
+        <h3>5G Home Internet</h3>
+
+        <p>
+          Fixed wireless and 5G home internet can provide an
+          alternative to wired service in locations where the
+          network supports a customer's address.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section" style="background:#f8fafc;">
+
+  <div class="container">
+
+    <h2>Frequently Asked Questions</h2>
+
+
+    <div class="faq">
+
+      <h3>What is the best internet provider in Texas?</h3>
+
+      <p>
+        There is no single best provider for every Texas household.
+        The best option depends on which networks serve your
+        specific address, the speeds you need and the available
+        pricing and promotions.
+      </p>
+
+    </div>
+
+
+    <div class="faq">
+
+      <h3>Does Texas have fiber internet?</h3>
+
+      <p>
+        Yes. Fiber service is available in many Texas communities,
+        although availability varies by provider and exact address.
+      </p>
+
+    </div>
+
+
+    <div class="faq">
+
+      <h3>How do I find internet providers at my address?</h3>
+
+      <p>
+        Enter your ZIP code above to see provider options. Then
+        use the provider's own availability checker to confirm
+        service at your exact address.
+      </p>
+
+    </div>
+
+
+    <div class="faq">
+
+      <h3>Is 5G home internet available everywhere in Texas?</h3>
+
+      <p>
+        No. 5G home internet availability depends on network
+        coverage, capacity and the exact service address.
+      </p>
+
+    </div>
+
+
+    <div class="faq">
+
+      <h3>Can I get internet without a cable connection?</h3>
+
+      <p>
+        Depending on your location, alternatives can include
+        fiber, fixed wireless, 5G home internet and satellite
+        internet.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="cta">
+
+  <div class="container">
+
+    <h2>Find Providers for Your ZIP Code</h2>
+
+    <p>
+      See provider options for your area and then confirm
+      availability directly with the provider.
+    </p>
+
+    <a
+      class="cta-button"
+      href="provider.html"
+    >
+      Check Provider Availability
+    </a>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <div class="container">
+
+    <strong>TV Internet US</strong>
+
+    <p>
+      We may earn a commission when you sign up through some
+      links on this website. Provider availability, pricing,
+      speeds and promotions vary by location and may change.
+    </p>
+
+    <p>
+      &copy; 2026 TV Internet US. All rights reserved.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<script>
+document.getElementById("texasZipForm").addEventListener("submit", function(event){
+
+  event.preventDefault();
+
+  const zip = document.getElementById("texasZip").value.trim();
+  const message = document.getElementById("zipMessage");
+
+  if(!/^\d{5}$/.test(zip)){
+    message.textContent = "Please enter a valid 5-digit ZIP code.";
+    message.style.color = "#b91c1c";
+    return;
+  }
+
+  message.textContent = "Opening provider options for ZIP " + zip + "...";
+  message.style.color = "#15803d";
+
+  window.location.href = "provider.html?zip=" + encodeURIComponent(zip);
+
+});
+
+
+/* Allow a ZIP code to be passed into the page */
+const params = new URLSearchParams(window.location.search);
+const existingZip = params.get("zip");
+
+if(existingZip && /^\d{5}$/.test(existingZip)){
+  document.getElementById("texasZip").value = existingZip;
+}
+</script>
+
+</body>
+</html>
